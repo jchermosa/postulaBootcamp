@@ -10,7 +10,7 @@ public class DataBase {
         try{
             Class.forName("org.postgresql.Driver");
             con= DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/bootcamp_market",
+                    .getConnection("jdbc:postgresql://localhost:5432/Bootcamp_th",
                             "postgres", "postgres");
 
             if(con != null){
