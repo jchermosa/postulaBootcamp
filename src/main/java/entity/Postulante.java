@@ -3,9 +3,9 @@ package com.roshka.proyectofinal;
 //Creacion del objeto Postulante
 public class Postulante {
 
-    private int id,nroCedula;
+    private int id,nroCedula,bootcampId;
     private String nombre,apellido,telefono,direccion,correo;
-    private boolean   expLaboral,estudioUniversitario,notebook,bootcampId,aceptado;
+    private boolean   expLaboral,estudioUniversitario,notebook,aceptado;
 
     //Los parametros que reciban los metodos get estaran en ingles con camelCase para evitar confusiones
 
@@ -13,7 +13,7 @@ public class Postulante {
     public Postulante() {
     }
 
-    public Postulante(int nroCedula, String nombre, String apellido, String telefono, String direccion, String correo, boolean expLaboral, boolean estudioUniversitario, boolean notebook, boolean bootcampId, boolean aceptado) {
+    public Postulante(int nroCedula, String nombre, String apellido, String telefono, String direccion, String correo, boolean expLaboral, boolean estudioUniversitario, boolean notebook, int bootcampId, boolean aceptado) {
         this.nroCedula = nroCedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -83,10 +83,16 @@ public class Postulante {
     public void setNotebook(boolean notebook){
         this.notebook = notebook;
     }
-    public boolean getBootcampId(){
+    public boolean getAceptado(){
+        return aceptado;
+    }
+    public void setAceptado(boolean acepted){
+        this.aceptado = acepted;
+    }
+    public int getBootcampId(){
         return bootcampId;
     }
-    public void setBootcampId(boolean bootcampId){
+    public void setBootcampId(int bootcampId){
         this.bootcampId = bootcampId;
     }
 
