@@ -38,7 +38,7 @@ public class Postulante {
     public String getNombre() {
         return nombre;
     }
-    public void setName(String name) {
+    public void setNombre(String name) {
         this.nombre = name;
     }
     public String getApellido() {

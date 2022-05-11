@@ -1,4 +1,5 @@
 package Postulante;
+import com.roshka.proyectofinal.DataBase;
 import com.roshka.proyectofinal.Postulante;
 
 import java.util.*;
@@ -6,18 +7,11 @@ import java.sql.*;
 
 public class PostulanteDao {
 
-    public static Connection getConnection(){
-        Connection con=null;
-        try{
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
-        }catch(Exception e){System.out.println(e);}
-        return con;
-    }
+
     public static int save(Postulante postulante){
         int status=0;
         try{
-            Connection con=PostulanteDao.getConnection();
+            Connection con= DataBase.getConnection();
             PreparedStatement ps=con.prepareStatement(
                     "insert into postulante(nombre,apellido,nro_cedula,correo,telefono,direccion,experiencia_laboral,estudio_universitario,notebook,bootcamp_id,aceptado) values (?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1,postulante.getNombre());
@@ -31,9 +25,7 @@ public class PostulanteDao {
             ps.setBoolean(9,postulante.getNotebook());
             ps.setInt(10,postulante.getBootcampId());
             ps.setBoolean(11,postulante.getAceptado());
-
             status=ps.executeUpdate();
-
             con.close();
         }catch(Exception ex){ex.printStackTrace();}
 
