@@ -23,24 +23,25 @@ public class SaveServlet extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
-        boolean correoRepetido = false;
+        boolean rechazarDatos = false;
+        int bootcampActual = 3;
 
         try {
             Connection con = DataBase.getConnection();
             //
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT correo FROM postulante;");
+            ResultSet rs = stmt.executeQuery("SELECT correo,bootcamp_id FROM postulante WHERE postulante.bootcamp_id =" + bootcampActual);
             //
-
-
             String nombre=request.getParameter("nombre");
             String apellido=request.getParameter("apellido");
             int cedula=Integer.parseInt(request.getParameter("cedula"));
             String correo=request.getParameter("correo");
+            //BUCLE PARA VERIFICAR EL CORREO EN EL BOOTCAMP ACTUAL
             while (rs.next()){
                 String correoBase =rs.getString("correo");
-                if(correo.equals(correo)){
-                    correoRepetido = true;
+                int bootcampIdBase = rs.getInt("bootcamp_id");
+                if(correo.equals(correoBase) && (bootcampIdBase==bootcampActual)){
+                    rechazarDatos = true;
                 }
             }
             String telefono=request.getParameter("telefono");
@@ -61,10 +62,10 @@ public class SaveServlet extends HttpServlet {
             if (request.getParameter("universidad") != null){
                 universidad = true;
             }
-
-            if (!correoRepetido){
-                Bootcamp bootcamp = new Bootcamp();
-                Postulante postulante=new Postulante();
+            Bootcamp bootcamp = new Bootcamp();
+            Postulante postulante=new Postulante();
+            //SI LOS DATOS SON CORRECTOS NO SE RECHAZAN ENTONCES CARGA A LA BASE
+            if (!rechazarDatos){
                 postulante.setNombre(nombre);
                 postulante.setApellido(apellido);
                 postulante.setNro_cedula(cedula);
@@ -74,21 +75,24 @@ public class SaveServlet extends HttpServlet {
                 postulante.setExpLaboral(experienciaLaboral);
                 postulante.setEstudioUniversitario(universidad);
                 postulante.setNotebook(notebook);
-                postulante.setBootcampId(1);
+                postulante.setBootcampId(bootcampActual);
                 postulante.setAceptado(false);
+            }
                 int status=PostulanteDao.save(postulante);
-
                 if(status>0){
                     out.print("<p>Record saved successfully!</p>");
                     request.getRequestDispatcher("index.html").include(request, response);
                 }else{
-                    out.println("Sorry! unable to save record");
+                    if (rechazarDatos){
+                        out.println("El correo ingresado ya esta registrado para el bootcamp actual");
+                    }else {
+                        out.println("Sorry! unable to save record");
+                    }
                 }
-            }
 
-        }catch (Exception ex){ex.printStackTrace();}
-
-
+        }catch (Exception ex){
+                ex.printStackTrace();
+        }
         out.close();
     }
 }
