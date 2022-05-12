@@ -1,8 +1,5 @@
-<%@page import="java.util.Iterator"%>
-<%@page import="lenguaje.Lenguaje"%>
-<%@page import="java.util.List"%>
-<%@page import="Lenguaje.LenguajeDao"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,20 +11,26 @@
         <div class="container">
             <h1>Crear Bootcamp</h1>
 
-                <%
-                    LenguajeDao lenguajeDao=new LenguajeDao();
-                    List<Lenguaje>list=lenguajeDao.listar();
-                    Iterator<Lenguaje>iter=list.iterator();
-                    Lenguaje len=null;
-                %>
+            <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
+
+             <%
+             LenguajeDao lenDao = new LenguajeDao();
+             List<Lenguaje> listLenguaje = lenDao.listar();
+             Iterator<Lenguaje> iter =  listLenguaje.iterator();
+                         Lenguaje len = null;
+
+
+             %>
 
 
                 <form action="" method="post">
                     <label for="lenguaje">Lenguajes:</label>
                     <select name="lenguaje" id="lenguaje">
-                        <%while(iter.hasNext()){
-                            len=iter.next(); %>
-                        <option value=<%= len.getId() %>>
+                    <% while(iter.hasNext()){
+                        len = iter.next();
+
+                    %>
+                        <option value=<%= len.getId() %> >
                             <%= len.getNombre_lenguaje() %>
                         </option>
                         <% } %>

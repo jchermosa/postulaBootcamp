@@ -2,6 +2,7 @@ package com.roshka.proyectofinal.lenguaje;
 
 import com.roshka.proyectofinal.DataBase;
 import com.roshka.proyectofinal.entity.Lenguaje;
+import jakarta.servlet.RequestDispatcher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +29,7 @@ public class LenguajeDao {
         return status;
     }
 
-    public List listar(Lenguaje l){
+    public static List<Lenguaje> listar(){
         ArrayList<Lenguaje>list = new ArrayList<>();
         String sql = "select * from lenguaje";
         try{
@@ -41,6 +42,7 @@ public class LenguajeDao {
                 len.setNombre_lenguaje(rs.getString("nombre_lenguaje"));
                 list.add(len);
             }
+
             con.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
