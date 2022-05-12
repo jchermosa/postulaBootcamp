@@ -16,38 +16,38 @@
         <div>
             <p>Si sigues interesado y cumples con los requisitos, completa el siguiente formulario: </p>
 
-            <form action="">
+            <form method="post" action="SaveServlet">
 
                 <label for="nombre">Ingrese su Nombre:</label>
-                <input required id="nombre" type="text"><br>
+                <input required id="nombre" name="nombre" type="text"><br>
 
                 <label for="apellido">Ingrese su Apellido:</label>
-                <input required id="apellido" type="text"><br>
+                <input required id="apellido" name="apellido" type="text"><br>
 
                 <label for="cedula">Numero de cedula:</label>
-                <input required id="cedula" type="number"><br>
+                <input required id="cedula" name="cedula" type="number"><br>
 
                 <label for="correo">Correo:</label>
-                <input required id="correo" type="email"><br>
+                <input required id="correo" name="correo" type="email"><br>
 
                 <label for="telefono">Telefono:</label>
-                <input required id="telefono" type="text"><br>
+                <input required id="telefono" name="telefono" type="text"><br>
 
                 <label for="direccion">Direccion:</label>
-                <input required id="direccion" type="text"><br>
+                <input required id="direccion" name="direccion" type="text"><br>
 
                 <label for="experiencia_laboral">Experiencia laboral</label>
                 <!-- Si no lo marca el valor que envia es null y si lo marca es "ON" -->
-                <input id="experiencia_laboral" type="checkbox"><br>
+                <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox"><br>
 
-                <label for="experiencia_programando">Tienes experiencia programando</label>
+                <label for="experiencia_programando">Lenguajes de programacion que conoces</label>
                 <input id="experiencia_programando" type="checkbox"><br>
 
                 <label for="notebook">Cuenta con notebook:</label>
-                <input id="notebook" type="checkbox"><br>
+                <input id="notebook" name="notebook" type="checkbox"><br>
 
                 <label for="universidad">Estudio Universitario: </label>
-                <input id="universidad" type="checkbox"><br>
+                <input id="universidad" name="universidad" type="checkbox"><br>
 
                 <input type="submit">
                 <input type="reset" value="Borrar">
