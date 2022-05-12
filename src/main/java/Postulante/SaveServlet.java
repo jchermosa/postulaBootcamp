@@ -1,5 +1,6 @@
 package Postulante;
 import com.roshka.proyectofinal.Postulante;
+import com.roshka.proyectofinal.entity.Bootcamp;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/SaveServlet")
+@WebServlet("../java/Postulante/SaveServlet")
 public class SaveServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,6 +25,7 @@ public class SaveServlet {
         boolean experienciaProgramando = false;
         boolean experienciaLaboral = false;
         boolean universidad = false;
+        boolean notebook = false;
         if (request.getParameter("experiencia_laboral") != null){
             experienciaLaboral = true;
         }
@@ -31,13 +33,13 @@ public class SaveServlet {
             experienciaProgramando = true;
         }
         if (request.getParameter("notebook") != null){
-            boolean notebook = true;
+            notebook = true;
         }
         if (request.getParameter("universidad") != null){
             universidad = true;
         }
 
-
+        Bootcamp bootcamp = new Bootcamp();
         Postulante postulante=new Postulante();
         postulante.setNombre(nombre);
         postulante.setApellido(apellido);
@@ -47,6 +49,8 @@ public class SaveServlet {
         postulante.setDireccion(direccion);
         postulante.setExpLaboral(experienciaLaboral);
         postulante.setEstudioUniversitario(universidad);
+        postulante.setNotebook(notebook);
+        postulante.setBootcampId(1);
 
         int status=PostulanteDao.save(postulante);
 
