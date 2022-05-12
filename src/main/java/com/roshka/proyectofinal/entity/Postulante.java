@@ -1,4 +1,5 @@
-package com.roshka.proyectofinal;
+package com.roshka.proyectofinal.entity;
+
 
 //Creacion del objeto Postulante
 public class Postulante {
