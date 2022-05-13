@@ -5,6 +5,9 @@ img.logoi{
 
 img{
     width: 400px;
+    padding: 10px;
+    display: block;
+    padding:10px ;
 }
 .header {
     margin-bottom: 0;
@@ -12,15 +15,21 @@ img{
 }
 a{
     float: right 100px;
+    color: #fff;
+    font-size: larger;
+    text-decoration: none;
+    padding: 10px;
+
 }
 
 body {
-    background: linear-gradient(45deg, rgba(20, 99, 155, 0.25), rgba(30, 148, 227, 0.25));
-    background-image: url(/project-roshka/imagenes/descarga.svg);
-    background-size: cover;
+    background: linear-gradient(100deg, rgba(20, 99, 155, 0.25), rgba(30, 148, 227, 0.25));
+    background-image: url(webapp/imagenes/descarga.svg);
+
+        background-size: contain;
     background-attachment: fixed;
     background-blend-mode: multiply;
-    font-family: "normal";
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
     position: relative;
     width: 100px;
@@ -59,11 +68,18 @@ body {
   div.menu{
       float: right;
      
+
   }
+  html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+  }
+  
   .menu ul li a {
     padding-left:  5px;
-    text-decoration: none;
-    font-size: clamp(14px, 20px, 1.2vw);
+    
+    font-size: clamp(145px);
     text-transform: uppercase;
     display: block;
     position: relative;
@@ -77,15 +93,16 @@ body {
     height: auto;
 }
 .seccion.hero {
-    padding-bottom: 20px;
-    width: 1098px;
+ margin-top: 10px;
+    padding-bottom: 10px;
+    width: 900px;
 }
 .hero {
-    perspective: 150px;
+    perspective: 100px;
 }
 .hero {
     display: grid;
-    grid-template-columns: auto repeat(10, 1fr) auto;
+    grid-template-columns: auto repeat(5, 0.5fr) auto;
 }
 .hero {
     display: flex;
@@ -95,8 +112,35 @@ body {
     /* padding-right: 200px;
  */
 }
+/*  */
  .postulacion{
 border-radius: 30px;
-color: blue;
- 
+}
+.cta-main{
+   width: 200px;
+   font-family: monospace;
+background-color: yellow;
+border: none;
+}
+/* Contenido pie de pagina */
+/* usamos media quiere para el responsive */
+/* @media (min-width: 768px)
+.footer {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-items: flex-start;
+    gap: 0;
+    padding: 80px 20px
+} */
+.footer{
+    margin-top: 10px;
+    padding-bottom: 10px;
+    height:100px;
+    width: 100px; 
+    display: grid;
+}
+
+.menu-footer  a{
+    text-decoration: none;
+    float: right;
 }

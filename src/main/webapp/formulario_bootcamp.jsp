@@ -1,34 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <!DOCTYPE html>
+    <html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <title>JSP Page</title>
     </head>
+
     <body>
         <div class="container">
             <h1>Crear Bootcamp</h1>
 
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.entity.Bootcamp, com.roshka.proyectofinal.lenguaje.LenguajeDao, com.roshka.proyectofinal.bootcamp.BootcampDao, com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
 
-             <%
+                <%
              LenguajeDao lenDao = new LenguajeDao();
              List<Lenguaje> listLenguaje = lenDao.listar();
              Iterator<Lenguaje> iter =  listLenguaje.iterator();
+<<<<<<< HEAD
              Lenguaje len = null;
 
              ProfesorDao profeDao = new ProfesorDao();
              List<Profesor> listProfesor = profeDao.listar();
              Iterator<Profesor> iterProfe =  listProfesor.iterator();
              Profesor profe = null;
+=======
+                         Lenguaje len = null;
+>>>>>>> develop
              %>
-
-
-                <form action="" method="post">
-                    <label for="lenguaje">Lenguajes:</label>
-                    <select name="lenguaje" id="lenguaje">
+                    <form action="" method="post">
+                        <label for="lenguaje">Lenguajes:</label>
+                        <select name="lenguaje" id="lenguaje">
                     <% while(iter.hasNext()){
                         len = iter.next();
 
@@ -38,6 +42,7 @@ pageEncoding="UTF-8"%>
                         </option>
                         <% } %>
                     </select>
+<<<<<<< HEAD
 
                     <label for="lenguaje">Profesores:</label>
                     <select name="lenguaje" id="lenguaje">
@@ -120,6 +125,10 @@ pageEncoding="UTF-8"%>
                     <% } %>
               </tbody>
             </table>
+=======
+                    </form>
+>>>>>>> develop
         </div>
     </body>
-</html>
+
+    </html>
