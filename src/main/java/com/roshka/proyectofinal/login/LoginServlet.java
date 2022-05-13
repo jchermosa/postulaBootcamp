@@ -95,6 +95,9 @@ public class LoginServlet extends HttpServlet {
             out.println("<p> You may want to <a href='/login.jsp'> try again </a> </p>");
 //            request.getRequestDispatcher("login.jsp").include(request, response);
 //            response.sendRedirect("login.jsp");
+
+
+            //FOR COMMIT LOGIN 2
             }
     }
 
