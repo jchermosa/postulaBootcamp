@@ -14,7 +14,8 @@
         </h1>
         <br/>
         <a href="hello-servlet">Hello Servlet</a><br>
-        <a href="./formulario.html">Postulate aqui</a>
+
+
     </body>
 
     </html>
