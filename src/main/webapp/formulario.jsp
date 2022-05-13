@@ -22,19 +22,6 @@ pageEncoding="UTF-8"%>
     <body>
         <main>
 
-
-            <input value="1" type="text">
-
-
-
-
-
-
-
-
-
-
-
             <div>
                 <p>Si sigues interesado y cumples con los requisitos, completa el siguiente formulario: </p>
 
@@ -85,21 +72,6 @@ pageEncoding="UTF-8"%>
                                     </li>
 
                                     <% } %>
-                                        <!-- <li>
-                        <label for="ruby">Ruby:</label><input id="ruby" name="ruby" type="checkbox"><br>
-                    </li> -->
-                                        <!-- <li>
-                                        <label for="java">Java: </label><input id="java" name="java" type="checkbox" value="2"><br>
-                                    </li>
-                                    <li>
-                                        <label for="python">Python</label><input id="python" name="python" type="checkbox" value="3"><br>
-                                    </li>
-                                    <li>
-                                        <label for="c">C++ </label><input id="c" name="c" type="checkbox" value="4"><br>
-                                    </li>
-                                    <li>
-                                        <label for="javascript">Javascript </label><input id="javascript" name="javascript" type="checkbox" value="5"><br>
-                                    </li> -->
 
                             </ul>
 
