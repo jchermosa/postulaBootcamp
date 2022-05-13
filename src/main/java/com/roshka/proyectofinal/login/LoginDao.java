@@ -6,27 +6,27 @@ import com.roshka.proyectofinal.entity.LoginBean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class LoginDao {
 
     public boolean validate (LoginBean loginBean) {
-        int status = 0;
+        boolean status = false;
         try {
             Connection con = DataBase.getConnection();
 
             PreparedStatement ps=con.prepareStatement(
-                    "select * from usuarios where username=? and password = ?");
-            ps.setString(1,loginBean.getUsername());
+                    "select * from usuario where correo=? and contrasena = ?");
+            ps.setString(1,loginBean.getCorreo());
             ps.setString(2, loginBean.getPassword());
-            status=ps.executeUpdate();
-
+            ResultSet rs = ps.executeQuery();
+            status = rs.next();
             con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        if (status > 0) return true ;
-        else return false ;
+            return status ;
 
     }
 

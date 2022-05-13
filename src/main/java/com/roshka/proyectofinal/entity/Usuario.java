@@ -4,6 +4,7 @@ public class Usuario {
     private int id;
     private String nombre,apellido,correo,contrasena;
 
+
     public Usuario() {
 
     }
