@@ -1,31 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <title>JSP Page</title>
     </head>
+
     <body>
         <div class="container">
             <h1>Crear Bootcamp</h1>
 
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
 
-             <%
+                <%
              LenguajeDao lenDao = new LenguajeDao();
              List<Lenguaje> listLenguaje = lenDao.listar();
              Iterator<Lenguaje> iter =  listLenguaje.iterator();
                          Lenguaje len = null;
-
-
              %>
-
-
-                <form action="" method="post">
-                    <label for="lenguaje">Lenguajes:</label>
-                    <select name="lenguaje" id="lenguaje">
+                    <form action="" method="post">
+                        <label for="lenguaje">Lenguajes:</label>
+                        <select name="lenguaje" id="lenguaje">
                     <% while(iter.hasNext()){
                         len = iter.next();
 
@@ -35,7 +33,8 @@ pageEncoding="UTF-8"%>
                         </option>
                         <% } %>
                     </select>
-                </form>
+                    </form>
         </div>
     </body>
-</html>
+
+    </html>
