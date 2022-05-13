@@ -13,7 +13,6 @@
             <tr><td>Password:</td><td><input type="password" name="password"></td></tr>
 
             <tr><td><input type="submit" value="Login"/></td></tr>
-
         </table>
     </form>    
     </div>
