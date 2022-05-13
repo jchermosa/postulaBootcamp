@@ -55,6 +55,7 @@ public class LoginServlet extends HttpServlet {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+        System.out.println(passwordMD5);
         loginBean.setPassword(passwordMD5);
         loginBean.setCorreo(correo);
 
