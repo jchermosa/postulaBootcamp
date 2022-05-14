@@ -1,13 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta id="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>postulacion</title>
-</head> -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
     <!DOCTYPE html>
@@ -15,17 +6,24 @@ pageEncoding="UTF-8"%>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <title>JSP Page</title>
+        <link href="estilos/form.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
+        <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
+        <title>Formulario Postulante</title>
     </head>
 
     <body>
-        <main>
-
+    <header>
+          <div class="logo">
+            <img src="imagenes/logo-roshka.svg" alt="log-roshka" />
+          </div>
+        </header>
+        <main class="create">
+   <article class="contenedor">
             <div>
-                <p>Si sigues interesado y cumples con los requisitos, completa el siguiente formulario: </p>
+                <p class="enter">Si sigues interesado y cumples con los requisitos, completa el siguiente formulario: </p>
 
-                <form method="post" action="SaveServlet">
+                <form method="post" action="SaveServlet" class="form">
 
                     <label for="nombre">Ingrese su Nombre:</label>
                     <input required id="nombre" name="nombre" type="text"><br>
@@ -45,10 +43,6 @@ pageEncoding="UTF-8"%>
                     <label for="direccion">Direccion:</label>
                     <input required id="direccion" name="direccion" type="text"><br>
 
-                    <label for="experiencia_laboral">Experiencia laboral</label>
-                    <!-- Si no lo marca el valor que envia es null y si lo marca es "ON" -->
-                    <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox"><br>
-                    <p for="experiencia_programando">Lenguajes de programacion que conoces:</p>
 
                     <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
 
@@ -75,18 +69,151 @@ pageEncoding="UTF-8"%>
 
                             </ul>
 
-                            <label for="notebook">Cuenta con notebook:</label>
-                            <input id="notebook" name="notebook" type="checkbox"><br>
+                        <label for="experiencia_laboral" >Experiencia laboral</label>
+                                            <!-- Si no lo marca el valor que envia es null y si lo marca es "ON" -->
+                                            <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox" ><br>
+                                            <p for="experiencia_programando">Lenguajes de programacion que conoces:</p>
 
-                            <label for="universidad">Estudio Universitario: </label>
+                            <label for="notebook">Cuenta con notebook</label>
+                             <input id="notebook" name="notebook" type="checkbox"><br>
+
+                            <label for="universidad">Estudio Universitario </label>
                             <input id="universidad" name="universidad" type="checkbox"><br>
 
-                            <input type="submit">
-                            <input type="reset" value="Borrar">
+                            <input class="enviar" type="submit"  >
+                            <input class="borrar" type="reset" value="Borrar"><br>
+
+                            <a href="index.html">volver</a>
+
                 </form>
-            </div>
+
+</article>
+
 
         </main>
     </body>
-
     </html>
+
+<style>
+
+
+/* el header donde va el logo y el menu  */
+html,body{
+    background-image: url(imagenes/descarga.svg);
+
+}
+/* damos los estilos a todo lo que contiene el body  */
+body{
+    background-color: rgba(11, 49, 110, 0.75);
+    font-family:Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    color: wheat;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160%;}
+
+}
+/* para el logo */
+img{
+    width: 165px;
+    padding: 10px;
+}
+
+p.enter{
+    text-align: center;
+    font-size: 20px;
+}
+/* para el parrafo */
+p:hover{
+    color: yellow;
+}
+
+/* para el create o sea para el main */
+.create{
+    width: 100%;
+    max-width: 785px;
+    min-width: 320px;
+    border-radius: 15px;
+    background-color: rgba(11, 49, 110, 0.75);
+    padding: 1rem;
+
+}
+/* contenedor */
+/* para el forrmulario */
+.form label{
+
+   display: block;
+       border: none;
+
+       align-items:center;
+
+
+}
+
+.form input{
+    display: block;
+    border: none;
+    width: 50%;
+    align-items:center;
+}
+.form input[type="email"],.form input[type="text"],.form input[type="number"]{
+   background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid #000;
+
+}
+.form input:hover{
+    background-color: wheat;
+}
+
+
+
+a{
+    text-decoration: none;
+}
+ul{
+list-style:none;
+font-size:15px;
+}
+
+a{
+text-decoration:none;
+color:black;
+background-color: #21211d;
+border-radius: 10px;
+  color: #FFF;
+  padding: 10px;
+  margin:15px;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: url(imagenes/descarga.svg);
+}
+ .form input[type="reset"] , .form input[type="submit"]{
+        text-decoration:none;
+        background-color: rgba(11, 49, 110, 0.75);
+          background-image: url(imagenes/descarga.svg);
+        border-radius: 10px;;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        color:#ffff;
+        text-align:left;
+        cursor: pointer;
+        width:80px;
+        text-align:center;
+    }
+
+
+input#ruby,input#python,input#c,input#javascript,input#java{
+width:20px;
+
+}
+input#experiencia_laboral,input#notebook,input#universidad{
+width:100px;
+}
+
+/* parrafo final */
+
+
+</style>
