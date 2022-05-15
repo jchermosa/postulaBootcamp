@@ -78,8 +78,7 @@ public class LoginServlet extends HttpServlet {
                 catch (Exception ignored) { }
 
                 // Si no es posible redireccionar a la pagina solicitada, llevar a la main page
-                response.sendRedirect(request.getScheme() + "://" +
-                        request.getServerName() + ":" + request.getServerPort());
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 
         } else {
 

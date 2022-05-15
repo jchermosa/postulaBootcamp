@@ -33,7 +33,7 @@ public class LogoutServlet extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.print("Has cerrado tu sesion !");
+        //out.print("Has cerrado tu sesion !");
 
         request.getRequestDispatcher("index.html").include(request,response);
 
