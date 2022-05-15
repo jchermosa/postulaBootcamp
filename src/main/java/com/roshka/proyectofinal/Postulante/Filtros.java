@@ -20,10 +20,12 @@ public class Filtros extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Postulante> postulantes = listarPostulante();
         String respuesta = req.getParameter("id");
-        String nombre = req.getParameter("nombreBuscar");
+        String nombre = req.getParameter("nombreBuscar")== null ? "0" : req.getParameter("nombreBuscar");
+        System.out.println(nombre);
         if(respuesta != null) {
             update(Integer.parseInt(req.getParameter("id")));
-        } else if(nombre != null){
+            postulantes = listarPostulante();
+        } else if(nombre.length() > 1){
             postulantes = buscarPorNombre(nombre);
         }
 
@@ -32,4 +34,11 @@ public class Filtros extends HttpServlet {
         reqDisp.forward(req,resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Postulante> postulantes = listarPostulanteAceptados();
+        req.getServletContext().setAttribute("postulantes", postulantes);
+        RequestDispatcher reqDisp= req.getRequestDispatcher("postulante-consulta.jsp");
+        reqDisp.forward(req,resp);
+    }
 }

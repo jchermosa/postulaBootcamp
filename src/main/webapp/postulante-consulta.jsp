@@ -16,6 +16,10 @@
                 placeholder="Buscar por nombre">
             <button type="submit">Buscar</button>
         </form>
+        <form action="filtros-postulante" method="post">
+            <input type="hidden" name="aceptado" value="si">
+            <button type="submit">Aceptados</button>
+        </form>
         <table>
             <tr>
                 <th>#</th>
@@ -42,14 +46,34 @@
                         <td> ${postulante.correo}</td>
                         <td> ${postulante.telefono}</td>
                         <td> ${postulante.direccion}</td>
-                        <td> ${postulante.expLaboral}</td>
-                        <td> ${postulante.estudioUniversitario}</td>
-                        <td> ${postulante.notebook}</td>
+                        <td> 
+                            <c:if test="${postulante.expLaboral == true}">
+	                            SI
+                            </c:if>
+                            <c:if test="${postulante.expLaboral != true}">
+	                            NO
+                            </c:if>
+                        </td>
+                        <td> 
+                            <c:if test="${postulante.estudioUniversitario == true}">
+	                            SI
+                            </c:if>
+                            <c:if test="${postulante.estudioUniversitario != true}">
+	                            NO
+                            </c:if>
+                        </td>
+                        <td> 
+                            <c:if test="${postulante.notebook == true}">
+                            SI
+                        </c:if>
+                        <c:if test="${postulante.notebook != true}">
+                            NO
+                        </c:if>
+                        </td>
                         <td> ${postulante.nombreBootcamp}</td>
-                        <td> ${postulante.aceptado}</td>
                         <td>
                             <c:if test="${postulante.aceptado == true}">
-	                            <button>Aceptado</button>
+	                            SI
                             </c:if>
                             <c:if test="${postulante.aceptado != true}">
 	                            <button><a href="filtros-postulante?id=${postulante.id}">Aceptar postulante</a></button>
