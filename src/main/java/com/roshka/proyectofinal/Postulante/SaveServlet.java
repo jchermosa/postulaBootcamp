@@ -3,6 +3,7 @@ package com.roshka.proyectofinal.Postulante;
 import com.roshka.proyectofinal.DataBase;
 import com.roshka.proyectofinal.entity.Postulante;
 import com.roshka.proyectofinal.entity.Bootcamp;
+import com.roshka.proyectofinal.entity.PostulanteLenguaje;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,7 +16,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
 @WebServlet("/SaveServlet")
 public class SaveServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -24,14 +24,12 @@ public class SaveServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
         boolean rechazarDatos = false;
-        int bootcampActual = 3;
+        int bootcampActual = 2;
 
         try {
             Connection con = DataBase.getConnection();
-            //
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT correo,bootcamp_id FROM postulante WHERE postulante.bootcamp_id =" + bootcampActual);
-            //
             String nombre=request.getParameter("nombre");
             String apellido=request.getParameter("apellido");
             int cedula=Integer.parseInt(request.getParameter("cedula"));
@@ -44,6 +42,17 @@ public class SaveServlet extends HttpServlet {
                     rechazarDatos = true;
                 }
             }
+            rs = stmt.executeQuery("SELECT * FROM lenguaje");
+            int contador = 0;
+            while (rs.next()){
+                String nombreLenguaje = rs.getString("nombre_lenguaje");
+                if (request.getParameter(nombreLenguaje) != null){
+                    contador++;
+                }
+            }
+            if (contador == 0){
+                rechazarDatos = true;
+            }
             String telefono=request.getParameter("telefono");
             String direccion=request.getParameter("direccion");
             boolean experienciaProgramando = false;
@@ -53,9 +62,6 @@ public class SaveServlet extends HttpServlet {
             if (request.getParameter("experiencia_laboral") != null){
                 experienciaLaboral = true;
             }
-            if (request.getParameter("experiencia_programando") != null) {
-                experienciaProgramando = true;
-            }
             if (request.getParameter("notebook") != null){
                 notebook = true;
             }
@@ -64,6 +70,9 @@ public class SaveServlet extends HttpServlet {
             }
             Bootcamp bootcamp = new Bootcamp();
             Postulante postulante=new Postulante();
+            PostulanteLenguaje cargarLenguaje = new PostulanteLenguaje();
+            int status = 0;
+            int statusLenguaje = 0;
             //SI LOS DATOS SON CORRECTOS NO SE RECHAZAN ENTONCES CARGA A LA BASE
             if (!rechazarDatos){
                 postulante.setNombre(nombre);
@@ -77,15 +86,36 @@ public class SaveServlet extends HttpServlet {
                 postulante.setNotebook(notebook);
                 postulante.setBootcampId(bootcampActual);
                 postulante.setAceptado(false);
+                status=PostulanteDao.save(postulante);
+
+                rs = stmt.executeQuery("SELECT id FROM postulante WHERE postulante.nro_cedula="+cedula+" AND postulante.bootcamp_id="+bootcampActual+" ORDER BY id DESC LIMIT 1");
+                int idUltimoPostulante=0;
+                while (rs.next()) {
+                    idUltimoPostulante = rs.getInt("id");
+                }
+                rs = stmt.executeQuery("SELECT * FROM lenguaje");
+                while (rs.next()){
+                    int idLenguaje = rs.getInt("id");
+                    String nombreLenguaje = rs.getString("nombre_lenguaje");
+                    if (request.getParameter(nombreLenguaje) != null){
+                        cargarLenguaje.setIdLenguaje(idLenguaje);
+                        cargarLenguaje.setIdPostulante(idUltimoPostulante);
+                        statusLenguaje = PostulanteLenguajeDao.save(cargarLenguaje);
+                    }
+                }
             }
-                int status=PostulanteDao.save(postulante);
-                if(status>0){
+                if(status >0 && statusLenguaje > 0){
                     out.print("<p>Record saved successfully!</p>");
                     request.getRequestDispatcher("index.html").include(request, response);
                 }else{
                     if (rechazarDatos){
-                        out.println("El correo ingresado ya esta registrado para el bootcamp actual");
-                    }else {
+                        if (contador == 0){
+                            out.println("Debe seleccionar al menos una opcion de lenguaje que conoce para postularse");
+                            out.println("<a href=formulario.jsp >Volver al cuestionario</a>");
+                        }else {
+                            out.println("El correo ingresado ya esta registrado para el bootcamp actual");
+                        }
+                    }else{
                         out.println("Sorry! unable to save record");
                     }
                 }

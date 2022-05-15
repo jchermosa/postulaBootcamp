@@ -6,6 +6,7 @@ pageEncoding="UTF-8"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <script src="Javascript.js"></script>
         <title>JSP Page</title>
     </head>
 
@@ -15,7 +16,7 @@ pageEncoding="UTF-8"%>
             <div>
                 <p>Si sigues interesado y cumples con los requisitos, completa el siguiente formulario: </p>
 
-                <form method="post" action="SaveServlet">
+                <form method="post" action="SaveServlet" id="">
 
                     <label for="nombre">Ingrese su Nombre:</label>
                     <input required id="nombre" name="nombre" type="text"><br>
@@ -41,38 +42,33 @@ pageEncoding="UTF-8"%>
                     <p for="experiencia_programando">Lenguajes de programacion que conoces:</p>
 
                     <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
-
                         <%
                 LenguajeDao lenDao = new LenguajeDao();
                 List<Lenguaje> listLenguaje = lenDao.listar();
                 Iterator<Lenguaje> iter =  listLenguaje.iterator();
                             Lenguaje len = null;
-   
-   
                 %>
-                            <ul>
+                            <ul id="sectionForm">
                                 <% while(iter.hasNext()){
                         len = iter.next();
-
                     %>
                                     <li>
-                                        <label for=<%=len.getNombre_lenguaje() %> > <%= len.getNombre_lenguaje() %> </label><input value=<%=len.getId() %> id=
+                                        <label for=<%=len.getNombre_lenguaje() %> > <%= len.getNombre_lenguaje() %> </label>
+                                        <input onclick="enviar(id)" value=<%=len.getId() %> id=
                                         <%=len.getNombre_lenguaje() %> name=
-                                            <%=len.getNombre_lenguaje() %> type="checkbox"><br>
+                                            <%=len.getNombre_lenguaje() %> type="checkbox" ><br>
                                     </li>
-
                                     <% } %>
-
                             </ul>
 
                             <label for="notebook">Cuenta con notebook:</label>
                             <input id="notebook" name="notebook" type="checkbox"><br>
 
                             <label for="universidad">Estudio Universitario: </label>
-                            <input id="universidad" name="universidad" type="checkbox"><br>
+                            <input id="universidad" name="universidad" type="checkbox" value="hola"><br>
 
-                            <input type="submit">
-                            <input type="reset" value="Borrar">
+                            <input id="enviacion" type="submit">
+                            <input type="reset" value="Borrar" href="">
                 </form>
             </div>
 
