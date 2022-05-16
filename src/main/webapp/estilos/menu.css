@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Concert One', cursive;
+    font-size: 13px
+  }
+  
+  .header, .footer {
+    background-color:rgb(18, 18, 98);
+    color: white;
+    padding: 60px;
+  }
+  
+  .column {
+    float: left;
+    padding: 30px;
+  }
+  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  a{
+    color:white;
+  }
+  
+  .menu {
+    width: 50%;
+  }
+  
+  .content {
+    width: 50%;
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: rgb(18, 18, 98);
+    color: #ffffff;
+  }
+  
+  .menu li:hover {
+    background-color: rgb(18, 18, 98);
+  }

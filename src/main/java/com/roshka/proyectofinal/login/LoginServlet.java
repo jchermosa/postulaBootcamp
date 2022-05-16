@@ -64,13 +64,13 @@ public class LoginServlet extends HttpServlet {
         {
                 HttpSession session = request.getSession(true); //incluir nota de sesion valida
                 session.setAttribute("logon.isDone", correo);
-                out.print ("Bienvenido " + correo);
+                //out.print ("Bienvenido " + correo);
 
                 // Tratar de re-dirigir a la pagina que el usuario quiso acceder
                 try {
                     String target = (String) session.getAttribute("login.target");
                     //response.sendRedirect("loginSuccess.jsp");
-                    out.println(" \n Destino: " + target);
+                    //out.println(" \n Destino: " + target);
                     if (target != null)
                         response.sendRedirect(target);
                     //return;
@@ -78,13 +78,14 @@ public class LoginServlet extends HttpServlet {
                 catch (Exception ignored) { }
 
                 // Si no es posible redireccionar a la pagina solicitada, llevar a la main page
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("menu.html");
+                rd.include(request,response);
 
         } else {
 
             //si no es un user valido - mandar error y redireccionar al inicio de sesion
             RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
-            out.print("<div  br  align = \"center\" class=\"messageError\" > Credenciales incorrectas! Reintente ...  </div>");
+            //out.print("<div  br  align = \"center\" class=\"messageError\" > Credenciales incorrectas! Reintente ...  </div>");
             rd.include(request,response);
 
             }
@@ -96,22 +97,3 @@ public class LoginServlet extends HttpServlet {
 
 
 }
-
-
-/* out.println("<script>alert('Datos de acceso Incorrectos, intente de nuevo !');</script>");
-            out.println("<p> You may want to <a href='/login.jsp'> try again </a> </p>");
-            out.println("<html><HEAD><title>Access Denied<title><head>");*/
-//request.getRequestDispatcher("login.jsp").include(request, response);
-
-            /*  out.println("<!DOCTYPE html>");
-            out.println("<html> <head> <title>BootcampsLogin</title> </head>");
-            out.println("<body> <div align= \"center\">");
-            out.println("<h1>User Login Form</h1>");
-            out.println("<form action=\"login\" method=\"post\">");
-            out.println("<table align = \"center\">");
-            out.println("<tr><td>Correo:</td> <td><input type=\"text\" name = \"correo\"></td></tr>");
-            out.println("<tr><td>Password:</td><td><input type=\"password\" name=\"password\"></td></tr>");
-            out.println("<center><tr><td><input type=\"submit\" value=\"Login\"/></td></tr></center>");
-            out.println("</table></form> </div>");
-            out.println("<div  br  align = \"center\" class=\"messageError\" > Credenciales incorrectas! Reintente ...  </div>");
-            out.println("</body></html>");*/
