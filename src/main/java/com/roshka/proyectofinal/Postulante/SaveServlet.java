@@ -30,6 +30,7 @@ public class SaveServlet extends HttpServlet {
             Connection con = DataBase.getConnection();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT correo,bootcamp_id FROM postulante WHERE postulante.bootcamp_id =" + bootcampActual);
+            
             String nombre=request.getParameter("nombre");
             String apellido=request.getParameter("apellido");
             int cedula=Integer.parseInt(request.getParameter("cedula"));
@@ -105,18 +106,21 @@ public class SaveServlet extends HttpServlet {
                 }
             }
                 if(status >0 && statusLenguaje > 0){
+                    //out.println("<script> window.alert('Postulacion exitosa') </script>");
                     out.print("<p>Record saved successfully!</p>");
-                    request.getRequestDispatcher("index.html").include(request, response);
+                    request.getRequestDispatcher("formulario.jsp").include(request, response);
                 }else{
                     if (rechazarDatos){
                         if (contador == 0){
                             out.println("Debe seleccionar al menos una opcion de lenguaje que conoce para postularse");
                             out.println("<a href=formulario.jsp >Volver al cuestionario</a>");
                         }else {
-                            out.println("El correo ingresado ya esta registrado para el bootcamp actual");
+                            out.println("<p>El correo ingresado ya esta registrado para el bootcamp actual<p>");
+                            request.getRequestDispatcher("").include(request, response);
                         }
                     }else{
-                        out.println("Sorry! unable to save record");
+                        out.println("Error");
+                        out.println("<script> window.alert('Falla al enviar la postulacion,Intente de nuevo') </script>");
                     }
                 }
 

@@ -1,5 +1,5 @@
 (function() {
-    const form = document.querySelector('#sectionForm');
+    const form = document.querySelector('#agarraunolaputa');
     const checkboxes = form.querySelectorAll('input[type=checkbox]');
     const checkboxLength = checkboxes.length;
     const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
@@ -22,9 +22,8 @@
     }
 
     function checkValidity() {
-        const errorMessage = !isChecked() ? 'Debe de selecionar al menos un lenguaje' : '';
+        const errorMessage = !isChecked() ? 'Debe seleccionar al menos un lenguaje que conozca' : '';
         firstCheckbox.setCustomValidity(errorMessage);
     }
-
     init();
 })();

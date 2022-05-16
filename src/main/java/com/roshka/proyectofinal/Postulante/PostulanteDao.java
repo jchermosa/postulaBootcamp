@@ -1,11 +1,17 @@
 package com.roshka.proyectofinal.Postulante;
 import com.roshka.proyectofinal.DataBase;
 import com.roshka.proyectofinal.entity.Postulante;
+import jakarta.servlet.http.HttpServlet;
+import javafx.geometry.Pos;
 
+import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
-public class PostulanteDao {
+public class PostulanteDao extends HttpServlet {
 
     public static int save(Postulante postulante){
         int status=0;
@@ -30,4 +36,48 @@ public class PostulanteDao {
 
         return status;
     }
+    public static List<Postulante> ListarPostulantes(){
+        List<Postulante> list=new ArrayList<Postulante>();
+
+
+        try{
+
+            Connection con= DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("select * from postulante");
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                Postulante e=new Postulante();
+
+                e.setId(rs.getInt("id"));
+                e.setNombre(rs.getString("nombre"));
+                //e.setPassword(rs.getString(3));
+                e.setCorreo(rs.getString("correo"));
+                e.setApellido(rs.getString("apellido"));
+                e.setDireccion(rs.getString("direccion"));
+                list.add(e);
+            }
+            con.close();
+        }catch(Exception e){e.printStackTrace();}
+
+        return list;
+    }
+    public static int update (Postulante e){
+        int status=0;
+        try{
+            Connection con= DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement(
+                    "update postulante set aceptado=? where id=?");
+            ps.setBoolean(1,e.getAceptado());
+            ps.setInt(2,e.getId());
+            status=ps.executeUpdate();
+            con.close();
+        }catch(Exception ex){ex.printStackTrace();}
+
+        return status;
+    }
+
+
+
+
 }
+
