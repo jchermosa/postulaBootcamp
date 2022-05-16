@@ -5,6 +5,11 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+      <!-- el icono para la pagina  -->
+        <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
+        <!-- coneccion con el de css  -->
+       <link rel="stylesheet" href="postulante.css">
     <title>Postulantes Manage</title>
 </head>
 
