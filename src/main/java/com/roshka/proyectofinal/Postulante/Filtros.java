@@ -20,10 +20,11 @@ public class Filtros extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Postulante> postulantes = listarPostulante();
         String respuesta = req.getParameter("id");
+        boolean valor = Boolean.parseBoolean(req.getParameter("valor"));
         String nombre = req.getParameter("nombreBuscar")== null ? "0" : req.getParameter("nombreBuscar");
         System.out.println(nombre);
         if(respuesta != null) {
-            update(Integer.parseInt(req.getParameter("id")));
+            update(Integer.parseInt(req.getParameter("id")), valor);
             postulantes = listarPostulante();
         } else if(nombre.length() > 1){
             postulantes = buscarPorNombre(nombre);
@@ -43,7 +44,12 @@ public class Filtros extends HttpServlet {
             req.getServletContext().setAttribute("postulantes", postulantes);
             RequestDispatcher reqDisp= req.getRequestDispatcher("postulante-consulta.jsp");
             reqDisp.forward(req,resp);
-        }else {
+        } else if (respuesta.equals("notebook")) {
+            List<Postulante> postulantes = buscarPorNoteBook();
+            req.getServletContext().setAttribute("postulantes", postulantes);
+            RequestDispatcher reqDisp= req.getRequestDispatcher("postulante-consulta.jsp");
+            reqDisp.forward(req,resp);
+        } else {
             List<Postulante> postulantes = listarPorBootcamp(respuesta);
             req.getServletContext().setAttribute("postulantes", postulantes);
             RequestDispatcher reqDisp= req.getRequestDispatcher("postulante-consulta.jsp");
