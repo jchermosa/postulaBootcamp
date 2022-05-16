@@ -5,6 +5,7 @@ package com.roshka.proyectofinal.entity;
 public class Postulante {
 
     private int id,nroCedula,bootcampId;
+    private String nombreBootcamp;
     private String nombre,apellido,telefono,direccion,correo;
     private boolean   expLaboral,estudioUniversitario,notebook,aceptado;
 
@@ -27,6 +28,22 @@ public class Postulante {
         this.bootcampId = bootcampId;
         this.aceptado = aceptado;
     }
+
+    public Postulante(int nroCedula, String nombreBootcam, String nombre, String apellido, String telefono, String direccion, String correo, boolean expLaboral, boolean estudioUniversitario, boolean notebook, int bootcampId, boolean aceptado) {
+        this.nroCedula = nroCedula;
+        this.nombreBootcamp = nombreBootcam;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.correo = correo;
+        this.expLaboral = expLaboral;
+        this.estudioUniversitario = estudioUniversitario;
+        this.notebook = notebook;
+        this.bootcampId = bootcampId;
+        this.aceptado = aceptado;
+    }
+
     public int getId() {
         return id;
     }
@@ -102,4 +119,39 @@ public class Postulante {
         this.bootcampId = bootcampId;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getNroCedula() {
+        return nroCedula;
+    }
+
+    public void setNroCedula(int nroCedula) {
+        this.nroCedula = nroCedula;
+    }
+
+    public String getNombreBootcamp() {
+        return nombreBootcamp;
+    }
+
+    public void setNombreBootcamp(String nombreBootcamp) {
+        this.nombreBootcamp = nombreBootcamp;
+    }
+
+    public boolean isExpLaboral() {
+        return expLaboral;
+    }
+
+    public boolean isEstudioUniversitario() {
+        return estudioUniversitario;
+    }
+
+    public boolean isNotebook() {
+        return notebook;
+    }
+
+    public boolean isAceptado() {
+        return aceptado;
+    }
 }

@@ -12,6 +12,10 @@
         </h1>
         <br/>
         <a href="hello-servlet">Hello Servlet</a><br>
+         <a href="login.jsp">LOGIN</a><br>
+          <a href="logout">LOGOUT</a><br>
+           <a href="protected">RECUSO PROTEGIDO</a><br>
+
 
 
     </body>

@@ -105,6 +105,7 @@ public class SaveServlet extends HttpServlet {
                     }
                 }
             }
+<<<<<<< HEAD
                 if(status >0 && statusLenguaje > 0){
                     //out.println("<script> window.alert('Postulacion exitosa') </script>");
                     out.print("<p>Record saved successfully!</p>");
@@ -121,6 +122,31 @@ public class SaveServlet extends HttpServlet {
                     }else{
                         out.println("Error");
 
+=======
+                int status=PostulanteDao.save(postulante);
+                if(status>0){
+                    //out.print("<p>Record saved successfully!</p>");
+                    out.print(" <div class=\"alert\">\n" +
+                            "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                            "  <strong>Formulario Cargado!</strong> EXITOSAMENTE CARGADO\n" +
+                            "</div>");
+                    request.getRequestDispatcher("formulario.jsp").include(request, response);
+                }else{
+                    if (rechazarDatos){
+                        //out.println("El correo ingresado ya esta registrado para el bootcamp actual");
+                        out.print(" <div class=\"alert info\">\n" +
+                                "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                                "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
+                                "</div>");
+                        request.getRequestDispatcher("formulario.jsp").include(request, response);
+                    }else {
+                        out.println("Error al cargar datos");
+                        out.print(" <div class=\"alert info error\">\n" +
+                                "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                                "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
+                                "</div>");
+                        request.getRequestDispatcher("formulario.jsp").include(request, response);
+>>>>>>> 9f750c7a848792df924b81bbb2c48da70f9d8765
                     }
                 }
 
