@@ -8,6 +8,8 @@ pageEncoding="UTF-8"%>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="estilos/form.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
         <title>Formulario Postulante</title>
     </head>
@@ -25,7 +27,7 @@ pageEncoding="UTF-8"%>
 
                 <form method="post" action="SaveServlet" class="form">
 
-                    <label for="nombre">Ingrese su Nombre:</label>
+                    <label class="mr-2" for="nombre">Ingrese su Nombre:</label>
                     <input required id="nombre" name="nombre" type="text"><br>
 
                     <label for="apellido">Ingrese su Apellido:</label>
@@ -59,8 +61,8 @@ pageEncoding="UTF-8"%>
                         len = iter.next();
 
                     %>
-                                    <li>
-                                        <label for=<%=len.getNombre_lenguaje() %> > <%= len.getNombre_lenguaje() %> </label><input value=<%=len.getId() %> id=
+                                    <li class="d-flex check-inline" >
+                                        <label  for=<%=len.getNombre_lenguaje() %> > <%= len.getNombre_lenguaje() %> </label><input value=<%=len.getId() %> id=
                                         <%=len.getNombre_lenguaje() %> name=
                                             <%=len.getNombre_lenguaje() %> type="checkbox"><br>
                                     </li>
@@ -68,8 +70,9 @@ pageEncoding="UTF-8"%>
                                     <% } %>
 
                             </ul>
-
-                        <label for="experiencia_laboral" >Experiencia laboral</label>
+                        <li class="d-flex">
+                        <label for="experiencia_laboral"  >Experiencia laboral</label>
+                        </li>
                                             <!-- Si no lo marca el valor que envia es null y si lo marca es "ON" -->
                                             <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox" ><br>
                                             <p for="experiencia_programando">Lenguajes de programacion que conoces:</p>
@@ -80,9 +83,11 @@ pageEncoding="UTF-8"%>
                             <label for="universidad">Estudio Universitario </label>
                             <input id="universidad" name="universidad" type="checkbox"><br>
 
-                            <input class="enviar" type="submit"  >
+                            <input class="enviar info error" type="submit">
                             <input class="borrar" type="reset" value="Borrar"><br>
 
+                               <label for="otro">otro</label>
+                                                         <input id="otro" name="otro" type="checkbox"><br>
                             <a href="index.html">volver</a>
 
                 </form>
@@ -142,11 +147,9 @@ p:hover{
 /* contenedor */
 /* para el forrmulario */
 .form label{
-
    display: block;
-       border: none;
-
-       align-items:center;
+   border: none;
+   align-items:center;
 
 
 }
@@ -193,9 +196,10 @@ border-radius: 10px;
         text-decoration:none;
         background-color: rgba(11, 49, 110, 0.75);
           background-image: url(imagenes/descarga.svg);
-        border-radius: 10px;;
-        padding: 15px;
+        border-radius: 5px;;
+        padding: 10px;
         border-radius: 10px;
+        margin:10px;
         text-decoration: none;
         color:#ffff;
         text-align:left;
@@ -203,17 +207,52 @@ border-radius: 10px;
         width:80px;
         text-align:center;
     }
-
+/*hola mundo*/
 
 input#ruby,input#python,input#c,input#javascript,input#java{
-width:20px;
+width:30px;
 
 }
 input#experiencia_laboral,input#notebook,input#universidad{
-width:100px;
+width:500px;
 }
 
-/* parrafo final */
 
+/* para el alert  */
+.alert {
+ padding: 10px;
+ background-color: background-color: #2196F3;
+ color: white;
+}
+
+.alert.info {background-color: #2196F3;}
+.alert.error {background-color:  #ff0000;}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
 
 </style>
+
+<script>
+var close = document.getElementsByClassName("enviar");
+var i;
+
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
