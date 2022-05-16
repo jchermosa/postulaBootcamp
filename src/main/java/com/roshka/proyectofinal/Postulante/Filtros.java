@@ -36,9 +36,20 @@ public class Filtros extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Postulante> postulantes = listarPostulanteAceptados();
-        req.getServletContext().setAttribute("postulantes", postulantes);
-        RequestDispatcher reqDisp= req.getRequestDispatcher("postulante-consulta.jsp");
-        reqDisp.forward(req,resp);
+        String respuesta = req.getParameter("nombre");
+
+        if(respuesta.equals("aceptado")){
+            List<Postulante> postulantes = listarPostulanteAceptados();
+            req.getServletContext().setAttribute("postulantes", postulantes);
+            RequestDispatcher reqDisp= req.getRequestDispatcher("postulante-consulta.jsp");
+            reqDisp.forward(req,resp);
+        }else {
+            List<Postulante> postulantes = listarPorBootcamp(respuesta);
+            req.getServletContext().setAttribute("postulantes", postulantes);
+            RequestDispatcher reqDisp= req.getRequestDispatcher("postulante-consulta.jsp");
+            reqDisp.forward(req,resp);
+        }
+
+
     }
 }

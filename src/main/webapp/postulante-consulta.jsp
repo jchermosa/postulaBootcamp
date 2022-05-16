@@ -17,8 +17,12 @@
             <button type="submit">Buscar</button>
         </form>
         <form action="filtros-postulante" method="post">
-            <input type="hidden" name="aceptado" value="si">
+            <input type="hidden" name="nombre" value="aceptado">
             <button type="submit">Aceptados</button>
+        </form>
+        <form action="filtros-postulante" method="post">
+         <input type="search" name="nombre" placeholder="Buscar por Bootcamp">
+            <button type="submit">Bootcamp</button>
         </form>
         <table>
             <tr>
