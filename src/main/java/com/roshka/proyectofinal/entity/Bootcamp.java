@@ -2,7 +2,7 @@ package com.roshka.proyectofinal.entity;
 
 public class Bootcamp {
     private int id, id_lenguaje, id_profesor;
-    private String fecha_inicio,fecha_fin,descripcion,imagen,titulo;
+    private String fecha_inicio,fecha_fin,descripcion,imagen,titulo, nombre_profesor, apellido_profesor, nombre_lenguaje;
     private boolean activo;
 
     public Bootcamp() {
@@ -22,6 +22,10 @@ public class Bootcamp {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId_lenguaje() {
@@ -81,12 +85,35 @@ public class Bootcamp {
     }
 
     public boolean getActivo() {
-        return activo;
+        return this.activo;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public boolean setActivo(boolean activo) {
+        return this.activo = activo;
     }
 
+    public String getNombre_profesor() {
+        return nombre_profesor;
+    }
+
+    public void setNombre_profesor(String nombre_profesor) {
+        this.nombre_profesor = nombre_profesor;
+    }
+
+    public String getApellido_profesor() {
+        return apellido_profesor;
+    }
+
+    public void setApellido_profesor(String apellido_profesor) {
+        this.apellido_profesor = apellido_profesor;
+    }
+
+    public String getNombre_lenguaje() {
+        return nombre_lenguaje;
+    }
+
+    public void setNombre_lenguaje(String nombre_lenguaje) {
+        this.nombre_lenguaje = nombre_lenguaje;
+    }
 }
 

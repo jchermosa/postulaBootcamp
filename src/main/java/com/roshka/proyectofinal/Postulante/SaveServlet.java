@@ -80,13 +80,27 @@ public class SaveServlet extends HttpServlet {
             }
                 int status=PostulanteDao.save(postulante);
                 if(status>0){
-                    out.print("<p>Record saved successfully!</p>");
-                    request.getRequestDispatcher("index.html").include(request, response);
+                    //out.print("<p>Record saved successfully!</p>");
+                    out.print(" <div class=\"alert\">\n" +
+                            "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                            "  <strong>Formulario Cargado!</strong> EXITOSAMENTE CARGADO\n" +
+                            "</div>");
+                    request.getRequestDispatcher("formulario.jsp").include(request, response);
                 }else{
                     if (rechazarDatos){
-                        out.println("El correo ingresado ya esta registrado para el bootcamp actual");
+                        //out.println("El correo ingresado ya esta registrado para el bootcamp actual");
+                        out.print(" <div class=\"alert info\">\n" +
+                                "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                                "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
+                                "</div>");
+                        request.getRequestDispatcher("formulario.jsp").include(request, response);
                     }else {
-                        out.println("Sorry! unable to save record");
+                        out.println("Error al cargar datos");
+                        out.print(" <div class=\"alert info error\">\n" +
+                                "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                                "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
+                                "</div>");
+                        request.getRequestDispatcher("formulario.jsp").include(request, response);
                     }
                 }
 

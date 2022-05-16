@@ -1,0 +1,124 @@
+/* el header donde va el logo y el menu  */
+html,body{
+    background-image: url(imagenes/descarga.svg);
+
+}
+/* damos los estilos a todo lo que contiene el body  */
+body{
+    background-color: rgba(11, 49, 110, 0.75);
+    font-family:Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    color: wheat;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160%;}
+
+}
+/* para el logo */
+img{
+    width: 165px;
+    padding: 10px;
+}
+
+p.enter{
+    text-align: center;
+    font-size: 20px;
+}
+/* para el parrafo */
+p:hover{
+    color: yellow;
+}
+
+/* para el create o sea para el main */
+.create{
+    width: 100%;
+    max-width: 785px;
+    min-width: 320px;
+    border-radius: 15px;
+    background-color: rgba(11, 49, 110, 0.75);
+    padding: 1rem;
+
+}
+/* contenedor */
+/* para el forrmulario */
+.form label{
+
+   display: block;
+       border: none;
+
+       align-items:center;
+
+
+}
+
+.form input{
+    display: block;
+    border: none;
+    width: 50%;
+    align-items:center;
+}
+.form input[type="email"],.form input[type="text"],.form input[type="number"]{
+   background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid #000;
+
+}
+.form input:hover{
+    background-color: wheat;
+}
+
+
+
+a{
+    text-decoration: none;
+}
+ul{
+list-style:none;
+font-size:15px;
+}
+
+a{
+text-decoration:none;
+color:black;
+background-color: #21211d;
+border-radius: 10px;
+  color: #FFF;
+  padding: 10px;
+  margin:15px;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: url(imagenes/descarga.svg);
+}
+ .form input[type="reset"] , .form input[type="submit"]{
+        text-decoration:none;
+        background-color: rgba(11, 49, 110, 0.75);
+          background-image: url(imagenes/descarga.svg);
+        border-radius: 10px;;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        color:#ffff;
+        text-align:left;
+        cursor: pointer;
+        width:80px;
+        text-align:center;
+    }
+
+
+input#ruby,input#python,input#c,input#javascript,input#java{
+width:20px;
+
+}
+input#experiencia_laboral,input#notebook,input#universidad{
+width:100px;
+}
+
+
+
+
+
+/* parrafo final */
+//mi parte jose leeme
+
+</style>
