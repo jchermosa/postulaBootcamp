@@ -116,11 +116,11 @@ public class SaveServlet extends HttpServlet {
                             out.println("<a href=formulario.jsp >Volver al cuestionario</a>");
                         }else {
                             out.println("<p>El correo ingresado ya esta registrado para el bootcamp actual<p>");
-                            //request.getRequestDispatcher("").include(request, response);
+
                         }
                     }else{
                         out.println("Error");
-                        //out.println("<script> window.alert('Falla al enviar la postulacion,Intente de nuevo') </script>");
+
                     }
                 }
 
