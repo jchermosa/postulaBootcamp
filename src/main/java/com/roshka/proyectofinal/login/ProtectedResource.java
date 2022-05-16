@@ -1,9 +1,12 @@
-package com.roshka.proyectofinal;
+package com.roshka.proyectofinal.login;
 
 import java.io.*; 
 import java.util.*; 
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
+
+@WebServlet("/protected")
 
 public class ProtectedResource extends HttpServlet {
 
@@ -22,7 +25,7 @@ public class ProtectedResource extends HttpServlet {
 				session.setAttribute("login.target",
 						HttpUtils.getRequestURL(req).toString());
 				res.sendRedirect(req.getScheme() + "://" + req.getServerName() + ":"
-							+ req.getServerPort() + "/login.jsp");
+							+ req.getServerPort() + "/finalProyect2/login.jsp");
 				return;
 			}
 			// El usuario se loggeo y puede ver el recurso
