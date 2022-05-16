@@ -19,16 +19,12 @@
              LenguajeDao lenDao = new LenguajeDao();
              List<Lenguaje> listLenguaje = lenDao.listar();
              Iterator<Lenguaje> iter =  listLenguaje.iterator();
-<<<<<<< HEAD
              Lenguaje len = null;
 
              ProfesorDao profeDao = new ProfesorDao();
              List<Profesor> listProfesor = profeDao.listar();
              Iterator<Profesor> iterProfe =  listProfesor.iterator();
              Profesor profe = null;
-=======
-                         Lenguaje len = null;
->>>>>>> develop
              %>
                     <form action="" method="post">
                         <label for="lenguaje">Lenguajes:</label>
@@ -42,7 +38,6 @@
                         </option>
                         <% } %>
                     </select>
-<<<<<<< HEAD
 
                     <label for="lenguaje">Profesores:</label>
                     <select name="lenguaje" id="lenguaje">
@@ -56,25 +51,7 @@
                         <% } %>
                     </select>
                 </form>
-            <%=
-                                Bootcamp editBootcampList = (Bootcamp)request.getAttribute("id");
-                                if (editBootcampList) {
 
-                                <form action="" method="post">
-                                        <label for="titulo">titulo:</label>
-                                        <input type="text" name="titulo" id="titulo" value=<%= editBootcampList.getTitulo() %>>
-                                        <label for="descripcion">descripcion:</label>
-                                        <input type="text" name="descripcion" id="descripcion" value=<%= editBootcampList.getDescripcion() %>>
-                                        <label for="fecha_inicio">fecha de inicio:</label>
-                                        <input type="text" name="fecha_inicio" id="fecha_inicio" value=<%= editBootcampList.getFecha_inicio() %>>
-                                        <label for="fecha_fin">fecha de fin:</label>
-                                        <input type="text" name="fecha_fin" id="fecha_fin" value=<%= editBootcampList.getFecha_inicio() %>>
-                                        <label for="profesor"> profesor: </label>
-                                        <input type="text" name="profesor" id="profesor" value=<%= editBootcampList.getNombre_profesor() %>>
-                                        <label for="lenguaje"> lenguaje </label>
-                                        <input type="text" name="lenguaje" id="lenguaje">
-                                    </form>
-                                }%>
 
         </div>
 
@@ -116,7 +93,7 @@
                           </form>
                     </th>
                     <th>
-                        <form action="DeleteServlet" method="get">
+                        <form action="DeleteServletBootcamp" method="get">
                             <input type="hidden" name="id" value= <%= boot.getId() %> >
                             <input type="submit" value="Borrar" > </input>
                         </form>
@@ -125,9 +102,7 @@
                     <% } %>
               </tbody>
             </table>
-=======
                     </form>
->>>>>>> develop
         </div>
     </body>
 

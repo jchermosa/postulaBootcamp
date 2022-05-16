@@ -2,6 +2,7 @@ package com.roshka.proyectofinal.profesor;
 
 import com.roshka.proyectofinal.entity.Profesor;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet("/SaveServletProfesor")
 public class SaveServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -25,7 +27,7 @@ public class SaveServlet extends HttpServlet {
         int status=ProfesorDao.save(p);
         if(status>0){
             out.print("<p>Record saved successfully!</p>");
-            request.getRequestDispatcher("index.html").include(request, response);
+            request.getRequestDispatcher("formulario_profesor.jsp").include(request, response);
         }else{
             out.println("Sorry! unable to save record");
         }

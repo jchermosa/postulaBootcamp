@@ -2,7 +2,6 @@ package com.roshka.proyectofinal.bootcamp;
 
 import com.roshka.proyectofinal.DataBase;
 import com.roshka.proyectofinal.entity.Bootcamp;
-import com.roshka.proyectofinal.entity.Profesor;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -97,6 +96,21 @@ public class BootcampDao {
         return list;
     }
 
+    public static int delete(int id){
+        int status=0;
+        try{
+            Connection con=DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("delete from bootcamp where id=?");
+            ps.setInt(1,id);
+            status=ps.executeUpdate();
+
+            con.close();
+        }catch(Exception e){e.printStackTrace();}
+
+        return status;
+    }
+
+
     public static Bootcamp getBootcampById(int id){
         Bootcamp b=new Bootcamp();
 
@@ -122,19 +136,4 @@ public class BootcampDao {
 
         return b;
     }
-
-    public static int delete(int id){
-        int status=0;
-        try{
-            Connection con=DataBase.getConnection();
-            PreparedStatement ps=con.prepareStatement("delete from bootcamp where id=?");
-            ps.setInt(1,id);
-            status=ps.executeUpdate();
-
-            con.close();
-        }catch(Exception e){e.printStackTrace();}
-
-        return status;
-    }
-
 }

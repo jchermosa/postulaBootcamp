@@ -1,7 +1,6 @@
 package com.roshka.proyectofinal.profesor;
 
 import com.roshka.proyectofinal.DataBase;
-import com.roshka.proyectofinal.entity.Bootcamp;
 import com.roshka.proyectofinal.entity.Profesor;
 
 import java.sql.Connection;
@@ -58,5 +57,40 @@ public class ProfesorDao {
             throw new RuntimeException(e);
         }
         return list;
+    }
+
+    public static int delete(int id){
+        int status=0;
+        try{
+            Connection con=DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("delete from profesor where id=?");
+            ps.setInt(1,id);
+            status=ps.executeUpdate();
+
+            con.close();
+        }catch(Exception e){e.printStackTrace();}
+
+        return status;
+    }
+
+    public static Profesor getProfesorById(int id){
+        Profesor p=new Profesor();
+
+        try{
+            Connection con=DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("select * from profesor where id=?");
+            ps.setInt(1,id);
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setNombre(rs.getString("nombre"));
+                p.setApellido(rs.getString("apellido"));
+                p.setNro_cedula(rs.getInt("nro_cedula"));
+                p.setCorreo(rs.getString("correo"));
+            }
+            con.close();
+        }catch(Exception ex){ex.printStackTrace();}
+
+        return p;
     }
 }

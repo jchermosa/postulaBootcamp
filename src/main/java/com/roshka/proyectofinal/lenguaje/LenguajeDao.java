@@ -1,6 +1,7 @@
 package com.roshka.proyectofinal.lenguaje;
 
 import com.roshka.proyectofinal.DataBase;
+import com.roshka.proyectofinal.entity.Bootcamp;
 import com.roshka.proyectofinal.entity.Lenguaje;
 import jakarta.servlet.RequestDispatcher;
 
@@ -49,5 +50,38 @@ public class LenguajeDao {
             throw new RuntimeException(e);
         }
         return list;
+    }
+
+    public static int delete(int id){
+        int status=0;
+        try{
+            Connection con=DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("delete from lenguaje where id=?");
+            ps.setInt(1,id);
+            status=ps.executeUpdate();
+
+            con.close();
+        }catch(Exception e){e.printStackTrace();}
+
+        return status;
+    }
+
+
+    public static Lenguaje getLenguajeById(int id){
+        Lenguaje lenguaje=new Lenguaje();
+
+        try{
+            Connection con=DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("select * from lenguaje where id=?");
+            ps.setInt(1,id);
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                lenguaje.setId(rs.getInt("id"));
+                lenguaje.setNombre_lenguaje(rs.getString("nombre_lenguaje"));
+            }
+            con.close();
+        }catch(Exception ex){ex.printStackTrace();}
+
+        return lenguaje;
     }
   }
