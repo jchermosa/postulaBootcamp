@@ -82,9 +82,8 @@ pageEncoding="UTF-8"%>
                                 </td>
                                 <td>
                                     <form method="post" action="EditServletPostulante">
-                                        <input type="hidden" value=<% %> id=
-                                        <%=rs.getInt( "id") %>>
-                                            <%
+                                        <input type="hidden" value="<%=rs.getInt('id') %>">
+                                        <%
                                         String accion = "";
                                     if (rs.getBoolean("aceptado")){
                                         accion= "Rechazar";
@@ -92,8 +91,8 @@ pageEncoding="UTF-8"%>
                                         accion="Aceptar";
                                     }
                                     %>
-                                                <input type="submit" value=<%=accion %>
-                                                <a href=""></a>
+                                            <input type="submit" name="" value=<%=accion %>
+                                            <a href=""></a>
                                     </form>
 
                                 </td>
