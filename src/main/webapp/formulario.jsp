@@ -97,24 +97,13 @@ pageEncoding="UTF-8"%>
                                                 </li>
                                                 <% } %>
                                         </ul>
-
-
-
-
                                         <input class="enviar info error" type="submit">
                                         <input class="borrar" type="reset" value="Borrar"><br>
                                         <a href="index.html">volver</a>
-
                             </form>
-
-
-
                 </article>
-
-
             </main>
         </body>
-
         </html>
         <script>
             (function() {

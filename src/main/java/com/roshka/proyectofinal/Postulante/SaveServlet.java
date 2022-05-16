@@ -114,7 +114,6 @@ public class SaveServlet extends HttpServlet {
                 request.getRequestDispatcher("formulario.jsp").include(request, response);
             }else{
                 if (rechazarDatos){
-
                     out.print(" <div class=\"alert info\">\n" +
                             "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
                             "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
