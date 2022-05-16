@@ -69,7 +69,7 @@ public class SaveServlet extends HttpServlet {
             if (request.getParameter("universidad") != null){
                 universidad = true;
             }
-            Bootcamp bootcamp = new Bootcamp();
+
             Postulante postulante=new Postulante();
             PostulanteLenguaje cargarLenguaje = new PostulanteLenguaje();
             int status = 0;
@@ -105,51 +105,30 @@ public class SaveServlet extends HttpServlet {
                     }
                 }
             }
-<<<<<<< HEAD
-                if(status >0 && statusLenguaje > 0){
-                    //out.println("<script> window.alert('Postulacion exitosa') </script>");
-                    out.print("<p>Record saved successfully!</p>");
-                    request.getRequestDispatcher("formulario.jsp").include(request, response);
-                }else{
-                    if (rechazarDatos){
-                        if (contador == 0){
-                            out.println("Debe seleccionar al menos una opcion de lenguaje que conoce para postularse");
-                            out.println("<a href=formulario.jsp >Volver al cuestionario</a>");
-                        }else {
-                            out.println("<p>El correo ingresado ya esta registrado para el bootcamp actual<p>");
+            if(status>0){
+                //out.print("<p>Record saved successfully!</p>");
+                out.print(" <div class=\"alert\">\n" +
+                        "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                        "  <strong>Formulario Cargado!</strong> EXITOSAMENTE CARGADO\n" +
+                        "</div>");
+                request.getRequestDispatcher("formulario.jsp").include(request, response);
+            }else{
+                if (rechazarDatos){
 
-                        }
-                    }else{
-                        out.println("Error");
-
-=======
-                int status=PostulanteDao.save(postulante);
-                if(status>0){
-                    //out.print("<p>Record saved successfully!</p>");
-                    out.print(" <div class=\"alert\">\n" +
+                    out.print(" <div class=\"alert info\">\n" +
                             "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
-                            "  <strong>Formulario Cargado!</strong> EXITOSAMENTE CARGADO\n" +
+                            "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
                             "</div>");
                     request.getRequestDispatcher("formulario.jsp").include(request, response);
-                }else{
-                    if (rechazarDatos){
-                        //out.println("El correo ingresado ya esta registrado para el bootcamp actual");
-                        out.print(" <div class=\"alert info\">\n" +
-                                "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
-                                "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
-                                "</div>");
-                        request.getRequestDispatcher("formulario.jsp").include(request, response);
-                    }else {
-                        out.println("Error al cargar datos");
-                        out.print(" <div class=\"alert info error\">\n" +
-                                "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
-                                "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
-                                "</div>");
-                        request.getRequestDispatcher("formulario.jsp").include(request, response);
->>>>>>> 9f750c7a848792df924b81bbb2c48da70f9d8765
-                    }
+                }else {
+                    out.println("Error al cargar datos");
+                    out.print(" <div class=\"alert info error\">\n" +
+                            "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                            "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
+                            "</div>");
+                    request.getRequestDispatcher("formulario.jsp").include(request, response);
                 }
-
+            }
         }catch (Exception ex){
                 ex.printStackTrace();
         }

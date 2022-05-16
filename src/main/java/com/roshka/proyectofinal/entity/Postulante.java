@@ -48,10 +48,6 @@ public class Postulante {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getNro_cedula() {
         return nroCedula;
     }
@@ -123,35 +119,13 @@ public class Postulante {
         this.id = id;
     }
 
-    public int getNroCedula() {
-        return nroCedula;
-    }
-
     public void setNroCedula(int nroCedula) {
         this.nroCedula = nroCedula;
-    }
-
-    public String getNombreBootcamp() {
-        return nombreBootcamp;
     }
 
     public void setNombreBootcamp(String nombreBootcamp) {
         this.nombreBootcamp = nombreBootcamp;
     }
 
-    public boolean isExpLaboral() {
-        return expLaboral;
-    }
 
-    public boolean isEstudioUniversitario() {
-        return estudioUniversitario;
-    }
-
-    public boolean isNotebook() {
-        return notebook;
-    }
-
-    public boolean isAceptado() {
-        return aceptado;
-    }
 }
