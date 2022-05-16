@@ -16,14 +16,6 @@
                 placeholder="Buscar por nombre">
             <button type="submit">Buscar</button>
         </form>
-        <form action="filtros-postulante" method="post">
-            <input type="hidden" name="nombre" value="aceptado">
-            <button type="submit">Aceptados</button>
-        </form>
-        <form action="filtros-postulante" method="post">
-         <input type="search" name="nombre" placeholder="Buscar por Bootcamp">
-            <button type="submit">Bootcamp</button>
-        </form>
         <table>
             <tr>
                 <th>#</th>
@@ -35,9 +27,24 @@
                 <th>Direccion</th>
                 <th>Experiencia laboral</th>
                 <th>Estudio universitario</th>
-                <th>Notebook</th>
-                <th>Bootcamp</th>
-                <th>Aceptado</th>
+                <th>
+                    <form action="filtros-postulante" method="post">
+                        <input type="hidden" name="nombre" value="notebook">
+                        <button type="submit">Notebooks</button>
+                    </form>
+                </th>
+                <th>
+                    <form action="filtros-postulante" method="post">
+                        <input type="search" name="nombre" placeholder="Buscar por Bootcamp" required>
+                           <button type="submit">Bootcamp</button>
+                       </form>
+                </th>
+                <th>
+                    <form action="filtros-postulante" method="post">
+                        <input type="hidden" name="nombre" value="aceptado">
+                        <button type="submit">Aceptado</button>
+                    </form>
+                </th>
                 <th></th>
             </tr>
             <tbody>
@@ -80,7 +87,17 @@
 	                            SI
                             </c:if>
                             <c:if test="${postulante.aceptado != true}">
-	                            <button><a href="filtros-postulante?id=${postulante.id}">Aceptar postulante</a></button>
+	                            NO
+                            </c:if>
+                        </td>
+                        <td>
+                            <c:if test="${postulante.aceptado == true}">
+                                <input type="hidden" name="valor" value="false">
+	                            <button><a href="filtros-postulante?id=${postulante.id}">Rechazar</a></button>
+                            </c:if>
+                            <c:if test="${postulante.aceptado != true}">
+                                <input type="hidden" name="valor" value="true">
+	                            <button><a href="filtros-postulante?id=${postulante.id}">Aceptar</a></button>
                             </c:if>
                         </td>
                     </tr>

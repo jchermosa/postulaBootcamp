@@ -73,17 +73,31 @@ public class PostulanteDao {
         return postulante;
     }
 
-    public static void update(int id){
-        try{
-            Connection con= DataBase.getConnection();
-            PreparedStatement ps=con.prepareStatement("update postulante set aceptado= true\n" +
-                    "where id=?");
-            ps.setInt(1,id);
-            ps.executeUpdate();
-            con.close();
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
+    public static void update(int id, Boolean valor){
+       if(valor==true){
+           try{
+               Connection con= DataBase.getConnection();
+               PreparedStatement ps=con.prepareStatement("update postulante set aceptado= false\n" +
+                       "where id=?");
+               ps.setInt(1,id);
+               ps.executeUpdate();
+               con.close();
+           }catch(Exception ex){
+               ex.printStackTrace();
+           }
+       }else {
+           try{
+               Connection con= DataBase.getConnection();
+               PreparedStatement ps=con.prepareStatement("update postulante set aceptado= true\n" +
+                       "where id=?");
+               ps.setInt(1,id);
+               ps.executeUpdate();
+               con.close();
+           }catch(Exception ex){
+               ex.printStackTrace();
+           }
+       }
+
     }
 
     public static List<Postulante> buscarPorNombre(String nombre){
@@ -177,6 +191,44 @@ public class PostulanteDao {
             postulante = new ArrayList<>();
             Postulante postulanteObject= new Postulante();
             while(rs.next()){
+                postulanteObject.setId(rs.getInt("id"));
+                postulanteObject.setNombre(rs.getString("nombre"));
+                postulanteObject.setApellido(rs.getString("apellido"));
+                postulanteObject.setNroCedula(rs.getInt("nro_cedula"));
+                postulanteObject.setCorreo(rs.getString("correo"));
+                postulanteObject.setTelefono(rs.getString("telefono"));
+                postulanteObject.setDireccion(rs.getString("direccion"));
+                postulanteObject.setExpLaboral(rs.getBoolean("experiencia_laboral"));
+                postulanteObject.setEstudioUniversitario(rs.getBoolean("estudio_universitario"));
+                postulanteObject.setBootcampId(rs.getInt("bootcamp_id"));
+                postulanteObject.setNotebook(rs.getBoolean("notebook"));
+                postulanteObject.setNombreBootcamp(rs.getString("bootcamp"));
+                postulanteObject.setAceptado(rs.getBoolean("aceptado"));
+                postulante.add(postulanteObject);
+            }
+            con.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return postulante;
+    }
+
+    public static List<Postulante> buscarPorNoteBook(){
+        List<Postulante> postulante = null;
+        Postulante postulanteObject = null;
+        try{
+            Connection con= DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("select a.id, a.nombre, a.apellido, a.nro_cedula, a.correo, " +
+                    "a.telefono, a.direccion, a.experiencia_laboral, a.estudio_universitario, a.bootcamp_id, a.notebook, " +
+                    "c.nombre_lenguaje as bootcamp, \n" + "a.aceptado from postulante a\n" +
+                    "  inner join bootcamp b on b.id= a.bootcamp_id\n" +
+                    "  inner join lenguaje c on c.id=b.id_lenguaje\n" +
+                    "  where a.notebook=true ");
+            ResultSet rs = ps.executeQuery();
+            postulante = new ArrayList<>();
+            postulanteObject= new Postulante();
+            while(rs.next()){
+
                 postulanteObject.setId(rs.getInt("id"));
                 postulanteObject.setNombre(rs.getString("nombre"));
                 postulanteObject.setApellido(rs.getString("apellido"));
