@@ -28,8 +28,6 @@ public class SaveServlet extends HttpServlet {
             activo = true;
         }
 
-
-
         Bootcamp b =new Bootcamp( id_lenguaje, id_profesor, fecha_inicio, fecha_fin, descripcion, imagen, titulo, activo);
 
         int status= BootcampDao.save(b);
