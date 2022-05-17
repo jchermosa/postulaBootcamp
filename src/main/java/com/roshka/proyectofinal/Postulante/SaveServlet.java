@@ -4,6 +4,7 @@ import com.roshka.proyectofinal.DataBase;
 import com.roshka.proyectofinal.entity.Postulante;
 import com.roshka.proyectofinal.entity.Bootcamp;
 import com.roshka.proyectofinal.entity.PostulanteLenguaje;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,13 +19,13 @@ import java.sql.Statement;
 
 @WebServlet("/SaveServlet")
 public class SaveServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
         boolean rechazarDatos = false;
-        int bootcampActual = Integer.parseInt(request.getParameter("bootcamp_id"));
+        int bootcampActual = Integer.parseInt(request.getParameter("bootcamp"));
 
         try {
             Connection con = DataBase.getConnection();
@@ -107,25 +108,38 @@ public class SaveServlet extends HttpServlet {
             }
             if(status>0){
                 //out.print("<p>Record saved successfully!</p>");
+
                 out.print(" <div class=\"alert\">\n" +
                         "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
                         "  <strong>Formulario Cargado!</strong> EXITOSAMENTE CARGADO\n" +
                         "</div>");
-                request.getRequestDispatcher("formulario.jsp").include(request, response);
+                request.setAttribute("bootcamp", bootcampActual);
+                RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
+                rd.include(request, response);
+                //RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
+                //rd.include(request, response);
             }else{
                 if (rechazarDatos){
-                    out.print(" <div class=\"alert info\">\n" +
-                            "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
-                            "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
-                            "</div>");
-                    request.getRequestDispatcher("formulario.jsp").include(request, response);
+
+                    out.print("<div class='alert info''>");
+                    out.print("<span class='closebtn'' onclick='this.parentElement.style.display='none';'>&times;</span>");
+                    out.print("<strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO");
+                    out.print("</div>");
+                    //request.getRequestDispatcher("formulario.jsp").include(request, response);
+                    request.setAttribute("bootcamp", bootcampActual);
+                    RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
+                    rd.include(request, response);
                 }else {
+
                     out.println("Error al cargar datos");
-                    out.print(" <div class=\"alert info error\">\n" +
-                            "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
-                            "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
+                    out.print("<div class='alert info error'>" +
+                            "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                            "<strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
                             "</div>");
-                    request.getRequestDispatcher("formulario.jsp").include(request, response);
+                    request.setAttribute("bootcamp", bootcampActual);
+                    RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
+                    rd.include(request, response);
+                    //request.getRequestDispatcher("formulario.jsp").include(request, response);
                 }
             }
         }catch (Exception ex){
