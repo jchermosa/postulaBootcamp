@@ -83,9 +83,9 @@
             <ul>
                 <li><a href="formulario_bootcamp.jsp"> MANAGE BOOTCAMP </a></li>
                 <li><a href="filtros-postulante"> MANAGE POSTULANTE </a></li>
-                <li><a href="#"> MANAGE LENGUAJES  </a></li>
-                <li><a href="#"> MANAGE PROFESORES </a></li>
-                <li><a href="#"> USUARIO NUEVO (ADMINISTRADOR) </a></li>
+                <li><a href="formulario_lenguaje.jsp"> MANAGE LENGUAJES  </a></li>
+                <li><a href="formulario_profesor.jsp"> MANAGE PROFESORES </a></li>
+                
             </ul>
         </div>
 
