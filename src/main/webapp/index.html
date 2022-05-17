@@ -9,7 +9,7 @@
     <!-- para concectar con css  -->
 
 
-    <link rel="stylesheet" href="estilos/home.css">
+    <link rel="stylesheet" href="home.css">
 
     <!-- el icono para la pagina  -->
     <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
@@ -26,15 +26,9 @@
 
         <ul>
             <li class="link-menu"><a href="">Home</a></li>
-            <li class="link-menu"><a href="formulario.jsp">Postulate</a></li>
-            <li class="link-menu"><a href="formulario_bootcamp.jsp">Crear bootcamp</a>
-            <li class="link-menu"><a href="login.jsp">Login</a>
-            <li class="link-menu"><a href="protected">Recurso Protegido</a></li>
+            <li class="link-menu"><a href="bootcamp.jsp">Postulate</a></li>
             </li>
-            <li class="link-menu"><a href="formulario_lenguaje.jsp">Crear lenguaje</a>
-            </li>
-            <li class="link-menu"><a href="formulario_profesor.jsp">Crear profesor</a>
-            </li>
+
         </ul>
 
     </div>
@@ -63,7 +57,7 @@
                 <p data-block-key="cwggy">Es un campo de entrenamiento intensivo y gratuito para principiantes que ya programan y quieren ser parte de la empresa</p>
             </div>
             <div class="postulacion">
-                <a href="formulario.jsp"><button type="submit" class="cta-main">POSTULACION</button></a>
+                <a href="bootcamp.jsp"><button type="submit" class="cta-main">POSTULACION</button></a>
                 <!--  <a href="/postulacion" class="cta-main">POSTULACION</a> -->
             </div>
         </div>
@@ -87,130 +81,3 @@
 </body>
 
 </html>
-<style>
-    img.logoi {
-        width: 200px;
-    }
-    
-    img {
-        width: 400px;
-        padding: 10px;
-        display: block;
-        padding: 10px;
-    }
-    
-    .header {
-        margin-bottom: 0;
-        width: 700px;
-    }
-    
-    a {
-        float: right 100px;
-        color: #fff;
-        font-size: larger;
-        text-decoration: none;
-        padding: 10px;
-    }
-    
-    body {
-        background: linear-gradient(100deg, rgba(20, 99, 155, 0.25), rgba(30, 148, 227, 0.25));
-        background-image: url(imagenes/descarga.svg);
-        background-size: contain;
-        background-attachment: fixed;
-        background-blend-mode: multiply;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        color: white;
-        position: relative;
-        width: 100px;
-        height: 100px;
-    }
-    /* ul{
-    list-style: none;
-}
-.menu >ul{
-    float: right;
-}
-
-.menu li a {
-
-    color:#fff;
-    text-decoration:none;
-    padding:10px 12px;
-    display:block;
-}
-
-.menu li ul li {
-    marging-left
-    position:relative;
-} */
-    
-    .menu {
-        width: 400%;
-        float: left;
-    }
-    
-    .menu ul li {
-        float: right;
-        list-style-type: none;
-        text-align: right;
-    }
-    
-    div.menu {
-        float: right;
-    }
-    
-    .menu ul li a {
-        padding-left: 5px;
-        text-decoration: none;
-        font-size: clamp(145px);
-        text-transform: uppercase;
-        display: block;
-        position: relative;
-        overflow: hidden;
-        padding-bottom: 50px;
-        white-space: nowrap;
-    }
-    
-    .grafico,
-    svg {
-        max-width: 50px;
-        display: block;
-        height: auto;
-    }
-    
-    .seccion.hero {
-        margin-top: 10px;
-        padding-bottom: 10px;
-        width: 900px;
-    }
-    
-    .hero {
-        perspective: 100px;
-    }
-    
-    .hero {
-        display: grid;
-        grid-template-columns: auto repeat(5, 0.5fr) auto;
-    }
-    
-    .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-left: 200px;
-        /* padding-right: 200px;
- */
-    }
-    /*  */
-    
-    .postulacion {
-        border-radius: 30px;
-    }
-    
-    .cta-main {
-        width: 200px;
-        font-family: monospace;
-        background-color: yellow;
-        border: none;
-    }
-</style>

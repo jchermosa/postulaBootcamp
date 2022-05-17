@@ -30,35 +30,54 @@ public class ProfesorDao {
 
         return status;
     }
-
-    public static List<Profesor> listar(){
+    public static List<Profesor> listarProfesor(){
         ArrayList<Profesor> list = new ArrayList<>();
         String sql = "select * from profesor";
-
         try{
             Connection con= DataBase.getConnection();
             PreparedStatement ps=con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-
-
             while(rs.next()){
-                Profesor profe = new Profesor();
-                profe.setId(rs.getInt("id"));
-                profe.setNombre(rs.getString("nombre"));
-                profe.setApellido(rs.getString("apellido"));
-                profe.setNro_cedula(rs.getInt("nro_cedula"));
-                profe.setCorreo(rs.getString("correo"));
-
-                list.add(profe);
+                Profesor profesorObject = new Profesor();
+                profesorObject.setNombre(rs.getString("nombre"));
+                profesorObject.setApellido(rs.getString("apellido"));
+                profesorObject.setNro_cedula(rs.getInt("nro_cedula"));
+                profesorObject.setCorreo(rs.getString("correo"));
+                list.add(profesorObject);
             }
-
             con.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return list;
     }
+    public static List<Profesor> buscarPorNombre(String nombre, String apellido){
+        List<Profesor> profesores = new ArrayList<>();
+        Profesor profesorObject = new Profesor();
+        try{
+            Connection con= DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("select a.id, a.nombre, a.apellido, a.nro_cedula, a.correo from profesor a " +
+                    "  where a.nombre ilike ? and a.apellido ilike ? ");
 
+
+            ps.setString(1, "%" + nombre + "%");
+            ps.setString(2, "%" + apellido + "%");
+            System.out.println(nombre);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+
+                profesorObject.setNombre(rs.getString("nombre"));
+                profesorObject.setApellido(rs.getString("apellido"));
+                profesorObject.setNro_cedula(rs.getInt("nro_cedula"));
+                profesorObject.setCorreo(rs.getString("correo"));
+                profesores.add(profesorObject);
+            }
+            con.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return profesores;
+    }
     public static int delete(int id){
         int status=0;
         try{
@@ -71,26 +90,5 @@ public class ProfesorDao {
         }catch(Exception e){e.printStackTrace();}
 
         return status;
-    }
-
-    public static Profesor getProfesorById(int id){
-        Profesor p=new Profesor();
-
-        try{
-            Connection con=DataBase.getConnection();
-            PreparedStatement ps=con.prepareStatement("select * from profesor where id=?");
-            ps.setInt(1,id);
-            ResultSet rs=ps.executeQuery();
-            if(rs.next()){
-                p.setId(rs.getInt("id"));
-                p.setNombre(rs.getString("nombre"));
-                p.setApellido(rs.getString("apellido"));
-                p.setNro_cedula(rs.getInt("nro_cedula"));
-                p.setCorreo(rs.getString("correo"));
-            }
-            con.close();
-        }catch(Exception ex){ex.printStackTrace();}
-
-        return p;
     }
 }
