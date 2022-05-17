@@ -42,10 +42,10 @@ pageEncoding="UTF-8"%>
                             </p>
                             <p class="enter">Si sigues interesado y cumples con los requisitos, completa el siguiente formulario: </p>
 
-                            <form method="post" action="SaveServlet" class="form">
+                            <form method="get" action="SaveServlet" class="form">
 
 
-                                <input type="hidden" name="bootcamp_id" value="<%= request.getParameter("bootcamp") %>">
+                                <input type="hidden" name="bootcamp" value="<%= request.getParameter("bootcamp") %>">
 
                                 <label for="nombre">Ingrese su Nombre:</label>
                                 <input required id="nombre" name="nombre" type="text"><br>
