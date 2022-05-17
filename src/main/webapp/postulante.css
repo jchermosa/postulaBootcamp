@@ -1,10 +1,82 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:400,700';
+
 body{
-background-image: url(imagenes/descarga.svg);
-height: 100%;
-font-family: 'Quicksand', sans-serif;
-color: white;
-webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  background-image: url(imagenes/descarga.svg);
+    font-family:Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    font-weight: bold;
+   font-size: medium;
 }
-h1{ font-size: 40px
+
+img{
+    width: 165px;
+    padding: 5px;
+}
+.container{
+    width: 300%;
+    max-width: 785px;
+    min-width: 320px;
+    border-radius: 15px;
+    padding: 1rem;
+   
+}
+table{
+   /*  background-color: wheat; */
+    text-align: left;
+    border-collapse: collapse;
+    width: 150%;
+  /*   border: solid 3px black; */
+}
+a{
+    text-decoration: none;
+    color: antiquewhite;
+}
+h1{
+    font-family:Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    text-align: right;
+    color:wheat;
+    font-weight:bold;
+    
+}
+
+button{
+    margin:5px;
+    background-image: url(imagenes/descarga.svg);
+    color: aliceblue;
+}
+th,td{
+    margin: 2px;
+   
+}
+table tr:nth-child(odd) {      /*  background-color: aliceblue; */
+   
+    /* background-color: rgba(11, 49, 110, 0.75)  */
+    background-color: transparent;
+}
+
+table tr:nth-child(even) {    background-image: url(imagenes/descarga.svg);
+}
+td{
+    padding: 3px;
+  border-color: red;
+  text-align: center;
+  /* border: solid 1px coral; */
+}
+th{
+    padding: 5px;
+    text-align: center;
+    /* border: solid 4px black; */
+}
+th:hover{
+    background-color: brown;
+}
+
+tbody{
+ margin: 15px;
+padding: 15px
+}
+
+tr:hover td { background: aqua;  }
+th { border: 1px solid black; height: 30px;
+    background-image: url(imagenes/descarga.svg);
+ } 
+button:hover{
+color: yellow;}
