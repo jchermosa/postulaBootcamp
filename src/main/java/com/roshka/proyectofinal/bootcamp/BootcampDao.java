@@ -15,7 +15,7 @@ public class BootcampDao {
         try{
             Connection con= DataBase.getConnection();
             PreparedStatement ps=con.prepareStatement(
-                    "insert into bootcamp (id_lenguaje,id_profesor,fecha_inicio,fecha_fin,descripcion,imagen,titulo,activo) values (?,?,?,?,?,?,?,?)");
+                    "insert into bootcamp (id_lenguaje,id_profesor,fecha_inicio,fecha_fin,descripcion,imagen,titulo,activo) values (?,?,?::date,?::date,?,?,?,?)");
             ps.setInt(1,b.getId_lenguaje());
             ps.setInt(2,b.getId_profesor());
             ps.setString(3,b.getFecha_inicio());
@@ -38,7 +38,7 @@ public class BootcampDao {
         try{
             Connection con= DataBase.getConnection();
             PreparedStatement ps=con.prepareStatement(
-                    "update Bootcamp set id_lenguaje=?,id_profesor=?,fecha_inicio=?,fecha_fin=?,descripcion=?,titulo=?,activo=? where id=?");
+                    "update bootcamp set id_lenguaje=?,id_profesor=?,fecha_inicio=?::date,fecha_fin=?::date,descripcion=?,titulo=?,activo=? where id=?");
             ps.setInt(1,b.getId_lenguaje());
             ps.setInt(2,b.getId_profesor());
             ps.setString(3,b.getFecha_inicio());
@@ -50,12 +50,12 @@ public class BootcampDao {
 
             status=ps.executeUpdate();
 
+            System.out.println(status);
             con.close();
         }catch(Exception ex){ex.printStackTrace();}
 
         return status;
     }
-
 
     public static List<Bootcamp> listar(){
         ArrayList<Bootcamp> list = new ArrayList<>();
@@ -126,9 +126,8 @@ public class BootcampDao {
                 b.setTitulo(rs.getString("titulo"));
                 b.setFecha_fin(rs.getString("fecha_fin"));
                 b.setFecha_inicio(rs.getString("fecha_inicio"));
-                b.setNombre_profesor(rs.getString("nombre"));
-                b.setApellido_profesor(rs.getString("apellido"));
-                b.setNombre_lenguaje(rs.getString("nombre_lenguaje"));
+                b.setId_profesor(rs.getInt("id_profesor"));
+                b.setId_lenguaje(rs.getInt("id_lenguaje"));
                 b.setImagen(rs.getString("imagen"));
             }
             con.close();

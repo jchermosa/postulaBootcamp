@@ -2,6 +2,7 @@ package com.roshka.proyectofinal.bootcamp;
 
 import com.roshka.proyectofinal.entity.Bootcamp;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet("/SaveServletBootcamp")
 public class SaveServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -23,8 +25,9 @@ public class SaveServlet extends HttpServlet {
         String imagen=request.getParameter("imagen");
         String titulo=request.getParameter("titulo");
         String activoStr=request.getParameter("activo");
+        System.out.println(activoStr);
         Boolean activo = false;
-        if ( activoStr == "on" ) {
+        if ( activoStr.equals("on") ) {
             activo = true;
         }
 
@@ -33,7 +36,7 @@ public class SaveServlet extends HttpServlet {
         int status= BootcampDao.save(b);
         if(status>0){
             out.print("<p>Record saved successfully!</p>");
-            request.getRequestDispatcher("index.html").include(request, response);
+            request.getRequestDispatcher("formulario_bootcamp.jsp").include(request, response);
         }else{
             out.println("Sorry! unable to save record");
         }

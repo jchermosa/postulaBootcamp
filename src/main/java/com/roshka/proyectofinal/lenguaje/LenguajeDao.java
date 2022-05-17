@@ -66,6 +66,22 @@ public class LenguajeDao {
         return status;
     }
 
+    public static int update(Lenguaje l){
+        int status=0;
+        try{
+            Connection con= DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement(
+                    "update lenguaje set nombre_lenguaje=? where id=?");
+            ps.setString(1,l.getNombre_lenguaje());
+            ps.setInt(2,l.getId());
+
+            status=ps.executeUpdate();
+
+            con.close();
+        }catch(Exception ex){ex.printStackTrace();}
+
+        return status;
+    }
 
     public static Lenguaje getLenguajeById(int id){
         Lenguaje lenguaje=new Lenguaje();

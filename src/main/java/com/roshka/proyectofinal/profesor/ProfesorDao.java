@@ -1,6 +1,7 @@
 package com.roshka.proyectofinal.profesor;
 
 import com.roshka.proyectofinal.DataBase;
+import com.roshka.proyectofinal.entity.Lenguaje;
 import com.roshka.proyectofinal.entity.Profesor;
 
 import java.sql.Connection;
@@ -57,6 +58,26 @@ public class ProfesorDao {
             throw new RuntimeException(e);
         }
         return list;
+    }
+
+    public static int update(Profesor p){
+        int status=0;
+        try{
+            Connection con= DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement(
+                    "update profesor set nombre=?, apellido=?, correo=?, nro_cedula=? where id=?");
+            ps.setString(1,p.getNombre());
+            ps.setString(2,p.getApellido());
+            ps.setString(3,p.getCorreo());
+            ps.setInt(4,p.getNro_cedula());
+            ps.setInt(5,p.getId());
+
+            status=ps.executeUpdate();
+
+            con.close();
+        }catch(Exception ex){ex.printStackTrace();}
+
+        return status;
     }
 
     public static int delete(int id){
