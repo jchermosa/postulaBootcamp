@@ -11,8 +11,9 @@
     </head>
 
     <body>
+
         <div>
-            <h1> CREAR PROFESOR </h1>
+            <h1> CREAR PROFESOR Y FILTRAR </h1>
 
             <%@ page import="com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
 
@@ -21,7 +22,7 @@
         <div>
             <%
                 ProfesorDao profeDao = new ProfesorDao();
-                List<Profesor> listProfe = profeDao.listar();
+                List<Profesor> listProfe = profeDao.listarProfesor();
                 Iterator<Profesor> iterProfe =  listProfe.iterator();
                 Profesor profesor = null;
             %>
@@ -51,6 +52,14 @@
                     Crear Profesor
                 </button>
             </form>
+             <br>
+            <form action="filtros-profesor">
+                        <input name="nombreBuscar">
+                        <input name="apellidoBuscar">
+                        <button type="submit">
+                            Filtrar
+                        </button>
+           </form>
             <br>
 
             <table>
