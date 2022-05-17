@@ -78,7 +78,7 @@ public class LoginServlet extends HttpServlet {
                 catch (Exception ignored) { }
 
                 // Si no es posible redireccionar a la pagina solicitada, llevar a la main page
-                RequestDispatcher rd = request.getRequestDispatcher("menu.html");
+                RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
                 rd.include(request,response);
 
         } else {

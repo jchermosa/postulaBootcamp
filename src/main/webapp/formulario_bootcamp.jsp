@@ -18,6 +18,10 @@
 
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.entity.Bootcamp, com.roshka.proyectofinal.lenguaje.LenguajeDao, com.roshka.proyectofinal.bootcamp.BootcampDao, com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
                 <%
+            LenguajeDao lenDao = new LenguajeDao();
+             List<Lenguaje> listLen = lenDao.listar();
+             Iterator<Lenguaje> iter =  listLen.iterator();
+             Lenguaje len = null;
 
              ProfesorDao profeDao = new ProfesorDao();
              List<Profesor> listProfesor = profeDao.listar();
