@@ -41,7 +41,6 @@ pageEncoding="UTF-8"%>
 
                             <form method="post" action="SaveServlet" class="form">
 
-
                                 <input type="hidden" name="bootcamp_id" value="<%= request.getParameter("bootcamp") %>">
 
                                 <label for="nombre">Ingrese su Nombre:</label>
@@ -98,6 +97,7 @@ pageEncoding="UTF-8"%>
                                         <input class="borrar" type="reset" value="Borrar"><br>
                                         <a href="index.html">volver</a>
                             </form>
+                            </div>
                 </article>
             </main>
         </body>
