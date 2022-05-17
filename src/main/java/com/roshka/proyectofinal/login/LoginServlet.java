@@ -74,28 +74,19 @@ public class LoginServlet extends HttpServlet {
                     if (target != null){
                         response.sendRedirect(target);}
                     else{
+                        // Si no es posible redireccionar a la pagina solicitada, llevar a la main page
                         response.sendRedirect("menu.jsp");
                     }
                 }
                 catch (Exception ignored) { }
 
-                // Si no es posible redireccionar a la pagina solicitada, llevar a la main page
-
-           /* RequestDispatcher rd = request.getRequestDispatcher("menu.html");
-                rd.forward(request,response);*/
-
         } else {
 
             //si no es un user valido - mandar error y redireccionar al inicio de sesion
-           RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
-            //out.print("<div  br  align = \"center\" class=\"messageError\" > Credenciales incorrectas! Reintente ...  </div>");
-            rd.include(request,response);
 
-
-            //response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
+            response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
 
             }
-
 
 
     }
