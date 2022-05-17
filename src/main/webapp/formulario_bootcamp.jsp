@@ -24,7 +24,7 @@
              Lenguaje len = null;
 
              ProfesorDao profeDao = new ProfesorDao();
-             List<Profesor> listProfesor = profeDao.listar();
+             List<Profesor> listProfesor = profeDao.listarProfesor();
              Iterator<Profesor> iterProfe =  listProfesor.iterator();
              Profesor profe = null;
              %>
@@ -130,7 +130,7 @@
                              Lenguaje len2 = null;
 
                              ProfesorDao profeDao2 = new ProfesorDao();
-                             List<Profesor> listProfesor2 = profeDao2.listar();
+                             List<Profesor> listProfesor2 = profeDao2.listarProfesor();
                              Iterator<Profesor> iterProfe2 =  listProfesor2.iterator();
                              Profesor profe2 = null;
             Bootcamp bootcampToEdit = (Bootcamp)request.getAttribute("Bootcamp");

@@ -107,64 +107,42 @@ public class SaveServlet extends HttpServlet {
                     }
                 }
             }
-<<<<<<< HEAD
             if (status > 0) {
                 // out.print("<p>Record saved successfully!</p>");
-=======
-            if(status>0){
-                //out.print("<p>Record saved successfully!</p>");
-
->>>>>>> d3a6ea52ee1614cfbff576707fd6717fb6a81036
                 out.print(" <div class=\"alert\">\n" +
                         "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n"
                         +
                         "  <strong>Formulario Cargado!</strong> EXITOSAMENTE CARGADO\n" +
                         "</div>");
-<<<<<<< HEAD
-                request.getRequestDispatcher("formulario.jsp").include(request, response);
-            } else {
-                if (rechazarDatos) {
-                    out.print(" <div class=\"alert info\">\n" +
-                            "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n"
-                            +
-                            "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
-                            "</div>");
-                    request.getRequestDispatcher("formulario.jsp").include(request, response);
-                } else {
-                    out.println("Error al cargar datos");
-                    out.print(" <div class=\"alert info error\">\n" +
-                            "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n"
-                            +
-                            "  <strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
-=======
                 request.setAttribute("bootcamp", bootcampActual);
                 RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
                 rd.include(request, response);
-                //RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
-                //rd.include(request, response);
-            }else{
-                if (rechazarDatos){
+                // RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
+                // rd.include(request, response);
+            } else {
+                if (rechazarDatos) {
 
                     out.print("<div class='alert info''>");
-                    out.print("<span class='closebtn'' onclick='this.parentElement.style.display='none';'>&times;</span>");
+                    out.print(
+                            "<span class='closebtn'' onclick='this.parentElement.style.display='none';'>&times;</span>");
                     out.print("<strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO");
                     out.print("</div>");
-                    //request.getRequestDispatcher("formulario.jsp").include(request, response);
+                    // request.getRequestDispatcher("formulario.jsp").include(request, response);
                     request.setAttribute("bootcamp", bootcampActual);
                     RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
                     rd.include(request, response);
-                }else {
+                } else {
 
                     out.println("Error al cargar datos");
                     out.print("<div class='alert info error'>" +
-                            "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n" +
+                            "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n"
+                            +
                             "<strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
->>>>>>> d3a6ea52ee1614cfbff576707fd6717fb6a81036
                             "</div>");
                     request.setAttribute("bootcamp", bootcampActual);
                     RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
                     rd.include(request, response);
-                    //request.getRequestDispatcher("formulario.jsp").include(request, response);
+                    // request.getRequestDispatcher("formulario.jsp").include(request, response);
                 }
             }
         } catch (Exception ex) {

@@ -14,7 +14,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="logo">
         <a href="./index.html"> <img class="logoi" src="imagenes/logo-roshka.svg" alt="" /> </a>
         <!-- logo con link -->
@@ -48,14 +47,12 @@
         </div>
         
             
-=======
     <div>
         <h1>LISTA POSTULANTES</h1>
         <form action="filtros-postulante" >
             <input type="search" name="nombreBuscar"
                 placeholder="Buscar por nombre">
             <button type="submit">Buscar</button>
->>>>>>> d3a6ea52ee1614cfbff576707fd6717fb6a81036
         </form>
        
         <table>
@@ -76,17 +73,10 @@
                     Bootcamps
                 </th>
                 <th>
-<<<<<<< HEAD
-                    Aceptados
-=======
-                    <form action="filtros-posjtulante" method="post">
-                        <input type="hidden" name="nombre" value="aceptado">
-                        <button type="submit">Aceptado</button>
-                    </form>
->>>>>>> d3a6ea52ee1614cfbff576707fd6717fb6a81036
+                    Aceptado
                 </th>
                
-            </tr>
+            </tr>s
             <tbody class="tcuerpo">
                 <c:forEach var="postulante" items="${postulantes}" varStatus="myIndex">
                     <tr>
