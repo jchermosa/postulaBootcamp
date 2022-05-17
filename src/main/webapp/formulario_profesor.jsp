@@ -74,9 +74,9 @@
                     <th> <%= profesor.getNro_cedula() %> </th>
                     <th> <%= profesor.getCorreo() %> </th>
 
-                    <th>  <form action="EditServlet" method="get">
+                    <th>  <form action="EditServletProfesor" method="get">
                             <input type="hidden" name="id" value=<%= profesor.getId() %>>
-                            <input type="submit" value="Editar" > </input>
+                            <input type="submit" value="Editar"> </input>
                           </form>
                     </th>
                     <th>
@@ -91,6 +91,25 @@
             </table>
                     </form>
         </div>
+
+        <%
+            Profesor profesorToEdit = (Profesor)request.getAttribute("Profesor");
+            if(profesorToEdit != null){
+        %>
+        <form method="post" action="EditServletProfesor">
+            <input type="hidden" value="<%= profesorToEdit.getId() %>" name="id" id="id" />
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" value="<%= profesorToEdit.getNombre() %>" />
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" value="<%= profesorToEdit.getApellido() %>"></input>
+            <label for="correo">Correo:</label>
+            <input type="text" name="correo" value="<%= profesorToEdit.getCorreo() %>"></input>
+            <label for="nro_cedula">Numero de Cedula:</label>
+            <input type="number" name="nro_cedula" value="<%= profesorToEdit.getNro_cedula() %>"></input>
+            <button type="submit">Editar Profesor </button>
+        </form>
+        <% } %>
+
     </body>
 
     </html>

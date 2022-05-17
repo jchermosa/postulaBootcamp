@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.idea/gitmisc.xml
 .idea/encodings.xml
 .idea/**
 .idea/modules.xml

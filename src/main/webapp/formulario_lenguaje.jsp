@@ -55,14 +55,14 @@
                 %>
                     <th> <%= lenguaje.getNombre_lenguaje() %> </th>
 
-                    <th>  <form action="EditServlet" method="get">
+                    <th>  <form action="EditServletLenguaje" method="get">
                             <input type="hidden" name="id" value=<%= lenguaje.getId() %>>
                             <input type="submit" value="Editar" > </input>
                           </form>
                     </th>
                     <th>
                         <form action="DeleteServletLenguaje" method="get">
-                            <input type="hidden" name="id" value= <%= lenguaje.getId() %> >
+                            <input type="hidden" name="id" value= <%= lenguaje.getId() %> name="id" id="id" >
                             <input type="submit" value="Borrar" > </input>
                         </form>
                     </th>
@@ -72,6 +72,19 @@
             </table>
                     </form>
         </div>
+
+        <%
+                    Lenguaje lenguajeToEdit = (Lenguaje)request.getAttribute("Lenguaje");
+                    if(lenguajeToEdit != null){
+                %>
+                    <form method="post" action="EditServletLenguaje">
+                        <input type="hidden" value="<%= lenguajeToEdit.getId() %>" name="id" id="id" />
+                        <label for="nombre_lenguaje">Lenguaje:</label>
+                        <input type="text" name="nombre_lenguaje" value="<%= lenguajeToEdit.getNombre_lenguaje() %>">
+                        <button type="submit">Editar Lenguaje </button>
+                    </form>
+                <% } %>
+
     </body>
 
     </html>
