@@ -73,32 +73,19 @@ import java.util.List;
         }
 
         public static void update(int id, String valor) {
-            String v = valor;
-            if (v == "1") {
+            boolean v = valor.equals("0") ? false : true;
+
                 try {
                     Connection con = DataBase.getConnection();
-                    PreparedStatement ps = con.prepareStatement("update postulante set aceptado= false " +
-                            "where id=?");
-                    ps.setInt(1, id);
+                    PreparedStatement ps = con.prepareStatement("update postulante set aceptado= ? where id=?");
+                    ps.setBoolean(1, v);
+                    ps.setInt(2, id);
                     ps.executeUpdate();
                     con.close();
                 }
                 catch (Exception ex) {
                     ex.printStackTrace();
                 }
-            } else {
-                try {
-                    Connection con = DataBase.getConnection();
-                    PreparedStatement ps = con.prepareStatement("update postulante set aceptado= true " +
-                            " where id=?");
-                    ps.setInt(1, id);
-                    ps.executeUpdate();
-                    con.close();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
 
         }
 
