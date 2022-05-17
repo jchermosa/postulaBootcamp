@@ -48,12 +48,6 @@
         
             
     <div>
-        <h1>LISTA POSTULANTES</h1>
-        <form action="filtros-postulante" >
-            <input type="search" name="nombreBuscar"
-                placeholder="Buscar por nombre">
-            <button type="submit">Buscar</button>
-        </form>
        
         <table>
             <tr>
@@ -76,7 +70,7 @@
                     Aceptado
                 </th>
                
-            </tr>s
+            </tr>
             <tbody class="tcuerpo">
                 <c:forEach var="postulante" items="${postulantes}" varStatus="myIndex">
                     <tr>
