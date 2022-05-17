@@ -19,6 +19,7 @@ public class SaveServlet extends HttpServlet {
 
         int id_lenguaje= Integer.parseInt(request.getParameter("id_lenguaje"));
         int id_profesor= Integer.parseInt(request.getParameter("id_profesor"));
+        System.out.println(id_profesor);
         String fecha_inicio=request.getParameter("fecha_inicio");
         String fecha_fin=request.getParameter("fecha_fin");
         String descripcion=request.getParameter("descripcion");

@@ -13,6 +13,7 @@ public class BootcampDao {
         int status=0;
 
         try{
+            System.out.println(b.getId_profesor());
             Connection con= DataBase.getConnection();
             PreparedStatement ps=con.prepareStatement(
                     "insert into bootcamp (id_lenguaje,id_profesor,fecha_inicio,fecha_fin,descripcion,imagen,titulo,activo) values (?,?,?::date,?::date,?,?,?,?)");
