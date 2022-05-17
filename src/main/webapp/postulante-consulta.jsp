@@ -25,23 +25,22 @@
                 <input type="search" name="nombreBuscar"
                     placeholder="Buscar por nombre">
                 <button type="submit">Buscar</button>
-                <form action="filtros-postulante" method="post">
+            </form>
 
-                    
-                    <form action="filtros-postulante" method="post">
-                        <input type="search" name="nombre" placeholder="Buscar por Bootcamp" required>
-                           <button type="submit">Bootcamp</button>
-                       </form>
+            <form action="filtros-postulante" method="post">
+              <input type="search" name="nombre" placeholder="Buscar por Bootcamp" required>
+              <button type="submit">Bootcamp</button>
+            </form>
 
-                       <form action="filtros-postulante" method="post">
-                        <input type="hidden" name="nombre" value="notebook">
-                        <button type="submit">Notebooks</button>
+            <form action="filtros-postulante" method="post">
+                <input type="hidden" name="nombre" value="notebook">
+                <button type="submit">Notebooks</button>
+            </form>
 
-                        <form action="filtros-postulante" method="post">
-                            <input type="hidden" name="nombre" value="aceptado">
-                            <button class="aceptado" type="submit">Aceptado</button>
-                        </form>
-                    </form>
+             <form action="filtros-postulante" method="post">
+                <input type="hidden" name="nombre" value="aceptado">
+                <button class="aceptado" type="submit">Aceptado</button>
+             </form>
 
                     
         </div>
