@@ -45,7 +45,7 @@
                        </form>
                 </th>
                 <th>
-                    <form action="filtros-postulante" method="post">
+                    <form action="filtros-posjtulante" method="post">
                         <input type="hidden" name="nombre" value="aceptado">
                         <button type="submit">Aceptado</button>
                     </form>
