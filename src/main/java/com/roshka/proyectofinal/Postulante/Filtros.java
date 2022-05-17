@@ -20,10 +20,11 @@ public class Filtros extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Postulante> postulantes = listarPostulante();
         String respuesta = req.getParameter("id");
-        boolean valor = Boolean.parseBoolean(req.getParameter("valor"));
+        String valor = req.getParameter("valor");
         String nombre = req.getParameter("nombreBuscar")== null ? "0" : req.getParameter("nombreBuscar");
-        System.out.println(nombre);
         if(respuesta != null) {
+            System.out.println(valor);
+            System.out.println(respuesta);
             update(Integer.parseInt(req.getParameter("id")), valor);
             postulantes = listarPostulante();
         } else if(nombre.length() > 1){

@@ -96,14 +96,22 @@
                             </c:if>
                         </td>
                         <td>
-                            <c:if test="${postulante.aceptado == true}">
-                                <input type="hidden" name="valor" value="false">
-	                            <button><a href="filtros-postulante?id=${postulante.id}">Rechazar</a></button>
-                            </c:if>
-                            <c:if test="${postulante.aceptado != true}">
-                                <input type="hidden" name="valor" value="true">
-	                            <button><a href="filtros-postulante?id=${postulante.id}">Aceptar</a></button>
-                            </c:if>
+                        <c:choose>
+                            <c:when test="${postulante.aceptado == true}">
+                                <form action="filtros-postulante" method="get">
+                                                                   <input type="hidden" name="valor" value="0">
+                                                                   <input type="hidden" name="id" value="${postulante.id}">
+                                                                  <button type="submit">Rechazar</button>
+                                                                </form>
+                            </c:when>
+                            <c:otherwise>
+                                <form action="filtros-postulante" method="get">
+                                                                   <input type="hidden" name="valor" value="1">
+                                                                   <input type="hidden" name="id" value="${postulante.id}">
+                                                                   <button type="submit">Aceptado</button>
+                                                                </form>
+                            </c:otherwise>
+                        </c:choose>
                         </td>
                     </tr>
                 </c:forEach>
