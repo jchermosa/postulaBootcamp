@@ -80,6 +80,49 @@ public class ProfesorDao {
         }
         return profesores;
     }
+
+    public static int update(Profesor p){
+        int status=0;
+        try{
+            Connection con= DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement(
+                    "update profesor set nombre=?, apellido=?, correo=?, nro_cedula=? where id=?");
+            ps.setString(1,p.getNombre());
+            ps.setString(2,p.getApellido());
+            ps.setString(3,p.getCorreo());
+            ps.setInt(4,p.getNro_cedula());
+            ps.setInt(5,p.getId());
+
+            status=ps.executeUpdate();
+
+            con.close();
+        }catch(Exception ex){ex.printStackTrace();}
+
+        return status;
+    }
+
+    public static Profesor getProfesorById(int id){
+        Profesor profesor=new Profesor();
+
+        try{
+            Connection con=DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("select * from profesor where id=?");
+            ps.setInt(1,id);
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                profesor.setId(rs.getInt(1));
+                profesor.setNombre(rs.getString(2));
+                profesor.setApellido(rs.getString(3));
+                profesor.setNro_cedula(rs.getInt(4));
+                profesor.setCorreo(rs.getString(5));
+            }
+            con.close();
+        }catch(Exception ex){ex.printStackTrace();}
+
+        return profesor;
+    }
+
+
     public static int delete(int id){
         int status=0;
         try{
