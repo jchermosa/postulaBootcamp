@@ -41,7 +41,7 @@ pageEncoding="UTF-8"%>
 
                             <form method="get" action="SaveServlet" class="form">
 
-                                <input type="hidden" name="bootcamp" value="<%= request.getParameter(" bootcamp ") %>">
+                                <input type="hidden" name="bootcamp" value="<%= request.getParameter("bootcamp") %>">
 
                                 <label for="nombre">Ingrese su Nombre:</label>
                                 <input required id="nombre" name="nombre" type="text"><br>
