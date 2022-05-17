@@ -6,12 +6,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+         <link rel="stylesheet" href="postulante.css">
         <title>JSP Page</title>
     </head>
 
     <body>
         <div>
-            <h1>Crear Lenguaje</h1>
+            <h1> CREAR LENGUAJE </h1>
 
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
 
@@ -37,6 +38,7 @@
                     Crear Lenguaje
                 </button>
             </form>
+            <br>
 
             <table>
               <thead>

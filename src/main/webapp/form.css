@@ -5,16 +5,21 @@ html,body{
 }
 /* damos los estilos a todo lo que contiene el body  */
 body{
-    background-color: rgba(11, 49, 110, 0.75);
-    font-family:Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
-    color: wheat;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     align-items: center;
-    height: 160%;}
+    height: 150%;}
+p{
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    align-items: center;
+    height: 150%;}
 
-}
+
 /* para el logo */
 img{
     width: 165px;
@@ -27,7 +32,7 @@ p.enter{
 }
 /* para el parrafo */
 p:hover{
-    color: yellow;
+    color: white;
 }
 
 /* para el create o sea para el main */
@@ -46,7 +51,7 @@ p:hover{
    display: block;
    border: none;
    align-items:center;
-
+   color:white
 
 }
 
@@ -57,9 +62,11 @@ p:hover{
     align-items:center;
 }
 .form input[type="email"],.form input[type="text"],.form input[type="number"]{
-   background-color: transparent;
+   background-color: transparente;
     border-radius: 10px;
     border: 1px solid #000;
+
+
 
 }
 .form input:hover{
@@ -70,10 +77,12 @@ p:hover{
 
 a{
     text-decoration: none;
+
 }
 ul{
 list-style:none;
 font-size:15px;
+
 }
 
 a{
@@ -89,19 +98,19 @@ border-radius: 10px;
   background-image: url(imagenes/descarga.svg);
 }
  .form input[type="reset"] , .form input[type="submit"]{
-        text-decoration:none;
-        background-color: rgba(11, 49, 110, 0.75);
-          background-image: url(imagenes/descarga.svg);
-        border-radius: 5px;;
-        padding: 10px;
-        border-radius: 10px;
-        margin:10px;
-        text-decoration: none;
-        color:#ffff;
-        text-align:left;
-        cursor: pointer;
-        width:80px;
-        text-align:center;
+          text-decoration:none;
+          background-color: rgba(11, 49, 110, 0.75);
+            background-image: url(imagenes/descarga.svg);
+          border-radius: 5px;;
+          padding: 10px;
+          border-radius: 10px;
+          margin:10px;
+          text-decoration: none;
+          color:#ffff;
+          text-align:left;
+          cursor: pointer;
+          width:80px;
+          text-align:center;
     }
 /*hola mundo*/
 
@@ -113,14 +122,12 @@ input#experiencia_laboral,input#notebook,input#universidad{
 width:500px;
 }
 
-
 /* para el alert  */
 .alert {
  padding: 10px;
  background-color: background-color: #2196F3;
  color: white;
 }
-
 .alert.info {background-color: #2196F3;}
 .alert.error {background-color:  #ff0000;}
 .closebtn {
@@ -133,7 +140,7 @@ width:500px;
   cursor: pointer;
   transition: 0.3s;
 }
-
 .closebtn:hover {
   color: black;
 }
+Contraer

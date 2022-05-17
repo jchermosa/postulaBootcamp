@@ -6,18 +6,18 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+         <!-- coneccion con el de css  -->
+               <link rel="stylesheet" href="postulante.css">
         <title>JSP Page</title>
     </head>
 
     <body>
         <div class="container">
-            <h1>Crear Bootcamp</h1>
-            <%
-             LenguajeDao lenDao = new LenguajeDao();
-             List<Lenguaje> listLenguaje = lenDao.listar();
-             Iterator<Lenguaje> iter =  listLenguaje.iterator();
-             Lenguaje len = null;
+            <h1> CREAR BOOTCAMP </h1>
+
+            <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.entity.Bootcamp, com.roshka.proyectofinal.lenguaje.LenguajeDao, com.roshka.proyectofinal.bootcamp.BootcampDao, com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
+                <%
 
              ProfesorDao profeDao = new ProfesorDao();
              List<Profesor> listProfesor = profeDao.listar();

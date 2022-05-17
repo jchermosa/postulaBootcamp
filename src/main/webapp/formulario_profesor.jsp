@@ -6,12 +6,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="postulante.css">
         <title>JSP Page</title>
     </head>
 
     <body>
         <div>
-            <h1>Crear Profesor</h1>
+            <h1> CREAR PROFESOR </h1>
 
             <%@ page import="com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
 
@@ -50,6 +51,7 @@
                     Crear Profesor
                 </button>
             </form>
+            <br>
 
             <table>
               <thead>

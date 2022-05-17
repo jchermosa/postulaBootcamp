@@ -10,12 +10,12 @@
         <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
         <!-- coneccion con el de css  -->
        <link rel="stylesheet" href="postulante.css">
-    <title>Postulantes Manage</title>
+    <title> POSTULANTE MANAGE </title>
 </head>
 
 <body>
     <div>
-        <h1>Lista Postulantes</h1>
+        <h1>LISTA POSTULANTES</h1>
         <form action="filtros-postulante" >
             <input type="search" name="nombreBuscar"
                 placeholder="Buscar por nombre">
