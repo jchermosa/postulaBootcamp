@@ -85,7 +85,7 @@
                 <li><a href="filtros-postulante"> MANAGE POSTULANTE </a></li>
                 <li><a href="formulario_lenguaje.jsp"> MANAGE LENGUAJES  </a></li>
                 <li><a href="formulario_profesor.jsp"> MANAGE PROFESORES </a></li>
-                
+
             </ul>
         </div>
 
