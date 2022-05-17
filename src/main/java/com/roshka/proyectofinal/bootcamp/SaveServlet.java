@@ -19,6 +19,7 @@ public class SaveServlet extends HttpServlet {
 
         int id_lenguaje= Integer.parseInt(request.getParameter("id_lenguaje"));
         int id_profesor= Integer.parseInt(request.getParameter("id_profesor"));
+        System.out.println(id_profesor);
         String fecha_inicio=request.getParameter("fecha_inicio");
         String fecha_fin=request.getParameter("fecha_fin");
         String descripcion=request.getParameter("descripcion");
@@ -26,10 +27,11 @@ public class SaveServlet extends HttpServlet {
         String titulo=request.getParameter("titulo");
         String activoStr=request.getParameter("activo");
         System.out.println(activoStr);
-        Boolean activo = false;
-        if ( activoStr.equals("on") ) {
-            activo = true;
+        Boolean activo = true;
+        if ( activoStr == null ) {
+            activo = false;
         }
+
 
         Bootcamp b =new Bootcamp( id_lenguaje, id_profesor, fecha_inicio, fecha_fin, descripcion, imagen, titulo, activo);
 

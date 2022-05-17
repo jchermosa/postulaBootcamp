@@ -1,6 +1,7 @@
 package com.roshka.proyectofinal.profesor;
 
 import com.roshka.proyectofinal.DataBase;
+import com.roshka.proyectofinal.entity.Bootcamp;
 import com.roshka.proyectofinal.entity.Profesor;
 
 import java.sql.Connection;
@@ -39,6 +40,7 @@ public class ProfesorDao {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Profesor profesorObject = new Profesor();
+                profesorObject.setId(rs.getInt("id"));
                 profesorObject.setNombre(rs.getString("nombre"));
                 profesorObject.setApellido(rs.getString("apellido"));
                 profesorObject.setNro_cedula(rs.getInt("nro_cedula"));

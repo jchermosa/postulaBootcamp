@@ -18,7 +18,7 @@
 
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.entity.Bootcamp, com.roshka.proyectofinal.lenguaje.LenguajeDao, com.roshka.proyectofinal.bootcamp.BootcampDao, com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
                 <%
-            LenguajeDao lenDao = new LenguajeDao();
+             LenguajeDao lenDao = new LenguajeDao();
              List<Lenguaje> listLen = lenDao.listar();
              Iterator<Lenguaje> iter =  listLen.iterator();
              Lenguaje len = null;
@@ -104,13 +104,13 @@
                     <th> <%= boot.getNombre_profesor() + " " + boot.getApellido_profesor() %> </th>
                     <th> <%= boot.getActivo() %> </th>
                     <th>  <form action="EditServletBootcamp" method="get">
-                            <input type="hidden" name="id" value=<%= boot.getId() %>>
+                            <input type="hidden" name="id" id="id" value=<%= boot.getId() %>>
                             <input type="submit" value="Editar" ></input>
                           </form>
                     </th>
                     <th>
                         <form action="DeleteServletBootcamp" method="get">
-                            <input type="hidden" name="id" value= <%= boot.getId() %> >
+                            <input type="hidden" name="id" id="id" value= <%= boot.getId() %> >
                             <input type="submit" value="Borrar" > </input>
                         </form>
                     </th>
