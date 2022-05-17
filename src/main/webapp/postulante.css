@@ -3,7 +3,7 @@ body{
   background-image: url(imagenes/descarga.svg);
     font-family:Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
     font-weight: bold;
-   
+   font-size: medium;
 }
 
 img{
@@ -19,11 +19,11 @@ img{
    
 }
 table{
-    background-color: wheat;
+   /*  background-color: wheat; */
     text-align: left;
     border-collapse: collapse;
-    width: 100%;
-    border-collapse: collapse; 
+    width: 150%;
+  /*   border: solid 3px black; */
 }
 a{
     text-decoration: none;
@@ -36,6 +36,7 @@ h1{
     font-weight:bold;
     
 }
+
 button{
     margin:5px;
     background-image: url(imagenes/descarga.svg);
@@ -43,22 +44,39 @@ button{
 }
 th,td{
     margin: 2px;
+   
 }
-table tr:nth-child(odd) {       background-color: rgba(11, 49, 110, 0.75);
+table tr:nth-child(odd) {      /*  background-color: aliceblue; */
+   
+    /* background-color: rgba(11, 49, 110, 0.75)  */
+    background-color: transparent;
 }
 
 table tr:nth-child(even) {    background-image: url(imagenes/descarga.svg);
 }
 td{
-    margin: 20px;
+    padding: 3px;
+  border-color: red;
+  text-align: center;
+  /* border: solid 1px coral; */
 }
 th{
-    padding: 3px;
+    padding: 5px;
+    text-align: center;
+    /* border: solid 4px black; */
 }
-tbody .tcuerpo{
-    border: 1px solid transparent; height: 30px; 
+th:hover{
+    background-color: brown;
 }
-tr:hover td { background: #071750; color: rgb(121, 153, 51); }
-td, th { border: 1px solid transparent; height: 30px; }
+
+tbody{
+ margin: 15px;
+padding: 15px
+}
+
+tr:hover td { background: aqua;  }
+th { border: 1px solid black; height: 30px;
+    background-image: url(imagenes/descarga.svg);
+ } 
 button:hover{
 color: yellow;}

@@ -7,6 +7,7 @@ pageEncoding="UTF-8"%>
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+             <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
             <title>Bootcamp</title>
             <meta name="author" content="cssremix.com">
             <meta name="robots" content="index,follow">

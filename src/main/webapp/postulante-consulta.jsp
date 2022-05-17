@@ -20,11 +20,35 @@
     </div>
     <div class="container">
         <h1>Lista Postulantes</h1>
-        <form action="filtros-postulante" >
-            <input type="search" name="nombreBuscar"
-                placeholder="Buscar por nombre">
-            <button type="submit">Buscar</button>
+        <div class="filtros">
+            <form action="filtros-postulante" >
+                <input type="search" name="nombreBuscar"
+                    placeholder="Buscar por nombre">
+                <button type="submit">Buscar</button>
+                <form action="filtros-postulante" method="post">
+
+                    
+                    <form action="filtros-postulante" method="post">
+                        <input type="search" name="nombre" placeholder="Buscar por Bootcamp" required>
+                           <button type="submit">Bootcamp</button>
+                       </form>
+
+                       <form action="filtros-postulante" method="post">
+                        <input type="hidden" name="nombre" value="notebook">
+                        <button type="submit">Notebooks</button>
+
+                        <form action="filtros-postulante" method="post">
+                            <input type="hidden" name="nombre" value="aceptado">
+                            <button class="aceptado" type="submit">Aceptado</button>
+                        </form>
+                    </form>
+
+                    
+        </div>
+        
+            
         </form>
+       
         <table>
             <tr>
                 <th>#</th>
@@ -37,24 +61,15 @@
                 <th>Experiencia laboral</th>
                 <th>Estudio universitario</th>
                 <th>
-                    <form action="filtros-postulante" method="post">
-                        <input type="hidden" name="nombre" value="notebook">
-                        <button type="submit">Notebooks</button>
-                    </form>
+                    Notebooks
                 </th>
                 <th>
-                    <form action="filtros-postulante" method="post">
-                        <input type="search" name="nombre" placeholder="Buscar por Bootcamp" required>
-                           <button type="submit">Bootcamp</button>
-                       </form>
+                    Bootcamps
                 </th>
                 <th>
-                    <form action="filtros-postulante" method="post">
-                        <input type="hidden" name="nombre" value="aceptado">
-                        <button class="aceptado" type="submit">Aceptado</button>
-                    </form>
+                    Aceptados
                 </th>
-                <th></th>
+               
             </tr>
             <tbody class="tcuerpo">
                 <c:forEach var="postulante" items="${postulantes}" varStatus="myIndex">
