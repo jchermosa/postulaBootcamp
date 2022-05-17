@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
-        <title>Formulario Postulante</title>
+        <title> FORMULARIO POSTULANTE </title>
     </head>
 
     <body>
@@ -43,8 +43,10 @@ pageEncoding="UTF-8"%>
                     <input required id="telefono" name="telefono" type="text"><br>
 
                     <label for="direccion">Direccion:</label>
-                    <input required id="direccion" name="direccion" type="text"><br>
-
+                    <input required id="direccion" name="direccion" type="text">
+                    <br>
+                    <p for="experiencia_programando">Lenguajes de programacion que conoces:</p>
+                    <br>
 
                     <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
 
@@ -65,17 +67,20 @@ pageEncoding="UTF-8"%>
                                         <label  for=<%=len.getNombre_lenguaje() %> > <%= len.getNombre_lenguaje() %> </label><input value=<%=len.getId() %> id=
                                         <%=len.getNombre_lenguaje() %> name=
                                             <%=len.getNombre_lenguaje() %> type="checkbox"><br>
+
                                     </li>
 
                                     <% } %>
 
                             </ul>
+
+
                         <li class="d-flex">
                         <label for="experiencia_laboral"  >Experiencia laboral</label>
                         </li>
-                                            <!-- Si no lo marca el valor que envia es null y si lo marca es "ON" -->
-                                            <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox" ><br>
-                                            <p for="experiencia_programando">Lenguajes de programacion que conoces:</p>
+                          <!-- Si no lo marca el valor que envia es null y si lo marca es "ON" -->
+                          <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox" ><br>
+
 
                             <label for="notebook">Cuenta con notebook</label>
                              <input id="notebook" name="notebook" type="checkbox"><br>
@@ -86,8 +91,7 @@ pageEncoding="UTF-8"%>
                             <input class="enviar info error" type="submit">
                             <input class="borrar" type="reset" value="Borrar"><br>
 
-                               <label for="otro">otro</label>
-                                                         <input id="otro" name="otro" type="checkbox"><br>
+
                             <a href="index.html">volver</a>
 
                 </form>
