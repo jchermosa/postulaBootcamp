@@ -26,10 +26,11 @@ public class SaveServlet extends HttpServlet {
         String titulo=request.getParameter("titulo");
         String activoStr=request.getParameter("activo");
         System.out.println(activoStr);
-        Boolean activo = false;
-        if ( activoStr.equals("on") ) {
-            activo = true;
+        Boolean activo = true;
+        if ( activoStr == null ) {
+            activo = false;
         }
+
 
         Bootcamp b =new Bootcamp( id_lenguaje, id_profesor, fecha_inicio, fecha_fin, descripcion, imagen, titulo, activo);
 

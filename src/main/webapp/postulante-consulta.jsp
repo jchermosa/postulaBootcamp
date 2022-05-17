@@ -101,6 +101,10 @@
                                 <form action="filtros-postulante" method="get">
                                                                    <input type="hidden" name="valor" value="0">
                                                                    <input type="hidden" name="id" value="${postulante.id}">
+                                                                   <input type="hidden" name="nombre" value="${postulante.nombre}">
+                                                                   <input type="hidden" name="apellido" value="${postulante.apellido}">
+                                                                   <input type="hidden" name="correo" value="${postulante.correo}">
+
                                                                   <button type="submit">Rechazar</button>
                                                                 </form>
                             </c:when>
