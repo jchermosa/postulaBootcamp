@@ -10,10 +10,11 @@
         <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
         <!-- coneccion con el de css  -->
        <link rel="stylesheet" href="postulante.css">
-    <title>Postulantes Manage</title>
+    <title> POSTULANTE MANAGE </title>
 </head>
 
 <body>
+<<<<<<< HEAD
     <div class="logo">
         <a href="./index.html"> <img class="logoi" src="imagenes/logo-roshka.svg" alt="" /> </a>
         <!-- logo con link -->
@@ -47,6 +48,14 @@
         </div>
         
             
+=======
+    <div>
+        <h1>LISTA POSTULANTES</h1>
+        <form action="filtros-postulante" >
+            <input type="search" name="nombreBuscar"
+                placeholder="Buscar por nombre">
+            <button type="submit">Buscar</button>
+>>>>>>> d3a6ea52ee1614cfbff576707fd6717fb6a81036
         </form>
        
         <table>
@@ -67,7 +76,14 @@
                     Bootcamps
                 </th>
                 <th>
+<<<<<<< HEAD
                     Aceptados
+=======
+                    <form action="filtros-posjtulante" method="post">
+                        <input type="hidden" name="nombre" value="aceptado">
+                        <button type="submit">Aceptado</button>
+                    </form>
+>>>>>>> d3a6ea52ee1614cfbff576707fd6717fb6a81036
                 </th>
                
             </tr>
@@ -115,14 +131,22 @@
                             </c:if>
                         </td>
                         <td>
-                            <c:if test="${postulante.aceptado == true}">
-                                <input type="hidden" name="valor" value="false">
-	                            <button><a href="filtros-postulante?id=${postulante.id}">Rechazar</a></button>
-                            </c:if>
-                            <c:if test="${postulante.aceptado != true}">
-                                <input type="hidden" name="valor" value="true">
-	                            <button><a href="filtros-postulante?id=${postulante.id}">Aceptar</a></button>
-                            </c:if>
+                        <c:choose>
+                            <c:when test="${postulante.aceptado == true}">
+                                <form action="filtros-postulante" method="get">
+                                                                   <input type="hidden" name="valor" value="0">
+                                                                   <input type="hidden" name="id" value="${postulante.id}">
+                                                                  <button type="submit">Rechazar</button>
+                                                                </form>
+                            </c:when>
+                            <c:otherwise>
+                                <form action="filtros-postulante" method="get">
+                                                                   <input type="hidden" name="valor" value="1">
+                                                                   <input type="hidden" name="id" value="${postulante.id}">
+                                                                   <button type="submit">Aceptado</button>
+                                                                </form>
+                            </c:otherwise>
+                        </c:choose>
                         </td>
                     </tr>
                 </c:forEach>

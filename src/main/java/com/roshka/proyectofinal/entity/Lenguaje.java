@@ -8,6 +8,11 @@ public class Lenguaje {
 
     }
 
+    public Lenguaje(int id, String nombre_lenguaje) {
+        this.id = id;
+        this.nombre_lenguaje = nombre_lenguaje;
+    }
+
     public int getId() {
         return id;
     }
