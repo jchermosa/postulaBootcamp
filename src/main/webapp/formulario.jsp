@@ -2,8 +2,6 @@
 pageEncoding="UTF-8"%>
     <%@ page import="java.sql.*,java.sql.Connection,java.sql.ResultSet,com.roshka.proyectofinal.DataBase,jakarta.servlet.http.HttpServlet,jakarta.servlet.http.HttpServletRequest"%>
 
-        <!DOCTYPE html>
-        <html>
 
         <head>
             <link href="estilos/form.css" rel="stylesheet" type="text/css" />
@@ -15,8 +13,7 @@ pageEncoding="UTF-8"%>
             <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
             <script src="Javascript.js"></script>
             <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
-            <title>Formulario Postulante</title>
-
+            <title>Formulario Postulante</title> 
         </head>
 
         <body>
