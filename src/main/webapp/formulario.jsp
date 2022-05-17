@@ -86,8 +86,7 @@ pageEncoding="UTF-8"%>
                             <input class="enviar info error" type="submit">
                             <input class="borrar" type="reset" value="Borrar"><br>
 
-                               <label for="otro">otro</label>
-                                                         <input id="otro" name="otro" type="checkbox"><br>
+
                             <a href="index.html">volver</a>
 
                 </form>

@@ -12,9 +12,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 160%;}
-
+    height: 160%;
 }
+
+
 /* para el logo */
 img{
     width: 165px;

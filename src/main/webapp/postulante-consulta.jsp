@@ -14,7 +14,11 @@
 </head>
 
 <body>
-    <div>
+    <div class="logo">
+        <a href="./index.html"> <img class="logoi" src="imagenes/logo-roshka.svg" alt="" /> </a>
+        <!-- logo con link -->
+    </div>
+    <div class="container">
         <h1>Lista Postulantes</h1>
         <form action="filtros-postulante" >
             <input type="search" name="nombreBuscar"
@@ -47,12 +51,12 @@
                 <th>
                     <form action="filtros-postulante" method="post">
                         <input type="hidden" name="nombre" value="aceptado">
-                        <button type="submit">Aceptado</button>
+                        <button class="aceptado" type="submit">Aceptado</button>
                     </form>
                 </th>
                 <th></th>
             </tr>
-            <tbody>
+            <tbody class="tcuerpo">
                 <c:forEach var="postulante" items="${postulantes}" varStatus="myIndex">
                     <tr>
                         <td> ${myIndex.index + 1}-</td>
