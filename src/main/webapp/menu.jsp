@@ -1,3 +1,17 @@
+   <%@ page import= "jakarta.servlet.http.* , java.lang.Object" %>
+			<%HttpSession session1 = request.getSession(true);
+			Object done = session1.getAttribute("logon.isDone");
+			 if (done == null) {
+				session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
+				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
+				return;
+
+            }%>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 
