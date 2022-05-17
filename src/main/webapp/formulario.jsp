@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
             <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
             <script src="Javascript.js"></script>
             <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
-            <title>Formulario Postulante</title> 
+            <title>Formulario Postulante</title>
         </head>
 
         <body>
@@ -41,8 +41,7 @@ pageEncoding="UTF-8"%>
 
                             <form method="get" action="SaveServlet" class="form">
 
-
-                                <input type="hidden" name="bootcamp" value="<%= request.getParameter("bootcamp") %>">
+                                <input type="hidden" name="bootcamp" value="<%= request.getParameter(" bootcamp ") %>">
 
                                 <label for="nombre">Ingrese su Nombre:</label>
                                 <input required id="nombre" name="nombre" type="text"><br>
@@ -98,9 +97,11 @@ pageEncoding="UTF-8"%>
                                         <input class="borrar" type="reset" value="Borrar"><br>
                                         <a href="index.html">volver</a>
                             </form>
+                    </div>
                 </article>
             </main>
         </body>
+
         </html>
         <script>
             (function() {
