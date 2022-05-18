@@ -16,6 +16,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- el icono para la pagina  -->
         <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
         <!-- coneccion con el de css  -->
@@ -29,22 +31,25 @@
         <a href="menu.jsp">MENU</a><br>
         </div>
     <div class="logo">
-        <a href="./index.html"> <img class="logoi" src="imagenes/logo-roshka.svg" alt="" /> </a>
+        <a href="./login.jsp"> <img class="logoi" src="imagenes/logo-roshka.svg" alt="" /> </a>
         <!-- logo con link -->
     </div>
     <div class="container">
         <h1>Lista Postulantes</h1>
-        <div class="filtros">
-            <form action="filtros-postulante" >
-                <input type="search" name="nombreBuscar"
-                    placeholder="Buscar por nombre">
-                <button type="submit">Buscar</button>
-            </form>
+        <div class="input-group">
+                <form action="filtros-postulante" >
+                    <input   type="search" name="nombreBuscar"
+                        placeholder="Buscar por nombre">
+                    <button type="submit">Buscar</button>
+                </form>
+    
+                <form action="filtros-postulante" method="post" style="display:inline">
+                  <input type="search" name="nombre" placeholder="Buscar por Bootcamp" required>
+                  <button type="submit">Bootcamp</button>
+                </form>
 
-            <form action="filtros-postulante" method="post">
-              <input type="search" name="nombre" placeholder="Buscar por Bootcamp" required>
-              <button type="submit">Bootcamp</button>
-            </form>
+            </div>
+       
 
             <form action="filtros-postulante" method="post">
                 <input type="hidden" name="nombre" value="notebook">
