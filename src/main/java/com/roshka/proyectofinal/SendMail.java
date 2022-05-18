@@ -4,19 +4,13 @@ import com.roshka.proyectofinal.bootcamp.BootcampDao;
 import com.roshka.proyectofinal.entity.Bootcamp;
 
 import java.util.Properties;
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import javax.swing.*;
 
 public class SendMail {
 
@@ -25,12 +19,10 @@ public class SendMail {
 
     }
 
-
-
-    public void sendingMail(String postulanteCorreoDestino, String nombre, String apellido, int bootcampId) throws AddressException, MessagingException {
-        //    emanuel.lugo01@gmail.com
+    public void sendingMail(String postulanteCorreoDestino, String nombre, String apellido, String bootcampId) throws AddressException, MessagingException {
+        int bootId = Integer.parseInt(bootcampId);
         BootcampDao bootcampDao = new BootcampDao();
-        Bootcamp bootcamp = bootcampDao.getBootcampById(bootcampId);
+        Bootcamp bootcamp = bootcampDao.getBootcampById(bootId);
 
         String correo = "nahuelmereles1@gmail.com";
         String contra = "ozydnpynyoqsowjn";
@@ -46,13 +38,12 @@ public class SendMail {
         MimeMessage mensaje = new MimeMessage(s);
             mensaje.setFrom(new InternetAddress(correo));
             mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(correoDestino));
-            mensaje.setSubject("Confirmacion al Bootcamp de " + bootcamp.getTitulo()); // Asunto del correo
-            mensaje.setText("Hola " + nombre + " " + apellido + ", fuiste aceptado al bootcamp de " + bootcamp.getTitulo() + " que empezara el " +         bootcamp.getFecha_inicio() + " y terminara el " + bootcamp.getFecha_fin() + ", muchas felicidades y esperamos verte pronto."); // Mensaje del correo
+            mensaje.setSubject("Confirmacion al " + bootcamp.getTitulo()); // Asunto del correo
+            mensaje.setText("Hola " + nombre + " " + apellido + ", fuiste aceptado al " + bootcamp.getTitulo() + " que empezara el " + bootcamp.getFecha_inicio() + " y terminara el " + bootcamp.getFecha_fin() + ", muchas felicidades y esperamos verte pronto."); // Mensaje del correo
 
         Transport transport = s.getTransport("smtp");
             transport.connect(correo, contra);
             transport.sendMessage(mensaje,mensaje.getAllRecipients());
             transport.close();
-        JOptionPane.showMessageDialog(null, "Mensaje enviado");
     }
 }

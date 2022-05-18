@@ -27,7 +27,7 @@ public class Filtros extends HttpServlet {
         String nombre_postulante = req.getParameter("nombre");
         String apellido_postulante = req.getParameter("apellido");
         String correo_postulante = req.getParameter("correo");
-        int bootcamp_id = Integer.parseInt(req.getParameter("bootcamp_id"));
+        String bootcamp_idStr = req.getParameter("bootcampId"); // Este es el dato
         String nombre = req.getParameter("nombreBuscar")== null ? "0" : req.getParameter("nombreBuscar");
         if(respuesta != null) {
             System.out.println(valor);
@@ -37,13 +37,9 @@ public class Filtros extends HttpServlet {
             if (valor.equals("1")) {
                 try {
                     SendMail send = new SendMail();
-                    send.sendingMail(correo_postulante, nombre_postulante, apellido_postulante, bootcamp_id);
-                    // Averiguar que recibo con el SOUT sobretodo en bootcamp_id, una vez que pueda tener el
-                    // login.
-                    // Para obtener el login necesito poder iniciar sesion en Usuario
-                    // Una vez iniciado sesion se prueba cambiando el estado de 'RECHAZADO' a 'Aceptado'
-                    System.out.println(correo_postulante+nombre_postulante+apellido_postulante+ bootcamp_id);
+                    send.sendingMail(correo_postulante, nombre_postulante, apellido_postulante, bootcamp_idStr);
                 } catch (MessagingException e) {
+                    resp.sendRedirect("postulante-consulta.jsp");
                     throw new RuntimeException(e);
                 }
             }
