@@ -120,6 +120,7 @@ public class BootcampDao {
             PreparedStatement ps=con.prepareStatement("select * from bootcamp where id=?");
             ps.setInt(1,id);
             ResultSet rs=ps.executeQuery();
+            System.out.println();
             if(rs.next()){
                 b.setId(rs.getInt("id"));
                 b.setActivo(rs.getBoolean("activo"));
@@ -135,5 +136,58 @@ public class BootcampDao {
         }catch(Exception ex){ex.printStackTrace();}
 
         return b;
+    }
+    public static List<Bootcamp> filtrar(String lenguaje){
+        ArrayList<Bootcamp> list = new ArrayList<>();
+//        String sql = "select a.id, a.titulo, a.descripcion, a.fecha_inicio, a.fecha_fin, b.nombre_lenguaje, c.nombre,c.apellido, a.activo\n" +
+//                "\tfrom bootcamp a\n" +
+//                "\tinner join lenguaje b on b.id=a.id_lenguaje\n" +
+//                "\tinner join profesor c on c.id=a.id_profesor\n" +
+//                "\twhere a.fecha_inicio ilike ? and\n" +
+//                "\ta.fecha_fin ilike ? and b.nombre_lenguaje ilike ?";
+
+
+
+        try{
+            Connection con= DataBase.getConnection();
+            //PreparedStatement ps=con.prepareStatement("");
+//            PreparedStatement ps = con.prepareStatement("select a.id, a.titulo, a.descripcion, cast (a.fecha_inicio AS varchar) as fecha_inicio, cast (a.fecha_fin AS varchar) as fecha_fin, b.nombre_lenguaje, c.nombre,c.apellido, a.activo\n" +
+//                    "\tfrom bootcamp a\n" +
+//                    "\tinner join lenguaje b on b.id=a.id_lenguaje\n" +
+//                    "\tinner join profesor c on c.id=a.id_profesor\n" +
+//                    "\twhere a.fecha_inicio = ? and\n" +
+//                    "\ta.fecha_fin = ? and b.nombre_lenguaje = ?");
+            PreparedStatement ps = con.prepareStatement("select a.id, a.titulo, a.descripcion, cast (a.fecha_inicio AS varchar) as fecha_inicio, cast (a.fecha_fin AS varchar) as fecha_fin, b.nombre_lenguaje, c.nombre,c.apellido, a.activo\n" +
+                    "\tfrom bootcamp a\n" +
+                    "\tinner join lenguaje b on b.id=a.id_lenguaje\n" +
+                    "\tinner join profesor c on c.id=a.id_profesor\n" +
+                    " where b.nombre_lenguaje = ?");
+
+//            ps.setString(1,  fecha_inicio);
+//            ps.setString(2,  fecha_fin);
+            ps.setString(1,  lenguaje);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                Bootcamp boot = new Bootcamp();
+
+                boot.setId(rs.getInt("id"));
+                boot.setActivo(rs.getBoolean("activo"));
+                boot.setDescripcion(rs.getString("descripcion"));
+                boot.setTitulo(rs.getString("titulo"));
+                boot.setFecha_fin(rs.getString("fecha_fin"));
+                boot.setFecha_inicio(rs.getString("fecha_inicio"));
+                boot.setNombre_profesor(rs.getString("nombre"));
+                boot.setApellido_profesor(rs.getString("apellido"));
+                boot.setNombre_lenguaje(rs.getString("nombre_lenguaje"));
+
+                list.add(boot);
+            }
+
+            con.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
     }
 }

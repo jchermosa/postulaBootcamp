@@ -25,15 +25,12 @@ public class Filtros extends HttpServlet {
         System.out.println(apellido);
 
         if(nombre!=null || apellido!=null){
-        
             profesores = buscarPorNombre(nombre, apellido);
         }
-
         req.getServletContext().setAttribute("profesores", profesores);
         RequestDispatcher reqDisp= req.getRequestDispatcher("profesor-consulta.jsp");
         reqDisp.forward(req,resp);
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Profesor > nombre = listarProfesor();
