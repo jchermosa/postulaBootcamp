@@ -23,6 +23,9 @@
     </head>
 
     <body>
+        <div class="botones"><a href="logout">LOGOUT</a><br>
+        <a href="logout">LOGOUT</a><br>
+        </div>
         <div class="container">
             <h1> CREAR BOOTCAMP </h1>
 
