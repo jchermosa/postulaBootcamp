@@ -130,8 +130,6 @@
                                                                    <input type="hidden" name="apellido" value="${postulante.apellido}">
                                                                    <input type="hidden" name="correo" value="${postulante.correo}">
                                                                    <input type="hidden" name="bootcamp_id" value="${postulante.bootcamp_id}">
-                                                                  <button type="submit">Rechazar</button>
-
                                                                    <button type="submit">Aceptado</button>
                                                                 </form>
                             </c:otherwise>

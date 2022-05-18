@@ -34,16 +34,18 @@ public class Filtros extends HttpServlet {
             System.out.println(respuesta);
             update(Integer.parseInt(req.getParameter("id")), valor);
             postulantes = listarPostulante();
-            try {
-                SendMail send = new SendMail();
-                send.sendingMail(correo_postulante, nombre_postulante, apellido_postulante, bootcamp_id);
-                // Averiguar que recibo con el SOUT sobretodo en bootcamp_id, una vez que pueda tener el
-                // login.
-                // Para obtener el login necesito poder iniciar sesion en Usuario
-                // Una vez iniciado sesion se prueba cambiando el estado de 'RECHAZADO' a 'Aceptado'
-                System.out.println(correo_postulante+nombre_postulante+apellido_postulante+ bootcamp_id);
-            } catch (MessagingException e) {
-                throw new RuntimeException(e);
+            if (valor.equals("1")) {
+                try {
+                    SendMail send = new SendMail();
+                    send.sendingMail(correo_postulante, nombre_postulante, apellido_postulante, bootcamp_id);
+                    // Averiguar que recibo con el SOUT sobretodo en bootcamp_id, una vez que pueda tener el
+                    // login.
+                    // Para obtener el login necesito poder iniciar sesion en Usuario
+                    // Una vez iniciado sesion se prueba cambiando el estado de 'RECHAZADO' a 'Aceptado'
+                    System.out.println(correo_postulante+nombre_postulante+apellido_postulante+ bootcamp_id);
+                } catch (MessagingException e) {
+                    throw new RuntimeException(e);
+                }
             }
         } else if(nombre.length() > 1){
             postulantes = buscarPorNombre(nombre);
