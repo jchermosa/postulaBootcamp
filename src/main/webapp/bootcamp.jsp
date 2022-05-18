@@ -540,7 +540,7 @@ pageEncoding="UTF-8"%>
                                     <%=rs.getString("fecha_fin")%>
                                 </p>
                                 <form action="formulario.jsp">
-                                    <input name="bootcamp" type="hidden" value=<%=rs.getInt( "id") %>>
+                                    <input name="bootcamp" type="hidden" value=<%=rs.getInt("id") %>>
                                     <button type="submit">POSTULAR</button>
                                 </form>
                             </div>

@@ -27,6 +27,7 @@ public class EditServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         int id_lenguaje= Integer.parseInt(request.getParameter("id_lenguaje2"));
         int id_profesor= Integer.parseInt(request.getParameter("id_profesor2"));
         String fecha_inicio=request.getParameter("fecha_inicio2");
