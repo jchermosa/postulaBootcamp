@@ -1,4 +1,6 @@
 * {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -15,7 +17,8 @@ img {
         font-family: 'Satisfy', cursive;
         font-family: 'Staatliches', cursive;
         font-size: 13px;
-        background-image: url(imagenes/descarga.svg);
+        background-image: url(imagenes/descarga.svg); 
+       
     }
 
     .header,
@@ -41,14 +44,15 @@ img {
 
     a {
         color: white;
+        text-align: center;
         text-decoration: none;
-        
+        font-size: larger;
     }
 
     .menu {
         width: 50%;
+        text-align: center;
     }
-
     .content {
         width: 50%;
     }
@@ -62,20 +66,35 @@ img {
     .menu li {
         padding: 8px;
         margin-bottom: 8px;
-        background-color: rgb(18, 18, 98);
-        color: #ffffff;
+        border: solid 2px white; 
+      /*  background-image: url(imagenes/descarga.svg); */
+        color: rgb(18, 18, 98);
+     
     }
 
     .menu li:hover {
-        background-color: rgb(18, 18, 98);
+       background-color: rgb(18, 18, 98);
     }
     div.header{
-        background-image: url(imagenes/descarga.svg);
-        transition-property: opacity, left;
-  transition-duration: 3s, 5s;
+        background-image: url(imagenes/descarga.svg);      
+        border: solid 1px black; 
     }
     h1{
+        color: white;
         text-align: center;
+        font-size: 30px;
+    }
+
+    h2,h3{
+        text-align: center;
+        font-family: monospace;
+        color: white;
+    }
+    h2:hover{
+        color: yellow;
+    }
+    h3:hover{
+        color: yellow;
     }
 
     

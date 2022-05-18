@@ -27,9 +27,8 @@
    
 <body>
     <div class="logo"><img src="imagenes/logo-roshka.svg" alt="logo-roshka"></div>
-
     <div class="header">
-        <h1> MENU TH</h1>
+        <h1>Bienvenido! al  MENU TH</h1>
         <h2> EN LOS SIGUIENTES LINKS PUEDE MODIFICAR, AGREGAR O ELIMINAR DATOS DE LA BASE DE DATOS DEL BOOTCAMP </h2>
         <h3>PUEDE ACCEDER A LOS SIGUIENTES LINKS:</h3>
     </div>
