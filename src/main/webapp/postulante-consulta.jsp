@@ -24,6 +24,10 @@
 </head>
 
 <body>
+<div class="botones"><a href="logout">LOGOUT</a><br>
+        <a href="index.html">INICIO</a><br>
+        <a href="menu.jsp">MENU</a><br>
+        </div>
     <div class="logo">
         <a href="./index.html"> <img class="logoi" src="imagenes/logo-roshka.svg" alt="" /> </a>
         <!-- logo con link -->
