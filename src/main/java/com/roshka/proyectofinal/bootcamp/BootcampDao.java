@@ -146,8 +146,6 @@ public class BootcampDao {
 //                "\twhere a.fecha_inicio ilike ? and\n" +
 //                "\ta.fecha_fin ilike ? and b.nombre_lenguaje ilike ?";
 
-
-
         try{
             Connection con= DataBase.getConnection();
             //PreparedStatement ps=con.prepareStatement("");

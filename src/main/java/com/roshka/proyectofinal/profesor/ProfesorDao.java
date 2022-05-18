@@ -58,7 +58,7 @@ public class ProfesorDao {
         Profesor profesorObject = new Profesor();
         try{
             Connection con= DataBase.getConnection();
-            PreparedStatement ps=con.prepareStatement("select a.id, a.nombre, a.apelli  do, a.nro_cedula, a.correo from profesor a " +
+            PreparedStatement ps=con.prepareStatement("select a.id, a.nombre, a.apellido, a.nro_cedula, a.correo from profesor a " +
                     "  where a.nombre ilike ? and a.apellido ilike ? ");
 
 
