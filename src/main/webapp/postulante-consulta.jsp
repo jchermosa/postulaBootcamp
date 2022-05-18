@@ -24,6 +24,10 @@
 </head>
 
 <body>
+<div class="botones"><a href="logout">LOGOUT</a><br>
+        <a href="index.html">INICIO</a><br>
+        <a href="menu.jsp">MENU</a><br>
+        </div>
     <div class="logo">
         <a href="./index.html"> <img class="logoi" src="imagenes/logo-roshka.svg" alt="" /> </a>
         <!-- logo con link -->
@@ -136,10 +140,10 @@
                                 <form action="filtros-postulante" method="get">
                                                                    <input type="hidden" name="valor" value="1">
                                                                    <input type="hidden" name="id" value="${postulante.id}">
+                                                                   <input type="hidden" name="bootcampId" value="${postulante.bootcampId}">
                                                                    <input type="hidden" name="nombre" value="${postulante.nombre}">
                                                                    <input type="hidden" name="apellido" value="${postulante.apellido}">
                                                                    <input type="hidden" name="correo" value="${postulante.correo}">
-                                                                   <input type="hidden" name="bootcamp_id" value="${postulante.bootcamp_id}">
                                                                    <button type="submit">Aceptado</button>
                                                                 </form>
                             </c:otherwise>
