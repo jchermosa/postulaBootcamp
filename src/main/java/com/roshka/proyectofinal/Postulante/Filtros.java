@@ -1,5 +1,6 @@
 package com.roshka.proyectofinal.Postulante;
 
+import com.roshka.proyectofinal.SendMail;
 import com.roshka.proyectofinal.entity.Postulante;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -7,6 +8,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +24,25 @@ public class Filtros extends HttpServlet {
         List<Postulante> postulantes = listarPostulante();
         String respuesta = req.getParameter("id");
         String valor = req.getParameter("valor");
+        String nombre_postulante = req.getParameter("nombre");
+        String apellido_postulante = req.getParameter("apellido");
+        String correo_postulante = req.getParameter("correo");
+        String bootcamp_idStr = req.getParameter("bootcampId"); // Este es el dato
         String nombre = req.getParameter("nombreBuscar")== null ? "0" : req.getParameter("nombreBuscar");
         if(respuesta != null) {
             System.out.println(valor);
             System.out.println(respuesta);
             update(Integer.parseInt(req.getParameter("id")), valor);
             postulantes = listarPostulante();
+            if (valor.equals("1")) {
+                try {
+                    SendMail send = new SendMail();
+                    send.sendingMail(correo_postulante, nombre_postulante, apellido_postulante, bootcamp_idStr);
+                } catch (MessagingException e) {
+                    resp.sendRedirect("postulante-consulta.jsp");
+                    throw new RuntimeException(e);
+                }
+            }
         } else if(nombre.length() > 1){
             postulantes = buscarPorNombre(nombre);
         }

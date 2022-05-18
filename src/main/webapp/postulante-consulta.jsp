@@ -1,3 +1,13 @@
+   <%@ page import= "jakarta.servlet.http.* , java.lang.Object" %>
+			<%HttpSession session1 = request.getSession(true);
+			Object done = session1.getAttribute("logon.isDone");
+			 if (done == null) {
+				session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
+				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
+				return;
+
+            }%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
@@ -16,6 +26,10 @@
 </head>
 
 <body>
+<div class="botones"><a href="logout">LOGOUT</a><br>
+        <a href="index.html">INICIO</a><br>
+        <a href="menu.jsp">MENU</a><br>
+        </div>
     <div class="logo">
         <a href="./login.jsp"> <img class="logoi" src="imagenes/logo-roshka.svg" alt="" /> </a>
         <!-- logo con link -->
@@ -124,10 +138,6 @@
                                 <form action="filtros-postulante" method="get">
                                                                    <input type="hidden" name="valor" value="0">
                                                                    <input type="hidden" name="id" value="${postulante.id}">
-                                                                   <input type="hidden" name="nombre" value="${postulante.nombre}">
-                                                                   <input type="hidden" name="apellido" value="${postulante.apellido}">
-                                                                   <input type="hidden" name="correo" value="${postulante.correo}">
-
                                                                   <button type="submit">Rechazar</button>
                                                                 </form>
                             </c:when>
@@ -135,6 +145,10 @@
                                 <form action="filtros-postulante" method="get">
                                                                    <input type="hidden" name="valor" value="1">
                                                                    <input type="hidden" name="id" value="${postulante.id}">
+                                                                   <input type="hidden" name="bootcampId" value="${postulante.bootcampId}">
+                                                                   <input type="hidden" name="nombre" value="${postulante.nombre}">
+                                                                   <input type="hidden" name="apellido" value="${postulante.apellido}">
+                                                                   <input type="hidden" name="correo" value="${postulante.correo}">
                                                                    <button type="submit">Aceptado</button>
                                                                 </form>
                             </c:otherwise>

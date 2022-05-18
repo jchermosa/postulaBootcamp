@@ -8,10 +8,6 @@
 
             }%>
 
-
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -19,10 +15,15 @@
     <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
     <link rel="stylesheet" href="menulogin.css">
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Francois+One&family=Satisfy&family=Staatliches&display=swap" rel="stylesheet">
-    
 </head>
 
-</head>
+<body>
+     <div class="botones">
+            <a href="logout">LOGOUT</a><br>
+            <a href="index.html">INICIO</a><br>
+     </div>
+
+
 
    
 <body>

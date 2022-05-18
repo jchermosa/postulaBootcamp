@@ -24,6 +24,10 @@
     </head>
 
     <body>
+        <div class="botones"><a href="logout">LOGOUT</a><br>
+        <a href="index.html">INICIO</a><br>
+        <a href="menu.jsp">MENU</a><br>
+        </div>
         <div class="container">
             <h1> CREAR BOOTCAMP </h1>
 
