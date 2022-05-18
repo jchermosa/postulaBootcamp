@@ -52,3 +52,7 @@
   .menu li:hover {
     background-color: rgb(18, 18, 98);
   }
+
+ .botones a{
+    color: black;
+ }
