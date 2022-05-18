@@ -25,8 +25,12 @@
     </head>
 
     <body>
-
+        <div class="botones"><a href="logout">LOGOUT</a><br>
+        <a href="index.html">INICIO</a><br>
+        <a href="menu.jsp">MENU</a><br>
+        </div>
         <div>
+
             <h1> CREAR PROFESOR Y FILTRAR </h1>
 
             <%@ page import="com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
