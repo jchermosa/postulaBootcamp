@@ -25,7 +25,15 @@
     </head>
 
     <body>
+        <div class="botones"><a href="logout">LOGOUT</a><br>
+                    <a href="index.html">INICIO</a><br>
+                    <a href="menu.jsp">MENU</a><br>
+                    </div>
+
+
+
         <div>
+
             <h1> CREAR LENGUAJE </h1>
 
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>

@@ -8,10 +8,6 @@
 
             }%>
 
-
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -48,9 +44,13 @@
         clear: both;
         display: table;
     }
-    
+
     a {
         color: white;
+    }
+    .botones a {
+
+    color: black;
     }
     
     .menu {
@@ -81,6 +81,12 @@
 </head>
 
 <body>
+     <div class="botones">
+            <a href="logout">LOGOUT</a><br>
+            <a href="index.html">INICIO</a><br>
+     </div>
+
+
 
     <div class="header">
         <h1> MENU TH</h1>
