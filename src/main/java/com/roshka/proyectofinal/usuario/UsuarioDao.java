@@ -21,6 +21,7 @@ public class UsuarioDao {
 
             status=ps.executeUpdate();
 
+
             con.close();
         }catch(Exception ex){ex.printStackTrace();}
 
