@@ -8,10 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//clase que lleva los datos introducidos a la base de datos
     public class PostulanteDao {
         public static int save(Postulante postulante) {
             int status = 0;
             try {
+                //conexion a la base de datos y cargar los campos
                 Connection con = DataBase.getConnection();
                 PreparedStatement ps = con.prepareStatement(
                         "insert into postulante(nombre,apellido,nro_cedula,correo,telefono,direccion,experiencia_laboral,estudio_universitario,notebook,bootcamp_id,aceptado) values (?,?,?,?,?,?,?,?,?,?,?)");
