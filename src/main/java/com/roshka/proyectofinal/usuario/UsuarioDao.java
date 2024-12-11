@@ -27,4 +27,3 @@ public class UsuarioDao {
         return status;
     }
 }
-
