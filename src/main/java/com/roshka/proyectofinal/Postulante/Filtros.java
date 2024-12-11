@@ -22,6 +22,8 @@ public class Filtros extends HttpServlet {
         String respuesta = req.getParameter("id");
         String valor = req.getParameter("valor");
         String nombre = req.getParameter("nombreBuscar")== null ? "0" : req.getParameter("nombreBuscar");
+
+        //si existe un id, retorna por pantalla valor e id
         if(respuesta != null) {
             System.out.println(valor);
             System.out.println(respuesta);
@@ -36,6 +38,7 @@ public class Filtros extends HttpServlet {
         reqDisp.forward(req,resp);
     }
 
+    //requiere el parametro que queda como nombre y depende de a que equivale lo asocia a una tabla
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String respuesta = req.getParameter("nombre");
