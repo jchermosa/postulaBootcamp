@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 200px;
+    padding: 10px;
+    display: block;
+    padding: 10px;
+}
+
+    body {
+        font-family: 'Concert One', cursive;
+        font-family: 'Francois One', sans-serif;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Staatliches', cursive;
+        font-size: 13px;
+        background-image: url(imagenes/descarga.svg); 
+       
+    }
+
+    .header,
+    .footer {
+        background-color: whitesmoke;
+        color: rgb(18, 18, 98);
+        padding: 60px;
+    }
+    .header,.footer{
+        background-color: aqua;
+    }
+
+    .column {
+        float: left;
+        padding: 30px;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    a {
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: larger;
+    }
+
+    .menu {
+        width: 50%;
+        text-align: center;
+    }
+    .content {
+        width: 50%;
+    }
+
+    .menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu li {
+        padding: 8px;
+        margin-bottom: 8px;
+        border: solid 2px white; 
+      /*  background-image: url(imagenes/descarga.svg); */
+        color: rgb(18, 18, 98);
+     
+    }
+
+    .menu li:hover {
+       background-color: rgb(18, 18, 98);
+    }
+    div.header{
+        background-image: url(imagenes/descarga.svg);      
+        border: solid 1px black; 
+    }
+    h1{
+        color: white;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    h2,h3{
+        text-align: center;
+        font-family: monospace;
+        color: white;
+    }
+    h2:hover{
+        color: yellow;
+    }
+    h3:hover{
+        color: yellow;
+    }
+
+    

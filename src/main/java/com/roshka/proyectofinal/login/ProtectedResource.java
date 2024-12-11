@@ -31,9 +31,5 @@ public class ProtectedResource extends HttpServlet {
 			// El usuario se loggeo y puede ver el recurso
 			out.println("PUEDES ACCEDER AL RECURSO - ESTAS LOGGEADO");
 
-
-
-
-
 		}
 	 }
