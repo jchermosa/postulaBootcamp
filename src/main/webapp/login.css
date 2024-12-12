@@ -1,15 +1,16 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+body {
+	overflow-x: hidden;
+	background: linear-gradient(45deg, rgba(20, 99, 155, 0.25), rgba(30, 148, 227, 0.25)), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1560%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%23SvgjsRadialGradient1561)'%3e%3c/rect%3e%3cpath d='M0 0L52.91 0L0 5.82z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M0 5.82L52.91 0L223.41 0L0 198.10999999999999z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M0 198.10999999999999L223.41 0L876.5699999999999 0L0 320.44z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M0 320.44L876.5699999999999 0L1264.6799999999998 0L0 414.01z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M1440 560L1266.7 560L1440 289.19z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M1440 289.19L1266.7 560L701.63 560L1440 233.49z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M1440 233.49L701.6299999999999 560L375.40999999999985 560L1440 115.81z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M1440 115.81L375.40999999999985 560L223.58999999999986 560L1440 34.019999999999996z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1560'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cradialGradient cx='100%25' cy='100%25' r='1545.06' gradientUnits='userSpaceOnUse' id='SvgjsRadialGradient1561'%3e%3cstop stop-color='rgba(9%2c 82%2c 158%2c 1)' offset='1'%3e%3c/stop%3e%3cstop stop-color='rgba(0%2c 69%2c 158%2c 0)' offset='1'%3e%3c/stop%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e");
+	background-size: cover;
+	background-attachment: fixed;
+	background-blend-mode: multiply;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
-html, body {
-    background-color: #045d90cb;
-    font-family: sans-serif, Arial;
-    height: 100%;
-    width: 100%;
-}
+
 input, button {
     font-family: sans-serif, Arial;
     &:focus, &:active {
@@ -44,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     height: 552px;
     margin-left: -4px;
-    margin-top: 50px;
+    margin-top: 200px;
     margin-bottom: 40px;
     position: relative;
     vertical-align: middle;
@@ -62,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     h2 {
         border-left: 6px solid #044e79; 
-        color: #ed2553;
+        color: #045d90;
         padding: 0px 45px;
         font-size: 32px;
         line-height: 45px;
@@ -143,13 +144,13 @@ h1, h2, h3, h4, h5, h6 {
     }
     .reg_bg {
         border-radius: 50%;
-        background-color: #ed2553;
+        background-color: #044e79;
         position: absolute;
         width: 900px;
-        height: 900px;
-        right: -115px;
+        height: 950px;
+        right: -215px;
         top: -190px;
-        transform-origin: 100% 40%;
+        transform-origin: 100% 50%;
         transform: scale(0);
     }
     .regTag {
@@ -187,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
                 color: #fff;
             }
             u {
-                background-color: #f87c98;
+                background-color: ##045d90;
                 &:before {
                     background-color: #fff;
                 }
@@ -219,9 +220,9 @@ h1, h2, h3, h4, h5, h6 {
         }
         .btn-large {
             opacity: 0;
-            transition: all 0.3s cubic-bezier(.48,.55,.69,.9);
+            transition: all 1s cubic-bezier(.48,.55,.69,.9);
             transform: translateX(20px);
-            transition-delay: 0.3s;
+            transition-delay: 1s;
         }
     }
     .forgetbox {
@@ -271,13 +272,13 @@ h1, h2, h3, h4, h5, h6 {
             border-left-color: #fff;
             visibility: hidden;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(.48,.55,.69,.9);
+            transition: all 1s cubic-bezier(.48,.55,.69,.9);
             transform: translate(-20px, 0px);
         }
         .form > div {
             visibility: hidden;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(.48,.55,.69,.9);
+            transition: all 1s cubic-bezier(.48,.55,.69,.9);
             transform: translate(0px, 20px);
             transition-delay: 0.15s;
         }
@@ -285,15 +286,15 @@ h1, h2, h3, h4, h5, h6 {
             color: #fff;
             visibility: hidden;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(.48,.55,.69,.9);
+            transition: all 1s cubic-bezier(.48,.55,.69,.9);
             transform: translate(0px, 20px);
-            transition-delay: 0.2s;
+            transition-delay: 1s;
         }
         .btn {
             opacity: 0;
             transition: all 0.3s cubic-bezier(.48,.55,.69,.9);
             transform: translate(0px, 20px);
-            transition-delay: 0.25s;
+            transition-delay: 1s;
         }
     }
     &.level-login {
@@ -309,7 +310,7 @@ h1, h2, h3, h4, h5, h6 {
             color: #fff;
         }
         .boxShaddow {
-            opacity: 0.7;
+            opacity: 0;
             transform-origin: center top;
             transform: translate(0px, -18px) scale(0.94);
         }
@@ -422,7 +423,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .btn {
-    transition: all 0.6s ease;
+    transition: all 1s ease;
     background-color: #fff;
     border: 3px solid #dfdfdf;
     cursor: pointer;
@@ -454,7 +455,7 @@ h1, h2, h3, h4, h5, h6 {
         top: -103px;
         width: 280px;
         height: 280px;
-        transition: all 0.25s cubic-bezier(.48,.55,.69,1.11);
+        transition: all 1s cubic-bezier(.48,.55,.69,1.11);
         transform-origin: center center;
         transform: scale(0);
     }
@@ -466,12 +467,12 @@ h1, h2, h3, h4, h5, h6 {
         left: 50%;
         top: 50%;
         opacity: 0;
-        transition: all 0.35s cubic-bezier(.48,.55,.69,1.11);
+        transition: all 1s cubic-bezier(.48,.55,.69,1.11);
         transform: translate(-50%, -50%) rotate(-90deg) skew(18deg,12deg);
     }
     &.active, &:hover {
-        border-color: #ed2553;
-        color: #ed2553;
+        border-color: #045d90;
+        color: #045d90;
     }
     &.active {
         u {
@@ -484,11 +485,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 .btn-large {
-    transition: all 0.6s ease;
+    transition: all 1s ease;
     background-color: #fff;
     border: 3px solid #fff;
     cursor: pointer;
-    color: #ed2553;
+    color: #045d90;
     display: block;
     text-align: center;
     width: 100%;
@@ -510,7 +511,7 @@ h1, h2, h3, h4, h5, h6 {
     a {
         color: #bdbdbd;
         font-size: 23px;
-        transition: all 0.6s ease;
+        transition: all 1s ease;
         &:hover {
             color: #56ADC7;
         }
