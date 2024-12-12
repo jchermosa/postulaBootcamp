@@ -132,6 +132,52 @@ public class BootcampDao {
 
         return status;
     }
+    public static List<Bootcamp> filtrar(String lenguaje) {
+        List<Bootcamp> list = new ArrayList<>();
+
+        // Validar que el parámetro 'lenguaje' no esté vacío ni nulo
+        if (lenguaje == null || lenguaje.trim().isEmpty()) {
+            throw new IllegalArgumentException("El parámetro 'lenguaje' no puede ser nulo ni vacío.");
+        }
+
+        String sql = "select a.id, a.titulo, a.descripcion, cast(a.fecha_inicio AS varchar) as fecha_inicio, " +
+                "cast(a.fecha_fin AS varchar) as fecha_fin, b.nombre_lenguaje, c.nombre, c.apellido, a.activo " +
+                "from bootcamp a " +
+                "inner join lenguaje b on b.id = a.id_lenguaje " +
+                "inner join profesor c on c.id = a.id_profesor " +
+                "where b.nombre_lenguaje = ?";
+
+        try (Connection con = DataBase.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, lenguaje);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Bootcamp boot = new Bootcamp();
+                    boot.setId(rs.getInt("id"));
+                    boot.setActivo(rs.getBoolean("activo"));
+                    boot.setDescripcion(rs.getString("descripcion"));
+                    boot.setTitulo(rs.getString("titulo"));
+                    boot.setFecha_fin(rs.getString("fecha_fin"));
+                    boot.setFecha_inicio(rs.getString("fecha_inicio"));
+                    boot.setNombre_profesor(rs.getString("nombre"));
+                    boot.setApellido_profesor(rs.getString("apellido"));
+                    boot.setNombre_lenguaje(rs.getString("nombre_lenguaje"));
+
+                    list.add(boot);
+                }
+            }
+        } catch (SQLException e) {
+            // Proporcionar un mensaje más detallado sobre el error
+            System.err.println("Error al ejecutar la consulta para filtrar bootcamps por lenguaje: " + e.getMessage());
+            e.printStackTrace();
+            // Lanzamos una excepción RuntimeException con un mensaje claro
+            throw new RuntimeException("Hubo un error al filtrar los bootcamps por lenguaje.", e);
+        }
+
+        return list;
+    }
 
 
     public static List<Bootcamp> listar() {
@@ -180,6 +226,7 @@ public class BootcampDao {
         }
         return status;
     }
+
 
     public static int deleteRelatedStudents(int bootcampId) {
         int status = 0;
