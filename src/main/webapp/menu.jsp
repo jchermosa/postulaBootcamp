@@ -12,8 +12,9 @@
 <body>
 <%@ page import="jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpSession" %>
 <%
-    HttpSession sessionT = request.getSession(false); // No crear una nueva sesión si no existe
-    Object done = (sessionT != null) ? sessionT.getAttribute("logon.isDone") : null;
+    session = request.getSession(false);
+    HttpSession sessionT = request.getSession(); // No crear una nueva sesión si no existe
+    Object done = (session != null) ? sessionT.getAttribute("logon.isDone") : null;
 
     if (done == null) {
         String targetURL = request.getRequestURL().toString(); // Método moderno

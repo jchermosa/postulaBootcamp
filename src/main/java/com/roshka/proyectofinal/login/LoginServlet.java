@@ -22,7 +22,6 @@ public class LoginServlet extends HttpServlet {
     // Constantes para URLs importantes en la aplicación
     private static final String LOGIN_PAGE = "login.jsp";
     private static final String MAIN_MENU_PAGE = "menu.jsp";
-    private static final String ERROR_PAGE = "error.jsp";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -43,18 +42,21 @@ public class LoginServlet extends HttpServlet {
      * Manejo de peticiones POST (login).
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         // Obtenemos los parámetros del formulario
         String correo = request.getParameter("correo");
         String password = request.getParameter("password");
 
         // Validación básica de entradas (no nulas ni vacías)
-        if (
-                correo == null || correo.isEmpty() ||
+        if (correo == null || correo.isEmpty() ||
                 password == null || password.isEmpty()) {
             response.sendRedirect(LOGIN_PAGE + "?error=Campos incompletos");
             return;
         }
+
+        
+
 
         // Creamos el bean de login y calculamos el hash del password
         LoginBean loginBean = new LoginBean();
@@ -67,7 +69,6 @@ public class LoginServlet extends HttpServlet {
             loginBean.setPassword(passwordMD5);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
-            response.sendRedirect(ERROR_PAGE);
             return;
         }
 
