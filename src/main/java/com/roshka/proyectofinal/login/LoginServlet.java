@@ -45,12 +45,11 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtenemos los parámetros del formulario
-        String username = request.getParameter("username");
         String correo = request.getParameter("correo");
         String password = request.getParameter("password");
 
         // Validación básica de entradas (no nulas ni vacías)
-        if (username == null || username.isEmpty() ||
+        if (
                 correo == null || correo.isEmpty() ||
                 password == null || password.isEmpty()) {
             response.sendRedirect(LOGIN_PAGE + "?error=Campos incompletos");
@@ -59,7 +58,6 @@ public class LoginServlet extends HttpServlet {
 
         // Creamos el bean de login y calculamos el hash del password
         LoginBean loginBean = new LoginBean();
-        loginBean.setUsername(username);
         loginBean.setCorreo(correo);
 
         try {
