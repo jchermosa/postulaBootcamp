@@ -22,6 +22,20 @@ public class UsuarioDao {
 
             status=ps.executeUpdate();
 
+
+            con.close();
+        }catch(Exception ex){ex.printStackTrace();}
+
+        return status;
+    }
+    public static int delete(Usuario u){
+        int status=0;
+        try{
+            Connection con= DataBase.getConnection();
+            PreparedStatement ps=con.prepareStatement("delete from usuario where id=?");
+            ps.setInt(1,u.getId());
+            status=ps.executeUpdate();
+
             con.close();
         }catch(Exception ex){ex.printStackTrace();}
 
@@ -79,4 +93,3 @@ public class UsuarioDao {
     // listar usuarios
 
 }
-
