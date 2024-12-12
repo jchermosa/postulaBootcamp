@@ -12,6 +12,7 @@ public class DeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String sid=request.getParameter("id");
+
         int id=Integer.parseInt(sid);
         System.out.println("Este es el id " + id);
         BootcampDao.delete(id);

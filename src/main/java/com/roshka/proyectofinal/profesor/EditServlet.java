@@ -17,9 +17,9 @@ public class EditServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         ProfesorDao profesorDao = new ProfesorDao();
-//        Profesor profesor = profesorDao.getProfesorById(id);
+        Profesor profesor = profesorDao.getProfesorById(id);
 
-//        request.setAttribute("Profesor", profesor);
+        request.setAttribute("Profesor", profesor);
         RequestDispatcher rd = request.getRequestDispatcher("formulario_profesor.jsp");
         rd.include(request, response);
     }
@@ -36,13 +36,13 @@ public class EditServlet extends HttpServlet {
         Profesor profesor =new Profesor(nro_cedula, nombre, apellido, email);
         profesor.setId(id);
 
-//        int status=ProfesorDao.update(profesor);
+        int status=ProfesorDao.update(profesor);
 
-//        if(status>0){
-//            response.sendRedirect("formulario_profesor.jsp");
-//        }else{
-//            System.out.println("Sorry! unable to update record");
-//        }
+        if(status>0){
+            response.sendRedirect("formulario_profesor.jsp");
+        }else{
+            System.out.println("Sorry! unable to update record");
+        }
 
     }
 }

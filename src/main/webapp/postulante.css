@@ -11,7 +11,7 @@ img{
     padding: 5px;
 }
 .container{
-    width: 300%;
+    width: 100%;
     max-width: 785px;
     min-width: 320px;
     border-radius: 15px;
@@ -22,7 +22,7 @@ table{
    /*  background-color: wheat; */
     text-align: left;
     border-collapse: collapse;
-    width: 150%;
+    width: 100%;
   /*   border: solid 3px black; */
 }
 a{
@@ -31,7 +31,7 @@ a{
 }
 h1{
     font-family:Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
-    text-align: right;
+    text-align: center;
     color:wheat;
     font-weight:bold;
     
@@ -80,3 +80,7 @@ th { border: 1px solid black; height: 30px;
  } 
 button:hover{
 color: yellow;}
+div.boot{
+    width: 100%;
+   text-align: center;
+}
