@@ -1,5 +1,7 @@
-(function() {
-    const form = document.querySelector('#agarraunolaputa');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Hola");
+    const form = document.querySelector('#opcion-lenguaje');
+    console.log(form);
     const checkboxes = form.querySelectorAll('input[type=checkbox]');
     const checkboxLength = checkboxes.length;
     const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
@@ -9,7 +11,6 @@
             for (let i = 0; i < checkboxLength; i++) {
                 checkboxes[i].addEventListener('change', checkValidity);
             }
-
             checkValidity();
         }
     }
@@ -26,4 +27,4 @@
         firstCheckbox.setCustomValidity(errorMessage);
     }
     init();
-})();
+});
