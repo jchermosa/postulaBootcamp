@@ -76,5 +76,7 @@ public class UsuarioDao {
 
         return u;
     }
+    // listar usuarios
+
 }
 
