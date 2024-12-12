@@ -16,28 +16,28 @@ Pinterest: https://pinterest.com/mycnlz/
 
       <!-- Estilos y scripts -->
       <link rel="stylesheet" href="usrebe.css">
-      <link rel="stylesheet" href="usrebe.js">
     </div>
 
     <!-- Formulario -->
     <form action="login" method="post">
       <div class="box-login">
         <div class="fieldset-body" id="login_form">
+
           <!-- Botón más información -->
           <button onclick="openLoginInfo();" class="b b-form i i-more" title="Más Informaciones"></button>
 
           <!-- Campo de correo -->
           <p class="field">
-            <label for="user">E-MAIL</label>
+            <label for="correo">E-MAIL</label>
             <input type="text" id="correo" name="correo" title="Correo" />
-            <span id="valida" class="i i-warning"></span>
+            <span id="validaUser" class="i i-warning"></span>
           </p>
 
           <!-- Campo de contraseña -->
           <p class="field">
             <label for="password">PASSWORD</label>
             <input type="password" id="password" name="password" title="Password" />
-            <span id="valida" class="i i-close"></span>
+            <span id="validaPassword" class="i i-close"></span>
           </p>
 
           <!-- Botón para iniciar sesión -->
