@@ -507,7 +507,6 @@ pageEncoding="UTF-8"%>
                         %>
                         <div class="col-lg-7 mx-auto mb-2">
                             <div class="card card-h mb-4">
-                                <img src="https://zetsan.com/wp-content/uploads/2020/10/1366_2000.jpeg" lazyload alt=<%=rs.getString( "titulo") %>>
                                 <div class="card-body ">
                                     <p class="mb-1 ">
                                         <%= rs.getString("titulo") %>
