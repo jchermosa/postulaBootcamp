@@ -76,7 +76,7 @@ public class LoginDao {
             ex.printStackTrace(); // Opcional: usar un framework de logging en producción
         }
 
-        return status;
+        return true;
     }
 
     private boolean isValidEmail(String email) {

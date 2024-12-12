@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
     <%@ page import="java.sql.*,java.sql.Connection,java.sql.ResultSet,com.roshka.proyectofinal.DataBase,jakarta.servlet.http.HttpServlet,jakarta.servlet.http.HttpServletRequest"%>
+<%HttpSession session1 = request.getSession(true);
+    Object done = session1.getAttribute("logon.isDone");
+    if (done == null) {
+        String requestURL = request.getRequestURL().toString();
+        session1.setAttribute("login.target", requestURL);
+        response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/login.jsp");
+        return;
 
+    }%>
 
         <head>
             <link href="estilos/form.css" rel="stylesheet" type="text/css" />

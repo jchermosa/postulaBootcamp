@@ -1,12 +1,4 @@
-   <%@ page import= "jakarta.servlet.http.* , java.lang.Object" %>
-			<%HttpSession session1 = request.getSession(true);
-			Object done = session1.getAttribute("logon.isDone");
-			 if (done == null) {
-				session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
-				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
-				return;
 
-            }%>
 
 <!DOCTYPE html>
 <html>
@@ -18,6 +10,26 @@
 </head>
 
 <body>
+<%@ page import="jakarta.servlet.http.HttpServletRequest, jakarta.servlet.http.HttpSession" %>
+<%
+    HttpSession sessionT = request.getSession(false); // No crear una nueva sesión si no existe
+    Object done = (sessionT != null) ? sessionT.getAttribute("logon.isDone") : null;
+
+    if (done == null) {
+        String targetURL = request.getRequestURL().toString(); // Método moderno
+        if (request.getQueryString() != null) {
+            targetURL += "?" + request.getQueryString(); // Añadir parámetros si existen
+        }
+        sessionT = request.getSession(true); // Crear sesión ahora si es necesario
+        sessionT.setAttribute("login.target", targetURL);
+
+        // Usar una URL relativa desde el contexto de la aplicación
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
+        return;
+    }
+%>
+
+
      <div class="botones">
             <a href="logout">LOGOUT</a><br>
             <a href="index.html">INICIO</a><br>
@@ -25,8 +37,7 @@
 
 
 
-   
-<body>
+
     <div class="logo"><img src="imagenes/logo-roshka.svg" alt="logo-roshka"></div>
     <div class="header">
         <h1>Bienvenido! al  MENU TH</h1>
