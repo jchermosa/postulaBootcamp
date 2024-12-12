@@ -18,7 +18,7 @@ public class FiltrarBootcampsServlet extends HttpServlet {
             try {
                 List<Bootcamp> bootcamp = BootcampDao.filtrar(lenguaje);
 
-                request.setAttribute("bootcamps", bootcamp);
+                request.setAttribute("bootcamp", bootcamp);
                 request.getRequestDispatcher("/bootcamp.jsp").forward(request, response);
             } catch (Exception e) {
                 e.printStackTrace();
