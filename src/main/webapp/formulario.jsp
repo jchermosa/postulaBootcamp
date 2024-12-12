@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
     <%@ page import="java.sql.*,java.sql.Connection,java.sql.ResultSet,com.roshka.proyectofinal.DataBase,jakarta.servlet.http.HttpServlet,jakarta.servlet.http.HttpServletRequest"%>
-
-
+        <!DOCTYPE html>
         <head>
             <link href="estilos/form.css" rel="stylesheet" type="text/css" />
             <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
@@ -11,9 +10,9 @@ pageEncoding="UTF-8"%>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <link rel="stylesheet" href="form.css" type="text/css">
             <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-            <script src="formJS.js"></script>
-            <script src="Javascript.js"></script>
             <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
+            <script src="js/Javascript.js" ></script>
+            <script src="js/formJS.js"></script>
             <title>Formulario Postulante</title>
         </head>
 
@@ -45,33 +44,31 @@ pageEncoding="UTF-8"%>
                                 <input type="hidden" name="bootcamp" value="<%= request.getParameter("bootcamp") %>">
 
                                 <label for="nombre">Ingrese su Nombre:</label>
-                                <input required id="nombre" name="nombre" type="text"><br>
+                                    <input required id="nombre" name="nombre" type="text" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios"><br>
 
-                                <label for="apellido">Ingrese su Apellido:</label>
-                                <input required id="apellido" name="apellido" type="text"><br>
+                                    <label for="apellido">Ingrese su Apellido:</label>
+                                    <input required id="apellido" name="apellido" type="text" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras y espacios"><br>
 
-                                <label for="cedula">Numero de cedula:</label>
-                                <input required id="cedula" name="cedula" type="number"><br>
+                                    <label for="cedula">Número de cédula:</label>
+                                    <input required id="cedula" name="cedula" type="number" min="1" title="Ingrese un número válido"><br>
 
-                                <label for="correo">Correo:</label>
-                                <input required id="correo" name="correo" type="email"><br>
+                                    <label for="correo">Correo:</label>
+                                    <input required id="correo" name="correo" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingrese un correo electrónico válido"><br>
 
-                                <label for="telefono">Telefono:</label>
-                                <input required id="telefono" name="telefono" type="text"><br>
+                                    <label for="telefono">Teléfono:</label>
+                                    <input required id="telefono" name="telefono" type="text" pattern="\d{10}" title="El número debe contener 10 dígitos"><br>
 
-                                <label for="direccion">Direccion:</label>
-                                <input required id="direccion" name="direccion" type="text"><br>
+                                    <label for="direccion">Dirección:</label>
+                                    <input required id="direccion" name="direccion" type="text" title="Ingrese una dirección válida"><br>
 
-                                <label for="experiencia_laboral">Experiencia laboral</label>
-                                <!-- Si no lo marca el valor que envia es null y si lo marca es "ON" -->
-                                <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox"><br>
+                                    <label for="experiencia_laboral">Experiencia laboral:</label>
+                                    <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox"><br>
 
+                                    <label for="notebook">¿Cuenta con notebook?:</label>
+                                    <input id="notebook" name="notebook" type="checkbox"><br>
 
-                                <label for="notebook">Cuenta con notebook</label>
-                                <input id="notebook" name="notebook" type="checkbox"><br>
-
-                                <label for="universidad">Estudio Universitario </label>
-                                <input id="universidad" name="universidad" type="checkbox"><br>
+                                    <label for="universidad">¿Estudio Universitario?:</label>
+                                    <input id="universidad" name="universidad" type="checkbox"><br>
 
                                 <p for="experiencia_programando">Lenguajes de programacion que conoces:</p>
 
@@ -82,7 +79,7 @@ pageEncoding="UTF-8"%>
                                     Iterator<Lenguaje> iter =  listLenguaje.iterator();
                                                 Lenguaje len = null;
                                     %>
-                                        <ul id="agarraunolaputa">
+                                        <ul id="opcion-lenguaje">
                                             <% while(iter.hasNext()){
                                         len = iter.next();
                                     %>
@@ -104,35 +101,5 @@ pageEncoding="UTF-8"%>
         </body>
 
         </html>
-        <script>
-            (function() {
-                const form = document.querySelector('#agarraunolaputa');
-                const checkboxes = form.querySelectorAll('input[type=checkbox]');
-                const checkboxLength = checkboxes.length;
-                const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
 
-                function init() {
-                    if (firstCheckbox) {
-                        for (let i = 0; i < checkboxLength; i++) {
-                            checkboxes[i].addEventListener('change', checkValidity);
-                        }
-
-                        checkValidity();
-                    }
-                }
-
-                function isChecked() {
-                    for (let i = 0; i < checkboxLength; i++) {
-                        if (checkboxes[i].checked) return true;
-                    }
-                    return false;
-                }
-
-                function checkValidity() {
-                    const errorMessage = !isChecked() ? 'Debe seleccionar al menos un lenguaje que conozca' : '';
-                    firstCheckbox.setCustomValidity(errorMessage);
-                }
-                init();
-            })();
-        </script>
 
