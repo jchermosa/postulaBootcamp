@@ -39,7 +39,7 @@ import java.util.List;
 
         public static List<Postulante> listarPostulante() {
             List<Postulante> postulante = new ArrayList<>();
-            String sql = "select a.id, a.nombre, a.apellido, a.nro_cedula, a.correo, a.telefono, a.direccion, " +
+            String sql = "select a.id, a.n ombre, a.apellido, a.nro_cedula, a.correo, a.telefono, a.direccion, " +
                     "a.experiencia_laboral, a.estudio_universitario, a.bootcamp_id, a.notebook, c.nombre_lenguaje as bootcamp, \n" +
                     "a.aceptado from postulante a\n" +
                     "  inner join bootcamp b on b.id= a.bootcamp_id\n" +
