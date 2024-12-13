@@ -55,7 +55,7 @@
         <div class = 'i i-login'></div>
         <h2> CREAR CUENTA </h2>
       </div>
-      <form action = "crearCuenta" method = "post">
+      <form action = "saveUsuario" method = "post">
         <div class = 'box-login'>
           <div class = 'fieldset> body' id = 'login_form'>
             <p class = 'field'>
@@ -74,8 +74,8 @@
               <span id = 'valida' class = 'i i-warning'> </span>
             </p>
             <p class = 'field'>
-              <label for = 'password'> PASSWORD </label>
-              <input type = 'password' id = 'password' name = 'password' title = 'Password' />
+              <label for = 'contrasena'> PASSWORD </label>
+              <input type = 'password' id = 'contrasena' name = 'contrasena' title = 'Password' />
               <span id = 'valida' class = 'i i-close'> </span>
             </p>
             <input type = 'submit' id = 'do_login' value = 'CREAR CUENTA' title = 'CREAR CUENTA' />
