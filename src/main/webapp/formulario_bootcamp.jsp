@@ -18,6 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
+
          <!-- coneccion con el de css  -->
                <link rel="stylesheet" href="postulante.css">
         <title>Crear BOOTCAMP</title>
