@@ -3,13 +3,15 @@ package com.roshka.proyectofinal.usuario;
 import com.roshka.proyectofinal.entity.Usuario;
 import com.roshka.proyectofinal.profesor.ProfesorDao;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
-public class SaveServlet {
+@WebServlet ("/saveUsuario")
+public class SaveServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
