@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="usrebe.css">
-  <script src="js/login.js" defer></script>
 </head>
 
 <body>
@@ -17,7 +16,7 @@
         <div class='i i-login'></div>
         <h2> USUARIO </h2>
       </div>
-      <form action="" method="post">
+      <form action="login" method="post">
         <div class='box-login'>
           <div class='fieldset-body' id='login_form'>
             <button onclick="openLoginInfo();" class='b b-form i i-more' title='Mas informacion'></button>
@@ -46,9 +45,46 @@
       <button onclick="" class='b-support' title='Forgot Password?'>Forgot Password?</button>
       <button onclick="" class='b-support' title='Contact Support'>Contact Support</button>
       <div class='line-wh'></div>
-      <button onclick="" class='b-cta' title='Sign up now!'>CREATE ACCOUNT</button>
+      <button onclick="createAccount();" class='b-cta' title='Sign up now!'>CREATE ACCOUNT</button>
     </div>
-  </div>
-</body>
 
+    <div class = 'box-crear-cuenta' style="display: none;">
+    <div class = 'box-form'>
+      <div class = 'box-login-tab'></div>
+      <div class = 'box-login-title'>
+        <div class = 'i i-login'></div>
+        <h2> CREAR CUENTA </h2>
+      </div>
+      <form action = "crearCuenta" method = "post">
+        <div class = 'box-login'>
+          <div class = 'fieldset> body' id = 'login_form'>
+            <p class = 'field'>
+                <label for = 'nombre'> NOMBRE </label>
+                <input type = 'text' id = 'nombre' name = 'nombre' title = 'Nombre' />
+                <span id = 'valida' class = 'i i-warning'> </span>
+            </p>
+            <p class = 'field'>
+              <label for = 'apellido'> APELLIDO </label>
+              <input type = 'text' id = 'apellido' name = 'apellido' title = 'Apellido' />
+              <span id = 'valida' class = 'i i-warning'> </span>
+            </p>
+            <p class = 'field'>
+              <label for = 'correo'> E-MAIL </label>
+              <input type = 'text' id = 'correo' name = 'correo' title = 'Correo' />
+              <span id = 'valida' class = 'i i-warning'> </span>
+            </p>
+            <p class = 'field'>
+              <label for = 'password'> PASSWORD </label>
+              <input type = 'password' id = 'password' name = 'password' title = 'Password' />
+              <span id = 'valida' class = 'i i-close'> </span>
+            </p>
+            <input type = 'submit' id = 'do_login' value = 'CREAR CUENTA' title = 'CREAR CUENTA' />
+          </div>
+        </div>
+      </form>
+    </div>
+   </div>
+  </div>
+  <script src="js/login.js"></script>
+</body>
 </html>
