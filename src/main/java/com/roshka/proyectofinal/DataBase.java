@@ -11,7 +11,7 @@ public class DataBase {
             Class.forName("org.postgresql.Driver");
             con= DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/bootcamp_th",
-                            "postgres", "post!2024seb");
+                            "postgres", "root");
 
             if(con != null){
                 System.out.println("---> CONNECTED TO SERVER");
