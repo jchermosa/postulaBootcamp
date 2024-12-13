@@ -35,7 +35,7 @@ public class LogoutServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         //out.print("Has cerrado tu sesion !");
 
-        request.getRequestDispatcher("index.html").include(request,response);
+        request.getRequestDispatcher("login.jsp").include(request,response);
 
         HttpSession session = request.getSession(true);
         session.invalidate();
