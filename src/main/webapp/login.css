@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
                 display: block;
                 height: 100%;
                 width: 0;
-                background-color: #ed2553;
+                background-color: #044e79;
                 transition: all 0.35s cubic-bezier(.35,.33,.84,.85);
             }
         }

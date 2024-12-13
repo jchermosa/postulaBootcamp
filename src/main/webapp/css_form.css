@@ -298,11 +298,12 @@ a:link:hover {
 	background-color: rgba(11, 49, 110, 0.75);
 }
 
-.work-with-us {
+.formulario {
+	margin-top: 150px;
 	width: 100%;
 }
 
-.work-with-us .sub-head {
+.formulario .sub-head {
 	text-align: left;
 }
 
