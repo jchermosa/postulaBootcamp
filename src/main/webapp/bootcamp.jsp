@@ -442,122 +442,94 @@ pageEncoding="UTF-8"%>
             </style>
 
             <link rel="preload" as="image" href="images/1280x853.webp">
-            <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+            <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"  as="style" onload="this.onload=null; this.rel='stylesheet'">
             <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>
 
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6907191851278817" crossorigin="anonymous"></script>
 
         </head>
+            <body>
 
-
-        <body>
-
-            <div class="col-lg-7 mx-auto mt-5 mb-5">
-                <h3 class="h3 mt-5">¿QUE ES UN BOOTCAMP?</h3>
-                <br>
-                <h6> ES UN CAMPO DE ENTRENAMIENTO INTENSIVO Y GRATUITO PARA PRINCIPIANTES QUE YA PROGRAMAN Y QUIEREN SER PARTE DE LA EMPRESA </h6>
-                <br>
-                <h3 class="h4">¿CUANTOS MESES DURA EL ENTRENAMIENTO Y CUAL ES SU HORARIO?</h3>
-                <br>
-                <h6>AL SER INTENSIVO Y TENIENDO EN CUENTA QUE LOS ASPIRANTES DEBEN FINALIZARLO CON UN CONOCIMIENTO APTO PARA REALIZAR UN PROYECTO DEL ÁREA, SE DA COMO LAPSO DE TIEMPO UN MES CON UN HORARIO DE 8:00 A 18:00 HS </h6>
-
-
-            </div>
-            </div>
-            <!-- /row -->
-            </div>
-            <!-- /container -->
-
-
-
-            <div class="col-lg-7 mx-auto mb-5">
-                <h3> REQUISITOS</h3>
-            </div>
-            <div class="col-lg-7 mx-auto mb-2">
-                <i class="fal fa-fast-forward"></i>
-            </div>
-            <div class="col-lg-7 mx-auto mb-2">
-                <h3 class="h6">1. DISPOSICION DE TIEMPO </h6>
+                <div class="col-lg-7 mx-auto mt-5 mb-5">
+                    <h3 class="h3 mt-5">¿QUE ES UN BOOTCAMP?</h3>
                     <br>
-            </div>
-            <div class="col-lg-7 mx-auto mb-2">
-                <i class="fal fa-clone"></i>
-            </div>
-            <div class="col-lg-7 mx-auto mb-2">
-                <h3 class="h6">2. DISPONER DE UNA NOTEBOOK </h6>
+                    <h6> ES UN CAMPO DE ENTRENAMIENTO INTENSIVO Y GRATUITO PARA PRINCIPIANTES QUE YA PROGRAMAN Y QUIEREN SER PARTE DE LA EMPRESA </h6>
                     <br>
-            </div>
-            <div class="col-lg-7 mx-auto mb-2">
-                <i class="fal fa-highlighter"></i>
-            </div>
-            <div class="col-lg-7 mx-auto mb-2">
-                <h3 class="h6">3. APROBAR EXAMENES </h6>
+                    <h3 class="h4">¿CUANTOS MESES DURA EL ENTRENAMIENTO Y CUAL ES SU HORARIO?</h3>
                     <br>
-            </div>
-            <div class="col-lg-7 mx-auto mb-2">
-                <i class="fal fa-dumbbell"></i>
-            </div>
-            <div class="col-lg-7 mx-auto mb-2">
-                <h3 class="h6">4. FIRMAR CARTA DE COMPROMISO </h3>
-                <br>
-            </div>
-
-            </div>
-            </div>
-            </div>
-            <!-- /row -->
-            </div>
-            <!-- /container -->
+                    <h6>AL SER INTENSIVO Y TENIENDO EN CUENTA QUE LOS ASPIRANTES DEBEN FINALIZARLO CON UN CONOCIMIENTO APTO PARA REALIZAR UN PROYECTO DEL ÁREA, SE DA COMO LAPSO DE TIEMPO UN MES CON UN HORARIO DE 8:00 A 18:00 HS </h6>
+                </div>
 
 
-            <div class="col-lg-7 mx-auto mb-5">
-                <h3> EDICIONES DE BOOTCAMP </h3>
+                <div class="col-lg-7 mx-auto mb-5">
+                    <h3> REQUISITOS</h3>
+                </div>
+                <div class="col-lg-7 mx-auto mb-2">
+                    <i class="fal fa-fast-forward"></i>
+                </div>
+                <div class="col-lg-7 mx-auto mb-2">
+                    <h3 class="h6">1. DISPOSICION DE TIEMPO </h3>
+                        <br>
+                </div>
+                <div class="col-lg-7 mx-auto mb-2">
+                    <i class="fal fa-clone"></i>
+                </div>
+                <div class="col-lg-7 mx-auto mb-2">
+                    <h3 class="h6">2. DISPONER DE UNA NOTEBOOK </h3>
+                        <br>
+                </div>
+                <div class="col-lg-7 mx-auto mb-2">
+                    <i class="fal fa-highlighter"></i>
+                </div>
+                <div class="col-lg-7 mx-auto mb-2">
+                    <h3 class="h6">3. APROBAR EXAMENES </h3>
+                        <br>
+                </div>
+                <div class="col-lg-7 mx-auto mb-2">
+                    <i class="fal fa-dumbbell"></i>
+                </div>
+                <div class="col-lg-7 mx-auto mb-2">
+                    <h3 class="h6">4. FIRMAR CARTA DE COMPROMISO </h3>
+                    <br>
+                </div>
 
-            </div>
-            </div>
-            <!-- /row -->
+                <div class="col-lg-7 mx-auto mb-5">
+                    <h3> EDICIONES DE BOOTCAMP </h3>
 
+                </div>
 
-
-            <div class="row">
-                <%
-                    Connection con = DataBase.getConnection();
-                    Statement stmt = con.createStatement();
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM bootcamp WHERE activo=true");
-                    while(rs.next()){
-                    %>
-                    <div class="col-lg-7 mx-auto mb-2">
-                        <div class="card card-h mb-4">
-                            <img src="https://zetsan.com/wp-content/uploads/2020/10/1366_2000.jpeg" lazyload alt=<%=rs.getString( "titulo") %>>
-                            <div class="card-body ">
-                                <p class="mb-1 ">
-                                    <%= rs.getString("titulo") %>
-                                </p>
-                                <p class="mb-1 "> Inicio:
-                                    <%=rs.getString("fecha_inicio")%>
-                                </p>
-                                <p class="mb-1 "> Fin:
-                                    <%=rs.getString("fecha_fin")%>
-                                </p>
-                                <form action="formulario.jsp">
-                                    <input name="bootcamp" type="hidden" value=<%=rs.getInt( "id") %>>
-                                    <button type="submit">POSTULAR</button>
-                                </form>
+                <div class="row">
+                    <%
+                        Connection con = DataBase.getConnection();
+                        Statement stmt = con.createStatement();
+                        ResultSet rs = stmt.executeQuery("SELECT * FROM bootcamp WHERE activo=true");
+                        while(rs.next()){
+                        %>
+                        <div class="col-lg-7 mx-auto mb-2">
+                            <div class="card card-h mb-4">
+                                <div class="card-body ">
+                                    <p class="mb-1 ">
+                                        <%= rs.getString("titulo") %>
+                                    </p>
+                                    <p class="mb-1 "> Inicio:
+                                        <%=rs.getString("fecha_inicio")%>
+                                    </p>
+                                    <p class="mb-1 "> Fin:
+                                        <%=rs.getString("fecha_fin")%>
+                                    </p>
+                                    <form action="formulario.jsp">
+                                        <input name="bootcamp" type="hidden" value=<%=rs.getInt("id") %>>
+                                        <button type="submit">POSTULAR</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <%
-                }
+                        <%
+                        }
                     %>
-            </div>
-        </body>
-
-        </div>
-        </div>
-        </div>
-        </div>
+                </div>
+            </body>
 
 
-        </body>
 
         </html>

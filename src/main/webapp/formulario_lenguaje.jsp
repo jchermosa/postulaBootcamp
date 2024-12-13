@@ -1,3 +1,17 @@
+   <%@ page import= "jakarta.servlet.http.* , java.lang.Object" %>
+			<%HttpSession session1 = request.getSession(true);
+			Object done = session1.getAttribute("logon.isDone");
+			 if (done == null) {
+				session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
+				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
+				return;
+
+            }%>
+
+
+
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!DOCTYPE html>
@@ -11,7 +25,15 @@
     </head>
 
     <body>
+        <div class="botones"><a href="logout">LOGOUT</a><br>
+                    <a href="index.html">INICIO</a><br>
+                    <a href="menu.jsp">MENU</a><br>
+                    </div>
+
+
+
         <div>
+
             <h1> CREAR LENGUAJE </h1>
 
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
