@@ -188,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
                 color: #fff;
             }
             u {
-                background-color: ##045d90;
+                background-color: #045d90;
                 &:before {
                     background-color: #fff;
                 }
@@ -220,9 +220,9 @@ h1, h2, h3, h4, h5, h6 {
         }
         .btn-large {
             opacity: 0;
-            transition: all 1s cubic-bezier(.48,.55,.69,.9);
+            transition: all 0.5s cubic-bezier(.48,.55,.69,.9);
             transform: translateX(20px);
-            transition-delay: 1s;
+            transition-delay: 0.1s;
         }
     }
     .forgetbox {
@@ -285,16 +285,30 @@ h1, h2, h3, h4, h5, h6 {
         p {
             color: #fff;
             visibility: hidden;
-            opacity: 0;
-            transition: all 1s cubic-bezier(.48,.55,.69,.9);
+            opacity: 1;
+            transition: all 0.1s cubic-bezier(.48,.55,.69,.9);
             transform: translate(0px, 20px);
-            transition-delay: 1s;
+            transition-delay: 0.1s;
         }
         .btn {
             opacity: 0;
             transition: all 0.3s cubic-bezier(.48,.55,.69,.9);
             transform: translate(0px, 20px);
-            transition-delay: 1s;
+            transition-delay: 0.1s;
+        }
+
+        .btn:active, .btn:hover {
+            border-color: #5396aa;
+            color: #5396aa;
+        }
+        &.active {
+            u {
+                transform: scale(1);
+            }
+            svg {
+                opacity: 1;
+                transform: translate(-50%, -50%) rotate(0deg) skew(0deg, 0deg);
+            }
         }
     }
     &.level-login {
@@ -371,6 +385,7 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
 }
+
 @keyframes back {
     0% { transform: translateX(0px); }
     70% { transform: translateX(-13px); }
@@ -423,9 +438,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .btn {
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     background-color: #fff;
-    border: 3px solid #dfdfdf;
+    border: 3px solid #bbbbbb;
     cursor: pointer;
     color: #dfdfdf;
     display: block;
@@ -485,7 +500,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 .btn-large {
-    transition: all 1s ease;
+    transition: all 0.3s ease;
     background-color: #fff;
     border: 3px solid #fff;
     cursor: pointer;
@@ -500,8 +515,8 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     position: relative;
     &.active, &:hover {
-        background-color: #ed2553;
-        border-color: #fff;
+        background-color: #045d90;
+        border-color: #045d90;
         color: #fff;
     }
 }
@@ -509,11 +524,11 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     padding-top: 50px;
     a {
-        color: #bdbdbd;
+        color: #a3a3a3;
         font-size: 23px;
-        transition: all 1s ease;
+        transition: all 0.5s ease;
         &:hover {
-            color: #56ADC7;
+            color: #044e79;
         }
     }
 }
