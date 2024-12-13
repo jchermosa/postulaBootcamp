@@ -133,6 +133,8 @@ public class BootcampDao {
         return status;
     }
     public static List<Bootcamp> filtrar(String lenguaje) {
+        lenguaje.toLowerCase();
+        lenguaje = mayusPrimeraLetra(lenguaje);
         List<Bootcamp> list = new ArrayList<>();
 
         // Validar que el parámetro 'lenguaje' no esté vacío ni nulo
@@ -177,6 +179,9 @@ public class BootcampDao {
         }
 
         return list;
+    }
+    private static String mayusPrimeraLetra(String texto) {
+        return texto.substring(0, 1).toUpperCase() + texto.substring(1).toLowerCase();
     }
 
 
