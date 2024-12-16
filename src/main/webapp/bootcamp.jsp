@@ -66,21 +66,23 @@
                 Connection con = DataBase.getConnection();
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM bootcamp WHERE activo=true");
-                while(rs.next()){}
+                while(rs.next()){
             %>
 
             <!-- Dynamically loaded image and content -->
             <div class="card-body">
-                <p class="card-title">Titulo</p> <!-- <%=rs.getString("titulo") %>> -->
-                <p>Inicio:</p> <!-- <p>Inicio: <%=rs.getString("fecha_inicio") %></p> -->
-                <p>Fin:</p> <!-- <p>Fin: <%=rs.getString("fecha_fin") %></p> -->
+                <p class="card-title"><%=rs.getString("titulo") %></p>
+                <p>Inicio:</p> <p>Inicio: <%=rs.getString("fecha_inicio") %></p>
+                <p>Fin:</p> <p>Fin: <%=rs.getString("fecha_fin") %></p>
                 <form action="formulario.jsp">
-                    <!-- <input name="bootcamp" type="hidden" value=<%=rs.getInt("id") %>> -->
+                    <input name="bootcamp" type="hidden" value=<%=rs.getInt("id") %>>
                     <button type="submit">POSTULAR</button>
                 </form>
             </div>
         </div>
-
+        <%
+            }
+        %>
     </div>
 
 </div>
