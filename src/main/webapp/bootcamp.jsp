@@ -57,10 +57,10 @@
     </div>
 
     <!-- Editions Section -->
-    <div class="content-box2">
+    <div class="container-box2">
         <h3 class="subtitle">EDICIONES DE BOOTCAMP</h3>
 
-        <div class="card">
+
 
             <%
                 Connection con = DataBase.getConnection();
@@ -70,10 +70,11 @@
             %>
 
             <!-- Dynamically loaded image and content -->
+        <div class="card">
             <div class="card-body">
-                <p class="card-title"><%=rs.getString("titulo") %></p>
-                <p>Inicio:</p> <p>Inicio: <%=rs.getString("fecha_inicio") %></p>
-                <p>Fin:</p> <p>Fin: <%=rs.getString("fecha_fin") %></p>
+                <p class="card-title"><%=rs.getString("titulo") %>! </p>
+                <p><strong>Inicio:</strong> <%=rs.getString("fecha_inicio") %> </p>
+                <p><strong>Fin:</strong> <%=rs.getString("fecha_fin") %> </p>
                 <form action="formulario.jsp">
                     <input name="bootcamp" type="hidden" value=<%=rs.getInt("id") %>>
                     <button type="submit">POSTULAR</button>

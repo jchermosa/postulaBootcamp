@@ -1,138 +1,112 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*,java.sql.Connection,java.sql.ResultSet,com.roshka.proyectofinal.DataBase,jakarta.servlet.http.HttpServlet,jakarta.servlet.http.HttpServletRequest"%>
+<%@ page import= "jakarta.servlet.http.* , java.lang.Object" %>
+<%HttpSession session1 = request.getSession(true);
+    Object done = session1.getAttribute("logon.isDone");
+    if (done == null) {
+        session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
+        response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
+        return;
+
+    }%>
 
 
-        <head>
-            <link href="estilos/form.css" rel="stylesheet" type="text/css" />
-            <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
-            <!-- CSS only -->
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <link rel="stylesheet" href="form.css" type="text/css">
-            <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-            <script src="formJS.js"></script>
-            <script src="Javascript.js"></script>
-            <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
-            <title>Formulario Postulante</title>
-        </head>
-
-        <body>
-            <header>
-                <div class="logo">
-                    <img src="imagenes/logo-roshka.svg" alt="log-roshka" />
-                </div>
-            </header>
-            <main class="create">
-                <article class="contenedor">
-                    <div>
-                        <%
-                        int id =Integer.parseInt(request.getParameter("bootcamp"));
-                        Connection con = DataBase.getConnection();
-                        Statement stmt = con.createStatement();
-                        ResultSet rs = stmt.executeQuery("SELECT * FROM bootcamp WHERE id= "+id+ " LIMIT 1" );
-                        rs.next();
-                    %>
-
-                            <h2>Descripcion:</h2>
-                            <p>
-                                <%= rs.getString("descripcion") %>
-                            </p>
-                            <p class="enter">Si sigues interesado y cumples con los requisitos, completa el siguiente formulario: </p>
-
-                            <form method="get" action="SaveServlet" class="form">
-
-                                <input type="hidden" name="bootcamp" value="<%= request.getParameter("bootcamp") %>">
-
-                                <label for="nombre">Ingrese su Nombre:</label>
-                                <input required id="nombre" name="nombre" type="text"><br>
-
-                                <label for="apellido">Ingrese su Apellido:</label>
-                                <input required id="apellido" name="apellido" type="text"><br>
-
-                                <label for="cedula">Numero de cedula:</label>
-                                <input required id="cedula" name="cedula" type="number"><br>
-
-                                <label for="correo">Correo:</label>
-                                <input required id="correo" name="correo" type="email"><br>
-
-                                <label for="telefono">Telefono:</label>
-                                <input required id="telefono" name="telefono" type="text"><br>
-
-                                <label for="direccion">Direccion:</label>
-                                <input required id="direccion" name="direccion" type="text"><br>
-
-                                <label for="experiencia_laboral">Experiencia laboral</label>
-                                <!-- Si no lo marca el valor que envia es null y si lo marca es "ON" -->
-                                <input id="experiencia_laboral" name="experiencia_laboral" type="checkbox"><br>
 
 
-                                <label for="notebook">Cuenta con notebook</label>
-                                <input id="notebook" name="notebook" type="checkbox"><br>
 
-                                <label for="universidad">Estudio Universitario </label>
-                                <input id="universidad" name="universidad" type="checkbox"><br>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 
-                                <p for="experiencia_programando">Lenguajes de programacion que conoces:</p>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="postulante.css">
+    <title>JSP Page</title>
+</head>
 
-                                <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
-                                    <%
-                                    LenguajeDao lenDao = new LenguajeDao();
-                                    List<Lenguaje> listLenguaje = lenDao.listar();
-                                    Iterator<Lenguaje> iter =  listLenguaje.iterator();
-                                                Lenguaje len = null;
-                                    %>
-                                        <ul id="agarraunolaputa">
-                                            <% while(iter.hasNext()){
-                                        len = iter.next();
-                                    %>
-                                                <li class="d-flex">
-                                                    <label for=<%=len.getNombre_lenguaje() %> > <%= len.getNombre_lenguaje() %> </label>
-                                                    <input onclick="enviar(id)" value=<%=len.getId() %> id=
-                                                    <%=len.getNombre_lenguaje() %> name=
-                                                        <%=len.getNombre_lenguaje() %> type="checkbox" >
-                                                </li>
-                                                <% } %>
-                                        </ul>
-                                        <input class="enviar info error" type="submit">
-                                        <input class="borrar" type="reset" value="Borrar"><br>
-                                        <a href="index.html">volver</a>
-                            </form>
-                    </div>
-                </article>
-            </main>
-        </body>
+<body>
+<div class="botones"><a href="logout">LOGOUT</a><br>
+    <a href="index.html">INICIO</a><br>
+    <a href="menu.jsp">MENU</a><br>
+</div>
 
-        </html>
-        <script>
-            (function() {
-                const form = document.querySelector('#agarraunolaputa');
-                const checkboxes = form.querySelectorAll('input[type=checkbox]');
-                const checkboxLength = checkboxes.length;
-                const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
 
-                function init() {
-                    if (firstCheckbox) {
-                        for (let i = 0; i < checkboxLength; i++) {
-                            checkboxes[i].addEventListener('change', checkValidity);
-                        }
 
-                        checkValidity();
-                    }
-                }
+<div>
 
-                function isChecked() {
-                    for (let i = 0; i < checkboxLength; i++) {
-                        if (checkboxes[i].checked) return true;
-                    }
-                    return false;
-                }
+    <h1> CREAR LENGUAJE </h1>
 
-                function checkValidity() {
-                    const errorMessage = !isChecked() ? 'Debe seleccionar al menos un lenguaje que conozca' : '';
-                    firstCheckbox.setCustomValidity(errorMessage);
-                }
-                init();
-            })();
-        </script>
+    <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
 
+</div>
+
+<div>
+    <%
+        LenguajeDao lenDao = new LenguajeDao();
+        List<Lenguaje> listLen = lenDao.listar();
+        Iterator<Lenguaje> iterLen =  listLen.iterator();
+        Lenguaje lenguaje = null;
+    %>
+
+    <form method="post" action="SaveServletLenguaje">
+        <label for="nombre_lenguaje">
+            Nombre del Lenguaje nuevo:
+        </label>
+        <input name="nombre_lenguaje">
+
+        </input>
+
+        <button type="submit">
+            Crear Lenguaje
+        </button>
+    </form>
+    <br>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Lenguaje</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% while(iterLen.hasNext()){
+            lenguaje = iterLen.next();
+
+        %>
+        <th> <%= lenguaje.getNombre_lenguaje() %> </th>
+
+        <th>  <form action="EditServletLenguaje" method="get">
+            <input type="hidden" name="id" value=<%= lenguaje.getId() %>>
+            <input type="submit" value="Editar" > </input>
+        </form>
+        </th>
+        <th>
+            <form action="DeleteServletLenguaje" method="get">
+                <input type="hidden" name="id" value= <%= lenguaje.getId() %> name="id" id="id" >
+                <input type="submit" value="Borrar" > </input>
+            </form>
+        </th>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+    </form>
+</div>
+
+<%
+    Lenguaje lenguajeToEdit = (Lenguaje)request.getAttribute("Lenguaje");
+    if(lenguajeToEdit != null){
+%>
+<form method="post" action="EditServletLenguaje">
+    <input type="hidden" value="<%= lenguajeToEdit.getId() %>" name="id" id="id" />
+    <label for="nombre_lenguaje">Lenguaje:</label>
+    <input type="text" name="nombre_lenguaje" value="<%= lenguajeToEdit.getNombre_lenguaje() %>">
+    <button type="submit">Editar Lenguaje </button>
+</form>
+<% } %>
+
+</body>
+
+</html>
