@@ -2,14 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        <%HttpSession session1 = request.getSession(true);
-			Object done = session1.getAttribute("logon.isDone");
-			 if (done == null) {
-				session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
-				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
-				return;
-
-            }%>
 
     <!DOCTYPE html>
     <html>
@@ -18,6 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
+
          <!-- coneccion con el de css  -->
                <link rel="stylesheet" href="postulante.css">
         <title>Crear BOOTCAMP</title>
@@ -61,7 +54,7 @@
                     <% while(iter.hasNext()){
                         len = iter.next();
                     %>
-                        <option value=<%= len.getId() %> >
+                        <option value="<%= len.getId() %> ">
                             <%= len.getNombre_lenguaje() %>
                         </option>
                         <% } %>
@@ -84,7 +77,7 @@
                     </button>
                     
                 </form>
-                
+
                 <%@page import="jakarta.servlet.http.HttpServlet,jakarta.servlet.http.HttpServletRequest,com.roshka.proyectofinal.bootcamp.BootcampDao"%>
                 <%
                 int nahuel = 0;
@@ -97,13 +90,10 @@
                 List<Bootcamp> listBoot;
                 listBoot = bootDao.listar();
                 String lenguaje = request.getParameter("lenguaje");
-                //String inicio = request.getParameter("fecha_inicio");
-                //String fin = request.getParameter("fecha_fin");
+
                 switch(nahuel){
                     case 1:
                         lenguaje = request.getParameter("lenguaje");
-                        //inicio = request.getParameter("fecha_inicio");
-                        //fin = request.getParameter("fecha_fin");
                         listBoot = bootDao.filtrar(lenguaje);
                         break;
                      case 0:
@@ -113,12 +103,16 @@
                 Iterator<Bootcamp> iterBoot = listBoot.iterator();
                 Bootcamp boot = null;
                 %>
+            <%--Formulario Para filtrar por lenguaje--%>
 
-        <form method="get" action ="#" >    
+            <form method="get" action ="#" >
+
             <input name="lenguaje" type="search" placeholder="Buscar por lenguaje"></input>
-            
-            <input type="submit" name="filtraryovan" value= "Filtrar"></input>       
+
+            <button type="submit" name="filtraryovan" value= "Filtrar"></button>
         </form>
+
+            <%--Tabla de respuestas--%>
         </div>
         <p><%=nahuel%> <%=lenguaje%>  </p>
         <div>
@@ -137,6 +131,8 @@
               <tbody>
                 <% while(iterBoot.hasNext()){
                     boot = iterBoot.next();
+                    String id = "id";
+
 
                     %>
                     <tr>
@@ -148,13 +144,13 @@
                     <th> <%= boot.getNombre_profesor() + " " + boot.getApellido_profesor() %> </th>
                     <th> <%= boot.getActivo() %> </th>
                     <th>  <form action="EditServletBootcamp" method="get">
-                            <input type="hidden" name="id" id="id" value=<%= boot.getId() %>>
+                            <input type="hidden" name="id" id="<%=id%>" value=<%= boot.getId() %>>
                             <input type="submit" value="Editar" ></input>
                           </form>
                     </th>
                     <th>
                         <form action="DeleteServletBootcamp" method="get">
-                            <input type="hidden" name="id" id="id" value= <%= boot.getId() %> >
+                            <input type="hidden" name="id" id="<%=id%>" value= <%= boot.getId() %> >
                             <input type="submit" value="Borrar" > </input>
                         </form>
                     </th>
@@ -163,12 +159,8 @@
               </tbody>
             </table>
                     </form>
-                    
-
-
 
         </div>
-
 
 
         <%
@@ -226,6 +218,8 @@
                         </button>
             </form>
         <% } %>
+    <script>
 
+    </script>
     </body>
     </html>
