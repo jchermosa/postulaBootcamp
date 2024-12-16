@@ -57,10 +57,17 @@
         <h3 class="subtitle">EDICIONES DE BOOTCAMP</h3>
 
         <div class="card">
+
+            <%
+            Connection con = DataBase.getConnection();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM bootcamp WHERE activo=true");
+            while(rs.next()){
+            %>
+
             <!-- Dynamically loaded image and content -->
-            <!-- <img src="https://zetsan.com/wp-content/uploads/2020/10/1366_2000.jpeg" lazyload alt=<%=rs.getString("titulo") %>> -->
             <div class="card-body">
-                <p class="card-title">Titulo</p>
+                <p class="card-title">Titulo</p> <!-- <%=rs.getString("titulo") %>> -->
                 <p>Inicio:</p> <!-- <p>Inicio: <%=rs.getString("fecha_inicio") %></p> -->
                 <p>Fin:</p> <!-- <p>Fin: <%=rs.getString("fecha_fin") %></p> -->
                 <form action="formulario.jsp">
