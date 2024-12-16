@@ -11,7 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfesorDao {
+public class
+ProfesorDao {
 
     public static int save(Profesor p){
         int status=0;
