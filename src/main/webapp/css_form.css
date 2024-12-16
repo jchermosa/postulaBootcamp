@@ -206,6 +206,7 @@ a:link:hover {
 
 .cta-main {
 	background-color: #FDCA40;
+	border: none;
 	font-family: "bold";
 	font-size: 16px;
 	border-radius: 4px;
@@ -214,6 +215,7 @@ a:link:hover {
 	text-transform: uppercase;
 	display: inline-block;
 	transition: all 0.3s ease-in-out;
+	margin-right: 30px;
 }
 
 .cta-main:hover {
@@ -381,11 +383,6 @@ form input+input {
 	margin-top: 1em;
 }
 
-form input[type="submit"] {
-	border: none;
-	cursor: pointer;
-}
-
 form .form-group {
 	background-color: rgba(87, 145, 238, 0.25);
 	padding: 2em;
@@ -402,14 +399,23 @@ form .form-group+.form-group {
 	margin-top: 2em;
 }
 
-form .form-actions {
+.form-actions {
 	display: flex;
 	justify-content: center;
-	margin: 2em 0 0 0;
+	align-items: flex-end;
 }
 
+.form-actions input {
+	padding: 1em 4em;
+	font-size: 1em;
+	border: none;
+	border-radius: 14px;
+	cursor: pointer;
+}
+
+
 .form-cell {
-	padding: 1.5em 0;
+	padding: 1em 0;
 }
 
 .form-cell label {
@@ -486,9 +492,9 @@ select:focus+.focus {
 
 .checkbox {
 	display: grid;
-	grid-template-columns: -webkit-min-content auto;
 	grid-template-columns: min-content auto;
 	grid-gap: 0.5em;
+	margin-bottom: 2.3px;
 }
 
 .checkbox__input {
@@ -540,16 +546,6 @@ input+.checkbox__control::before {
 
 input:checked+.checkbox__control::before {
 	transform: scale(1);
-}
-
-
-.checkbox {
-	display: grid;
-	grid-template-columns: -webkit-min-content auto;
-	grid-template-columns: min-content auto;
-	grid-gap: 0.5em;
-	font-size: 2rem;
-	color: white;
 }
 
 #logo-footer{

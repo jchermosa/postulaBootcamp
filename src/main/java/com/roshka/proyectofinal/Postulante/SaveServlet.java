@@ -109,11 +109,7 @@ public class SaveServlet extends HttpServlet {
             }
             if (status > 0) {
                 // out.print("<p>Record saved successfully!</p>");
-                out.print(" <div class=\"alert\">\n" +
-                        "  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n"
-                        +
-                        "  <strong>Formulario Cargado!</strong> EXITOSAMENTE CARGADO\n" +
-                        "</div>");
+                out.print(" <p class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</p> \n");
                 request.setAttribute("bootcamp", bootcampActual);
                 RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
                 rd.include(request, response);
@@ -134,11 +130,7 @@ public class SaveServlet extends HttpServlet {
                 } else {
 
                     out.println("Error al cargar datos");
-                    out.print("<div class='alert info error'>" +
-                            "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n"
-                            +
-                            "<strong>Formulario ya Cargado!</strong> YA EXISTE EL FORMULARIO\n" +
-                            "</div>");
+                    out.print("<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> \n");
                     request.setAttribute("bootcamp", bootcampActual);
                     RequestDispatcher rd = request.getRequestDispatcher("formulario.jsp");
                     rd.include(request, response);
