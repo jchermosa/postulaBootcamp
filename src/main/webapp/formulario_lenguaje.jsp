@@ -15,7 +15,7 @@
 
 <div class="header">
     <div class="logo">
-        <a href="/">
+        <a href="index.html">
             <img src="https://www.roshka.com/static/img/all-white-logo.svg" alt="">
         </a>
     </div><!-- logo con link -->
@@ -32,7 +32,7 @@
     <div class="main-container">
         <!-- Sección del formulario -->
         <div class="form-section">
-            <h2>Crear Lenguaje!</h2>
+            <h2>Crear Lenguaje!!!</h2>
 
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
 
@@ -54,8 +54,6 @@
         </div>
 
         <!-- Sección de la tabla -->
-        <div class="table-section">
-            <div class="table-content">
                 <table>
                     <thead>
                     <tr>
@@ -88,8 +86,8 @@
                     <% } %>
                     </tbody>
                 </table>
-            </div>
-        </div>
+
+
 
         <!-- Sección de edición de lenguaje -->
         <%

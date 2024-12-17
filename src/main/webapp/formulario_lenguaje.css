@@ -11,6 +11,10 @@ body {
 	height: 100%;
 }
 
+tbody {
+	color: black;
+}
+
 img {
 	max-width: 75%;
 	display: block;
@@ -107,7 +111,7 @@ a:link:hover {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	max-height: 300px;
-	background: white;
+	background: #000000;
 	border: 1px solid #ccc;
 	border-radius: 8px;
 	overflow-y: auto;
