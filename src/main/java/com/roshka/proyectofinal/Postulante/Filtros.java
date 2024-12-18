@@ -21,35 +21,44 @@ public class Filtros extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Postulante> postulantes = listarPostulante();
+        List<Postulante> postulantes;
+
         String respuesta = req.getParameter("id");
         String valor = req.getParameter("valor");
-        String nombre_postulante = req.getParameter("nombre");
-        String apellido_postulante = req.getParameter("apellido");
-        String correo_postulante = req.getParameter("correo");
-        String bootcamp_idStr = req.getParameter("bootcampId"); // Este es el dato
-        String nombre = req.getParameter("nombreBuscar")== null ? "0" : req.getParameter("nombreBuscar");
-        if(respuesta != null) {
+
+        if (respuesta == null) {
+            postulantes = listarPostulante();
+        } else {
             System.out.println(valor);
             System.out.println(respuesta);
             update(Integer.parseInt(req.getParameter("id")), valor);
             postulantes = listarPostulante();
+
+            String nombre_postulante = req.getParameter("nombre");
+            String apellido_postulante = req.getParameter("apellido");
+            String correo_postulante = req.getParameter("correo");
+            String bootcamp_idStr = req.getParameter("bootcampId");
+
             if (valor.equals("1")) {
                 try {
                     SendMail send = new SendMail();
                     send.sendingMail(correo_postulante, nombre_postulante, apellido_postulante, bootcamp_idStr);
                 } catch (MessagingException e) {
+                    e.printStackTrace();
                     resp.sendRedirect("postulante-consulta.jsp");
-                    throw new RuntimeException(e);
+                    return;
                 }
             }
-        } else if(nombre.length() > 1){
+        }
+
+        String nombre = req.getParameter("nombreBuscar") == null ? "0" : req.getParameter("nombreBuscar");
+        if (nombre.length() > 1) {
             postulantes = buscarPorNombre(nombre);
         }
 
         req.getServletContext().setAttribute("postulantes", postulantes);
-        RequestDispatcher reqDisp= req.getRequestDispatcher("postulante-consulta.jsp");
-        reqDisp.forward(req,resp);
+        RequestDispatcher reqDisp = req.getRequestDispatcher("postulante-consulta.jsp");
+        reqDisp.forward(req, resp);
     }
 
     @Override
