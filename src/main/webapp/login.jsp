@@ -36,17 +36,32 @@
       </form>
     </div>
 
-    <div class='box-info'>
-      <p>
-        <button onclick="closeLoginInfo();" class='b b-info i i-left' title='Back to Sign In'></button>
-        <h3>Need Help?</h3>
-      </p>
-      <div class='line-wh'></div>
-      <button onclick="" class='b-support' title='Forgot Password?'>Forgot Password?</button>
-      <button onclick="" class='b-support' title='Contact Support'>Contact Support</button>
-      <div class='line-wh'></div>
-      <button onclick="createAccount();" class='b-cta' title='Sign up now!'>CREATE ACCOUNT</button>
-    </div>
+   <div class='box-info'>
+     <p>
+       <button onclick="closeLoginInfo();" class='b b-info i i-left' title='Back to Sign In'></button>
+       <h3>Need Help?</h3>
+     </p>
+     <div class='line-wh'></div>
+     <button onclick="forgotPassword();" class='b-support' title='Forgot Password?'>Forgot Password?</button>
+     <button onclick="" class='b-support' title='Contact Support'>Contact Support</button>
+     <div class='line-wh'></div>
+     <button onclick="createAccount();" class='b-cta' title='Sign up now!'>CREATE ACCOUNT</button>
+   </div>
+
+   <div class='box-recovery' style="display: none;">
+     <form action="PasswordRecoveryServlet" method="post">
+       <div class='box-login'>
+         <div class='fieldset-body' id='login_form'>
+           <p class='field'>
+             <label for='correo_recuperacion'>E-MAIL</label>
+             <input type='text' id='correo_recuperacion' name='correo_recuperacion' title='Correo' />
+             <span id='valida' class='i i-warning'></span>
+           </p>
+           <input type='submit' id='do_recovery' value='RECUPERAR CONTRASEÑA' title='RECUPERAR CONTRASEÑA' />
+         </div>
+       </div>
+     </form>
+   </div>
 
     <div class = 'box-crear-cuenta' style="display: none;">
     <div class = 'box-form'>
