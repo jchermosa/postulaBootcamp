@@ -3,7 +3,7 @@ package com.roshka.proyectofinal.entity;
 public class Usuario {
     private int id;
     private String nombre,apellido,correo,contrasena;
-
+    private String tokenRecuperacion;
 
     public Usuario() {
 
@@ -15,6 +15,16 @@ public class Usuario {
         this.correo = correo;
         this.contrasena = contrasena;
     }
+
+
+    public String getTokenRecuperacion() {
+        return tokenRecuperacion;
+    }
+
+    public void setTokenRecuperacion(String tokenRecuperacion) {
+        this.tokenRecuperacion = tokenRecuperacion;
+    }
+
 
     public int getId() {
         return id;
