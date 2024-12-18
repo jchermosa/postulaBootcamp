@@ -105,7 +105,7 @@
                             <input type="checkbox" name="activo" id="activo">
                             <span class="checkbox__control"></span>
                         </span>
-                        <span class="checkbox__label">Sì</span>
+                        <span class="checkbox__label"></span>
                     </label>
                     <button type="submit">Crear Bootcamp</button>
                 </form>
@@ -188,6 +188,7 @@
                     </table>
                 </div>
             </div>
+
             <div class="form-section">
             <%
                 LenguajeDao lenDao2 = new LenguajeDao();
@@ -205,17 +206,19 @@
 
             <br><br><br>
             <form method="post" action="EditServletBootcamp">
-                <label for="titulo2">titulo:</label>
+                <label for="titulo2">Titulo:</label>
                 <input type="text" id="titulo2" name="titulo2" value="<%= bootcampToEdit.getTitulo() %>">
-                <label for="descripcion2">descripcion:</label>
+
+                <label for="descripcion2">Descripcion:</label>
                 <input type="text" id="descripcion2" name="descripcion2" value="<%= bootcampToEdit.getDescripcion() %>">
-                <label for="fecha_inicio2">fecha de inicio:</label>
+
+                <label for="fecha_inicio2">Fecha de inicio:</label>
                 <input type="text" id="fecha_inicio2" name="fecha_inicio2" value="<%= bootcampToEdit.getFecha_inicio() %>">
-                <label for="fecha_fin2">fecha de fin:</label>
+
+                <label for="fecha_fin2">Fecha de fin:</label>
                 <input type="text" id="fecha_fin2" name="fecha_fin2" value="<%= bootcampToEdit.getFecha_fin() %>">
-                <label for="activo2">Activo:</label>
-                <input type="checkbox" id="activo2" name="activo2">
-                <input type="hidden" value=<%= bootcampToEdit.getId() %> name="id" id="checkbox" />
+
+
                 <label for="id_lenguaje2">Lenguajes:</label>
                 <select name="id_lenguaje2" id="id_lenguaje2">
                     <% while(iter2.hasNext()){
@@ -226,6 +229,7 @@
                     </option>
                     <% } %>
                 </select>
+
                 <label for="id_profesor2">Profesores:</label>
                 <select id="id_profesor2" name="id_profesor2">
                     <% while(iterProfe2.hasNext()){
@@ -236,6 +240,17 @@
                     </option>
                     <% } %>
                 </select>
+
+                <label for="activo2">Activo:</label>
+                <label class="checkbox">
+                        <span class="checkbox__input">
+                            <input type="checkbox" id="activo2" name="activo2">
+                            <span class="checkbox__control"></span>
+                            <input type="hidden" value=<%= bootcampToEdit.getId() %> name="id" id="checkbox" />
+                        </span>
+                    <span class="checkbox__label"></span>
+                </label>
+
                 <button type="submit">Editar Bootcamp</button>
             </form>
             <% } %>
