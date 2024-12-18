@@ -2,7 +2,7 @@
 			<%HttpSession session1 = request.getSession(true);
 			Object done = session1.getAttribute("logon.isDone");
 			 if (done == null) {
-				session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
+				session1.setAttribute("login.target", request.getRequestURL().toString());
 				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
 				return;
 
@@ -42,7 +42,7 @@
                         placeholder="Buscar por nombre">
                     <button type="submit">Buscar</button>
                 </form>
-    
+
                 <form action="filtros-postulante" method="post" style="display:inline">
                   <input type="search" name="nombre" placeholder="Buscar por Bootcamp" required>
                   <button type="submit">Bootcamp</button>
