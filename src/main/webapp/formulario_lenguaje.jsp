@@ -5,7 +5,6 @@
 				session1.setAttribute("login.target", request.getRequestURL().toString());
 				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
 				return;
-
             }%>
 
 
@@ -44,18 +43,17 @@
                 <label for="nombre_lenguaje">
                     Nombre del Lenguaje nuevo:
                 </label>
-                <input name="nombre_lenguaje" id="nombre_lenguaje" pattern=".+" title="Este campo no puede estar vacío." required>
+                <input name="nombre_lenguaje" id="nombre_lenguaje" pattern=".*\S.*" title="Este campo no puede estar vacío." required>
                 <button type="submit">
                     Crear Lenguaje
                 </button>
             </form>
             <br>
-
             <table>
               <thead>
                 <tr>
                   <th>Lenguaje</th>
-                  <th>Editar</th>
+                  <th>Edita</th>
                   <th>Eliminar</th>
                 </tr>
               </thead>
@@ -81,7 +79,6 @@
                     <% } %>
               </tbody>
             </table>
-
         </div>
 
                 <%
@@ -91,7 +88,7 @@
                     <form method="post" action="EditServletLenguaje">
                         <input type="hidden" value="<%= lenguajeToEdit.getId() %>" name="id" id="id_edit" />
                         <label for="nombre_lenguaje">Lenguaje:</label>
-                        <input type="text" name="nombre_lenguaje" value="<%= lenguajeToEdit.getNombre_lenguaje() %>" pattern=".+"  title="Este campo no puede estar vacío." required>
+                        <input type="text" name="nombre_lenguaje"  value="<%= lenguajeToEdit.getNombre_lenguaje() %>" pattern=".*\S.*" title="Este campo no puede estar vacío." required>
                         <button type="submit">Editar Lenguaje </button>
                     </form>
                 <% } %>
