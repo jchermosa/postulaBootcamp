@@ -2,14 +2,11 @@
 			<%HttpSession session1 = request.getSession(true);
 			Object done = session1.getAttribute("logon.isDone");
 			 if (done == null) {
-				session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
+				session1.setAttribute("login.target", request.getRequestURL().toString());
 				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
 				return;
 
             }%>
-
-
-
 
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,18 +23,13 @@
 
     <body>
         <div class="botones"><a href="logout">LOGOUT</a><br>
-                    <a href="index.html">INICIO</a><br>
+                    <a href="index.jsp">INICIO</a><br>
                     <a href="menu.jsp">MENU</a><br>
-                    </div>
-
-
+        </div>
 
         <div>
-
             <h1> CREAR LENGUAJE </h1>
-
             <%@ page import="com.roshka.proyectofinal.entity.Lenguaje, com.roshka.proyectofinal.lenguaje.LenguajeDao, java.util.List,java.util.Iterator" %>
-
         </div>
 
         <div>
@@ -52,10 +44,7 @@
                 <label for="nombre_lenguaje">
                     Nombre del Lenguaje nuevo:
                 </label>
-                <input name="nombre_lenguaje">
-
-                </input>
-
+                <input name="nombre_lenguaje" id="nombre_lenguaje" pattern=".+" title="Este campo no puede estar vacío." required>
                 <button type="submit">
                     Crear Lenguaje
                 </button>
@@ -73,40 +62,38 @@
               <tbody>
                 <% while(iterLen.hasNext()){
                     lenguaje = iterLen.next();
-
                 %>
+                    <tr>
                     <th> <%= lenguaje.getNombre_lenguaje() %> </th>
 
                     <th>  <form action="EditServletLenguaje" method="get">
                             <input type="hidden" name="id" value=<%= lenguaje.getId() %>>
-                            <input type="submit" value="Editar" > </input>
+                            <input type="submit" value="Editar" >
                           </form>
                     </th>
                     <th>
                         <form action="DeleteServletLenguaje" method="get">
-                            <input type="hidden" name="id" value= <%= lenguaje.getId() %> name="id" id="id" >
-                            <input type="submit" value="Borrar" > </input>
+                            <input type="hidden" name="id" value= <%= lenguaje.getId() %> name="id" id="id_delete" >
+                            <input type="submit" value="Borrar" >
                         </form>
                     </th>
                     </tr>
                     <% } %>
               </tbody>
             </table>
-                    </form>
+
         </div>
 
-        <%
+                <%
                     Lenguaje lenguajeToEdit = (Lenguaje)request.getAttribute("Lenguaje");
                     if(lenguajeToEdit != null){
                 %>
                     <form method="post" action="EditServletLenguaje">
-                        <input type="hidden" value="<%= lenguajeToEdit.getId() %>" name="id" id="id" />
+                        <input type="hidden" value="<%= lenguajeToEdit.getId() %>" name="id" id="id_edit" />
                         <label for="nombre_lenguaje">Lenguaje:</label>
-                        <input type="text" name="nombre_lenguaje" value="<%= lenguajeToEdit.getNombre_lenguaje() %>">
+                        <input type="text" name="nombre_lenguaje" value="<%= lenguajeToEdit.getNombre_lenguaje() %>" pattern=".+"  title="Este campo no puede estar vacío." required>
                         <button type="submit">Editar Lenguaje </button>
                     </form>
                 <% } %>
-
     </body>
-
     </html>
