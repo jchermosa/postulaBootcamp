@@ -3,12 +3,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="postulante-consulta.css">
+    <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
+    <link rel="stylesheet" href="formulario_lenguaje.css">
     <link rel="icon" href="./imagenes/roshkaicon.ico">
-    <title>Consulta</title>
+    <title>ABM Bootcamp</title>
 </head>
 
 <body>
@@ -22,8 +24,9 @@
 
     <div class="menu-desktop">
         <ul>
-            <li class="link-menu"><a href="">Home</a></li>
-            <li class="link-menu"><a href="">About us</a></li>
+            <li class="link-menu"><a href="index.jsp">Home</a></li>
+            <li class="link-menu"><a href="menu.jsp">Menu</a></li>
+            <li class="link-menu"><a href="logout">Logout</a></li>
         </ul>
     </div><!-- menu desktop -->
 </div><!-- header -->
@@ -54,12 +57,15 @@
         </div>
 
         <!-- Sección de la tabla -->
+        <div class="table-section">
+
+            <div class="table-content">
                 <table>
                     <thead>
                     <tr>
                         <th>Lenguaje</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -67,25 +73,28 @@
                         lenguaje = iterLen.next();
                     %>
                     <tr>
-                        <td><%= lenguaje.getNombre_lenguaje() %></td>
+                        <th><%= lenguaje.getNombre_lenguaje() %></th>
 
-                        <td>
+                        <th>
                             <form action="EditServletLenguaje" method="get">
                                 <input type="hidden" name="id" value="<%= lenguaje.getId() %>">
                                 <input type="submit" value="Editar">
                             </form>
-                        </td>
+                        </th>
 
-                        <td>
+                        <th>
                             <form action="DeleteServletLenguaje" method="get">
                                 <input type="hidden" name="id" value="<%= lenguaje.getId() %>">
                                 <input type="submit" value="Borrar">
                             </form>
-                        </td>
+                        </th>
                     </tr>
                     <% } %>
                     </tbody>
                 </table>
+
+            </div>
+        </div>
 
 
 
