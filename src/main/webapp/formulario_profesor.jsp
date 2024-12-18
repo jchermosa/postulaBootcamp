@@ -2,13 +2,10 @@
 			<%HttpSession session1 = request.getSession(true);
 			Object done = session1.getAttribute("logon.isDone");
 			 if (done == null) {
-				session1.setAttribute("login.target", HttpUtils.getRequestURL(request).toString());
+				session1.setAttribute("login.target", request.getRequestURL().toString());
 				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
 				return;
-
             }%>
-
-
 
 
 
@@ -32,54 +29,32 @@
         <div>
 
             <h1> CREAR PROFESOR Y FILTRAR </h1>
-
             <%@ page import="com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
 
         </div>
-
         <div>
-            <%
-                ProfesorDao profeDao = new ProfesorDao();
-                List<Profesor> listProfe = profeDao.listarProfesor();
-                Iterator<Profesor> iterProfe =  listProfe.iterator();
-                Profesor profesor = null;
-            %>
+
 
             <form method="post" action="SaveServletProfesor">
-                <label for="nombre">
-                    Nombre:
-                </label>
-                <input name="nombre"></input>
-
-                <label for="apellido">
-                    Apellido:
-                </label>
-                <input name="apellido"></input>
-
-                <label for="correo">
-                    Correo:
-                </label>
-                <input name="correo"></input>
-
-                <label for="nro_cedula">
-                    Numero de Cedula:
-                </label>
-                <input name="nro_cedula"></input>
-
-                <button type="submit">
-                    Crear Profesor
-                </button>
+                <label for="nombre">Nombre:</label>
+                <input name="nombre" id="nombre" pattern=".*\S.*[A-Za-zÁÉÍÓÚáéíóúÑñ]+" title="Este campo no puede contener solo espacios en blanco. Debe incluir letras válidas." required>
+                <label for="apellido">Apellido:</label>
+                <input name="apellido" id="apellido" pattern=".*\S.*[A-Za-zÁÉÍÓÚáéíóúÑñ]+" title="Este campo no puede contener solo espacios en blanco. Debe incluir letras válidas." required>
+                <label for="correo">Correo:</label>
+                <input name="correo" id="correo" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingrese un correo electrónico válido" required>
+                <label for="nro_cedula">Numero de Cedula:</label>
+                <input name="nro_cedula" id="nro_cedula" type="number" min="1" title="Ingrese un número válido" required>
+                <button type="submit">Crear Profesor</button>
             </form>
              <br>
-            <form action="filtros-profesor">
-                        <input name="nombreBuscar">
-                        <input name="apellidoBuscar">
-                        <button type="submit">
-                            Filtrar
-                        </button>
+            <form method="get" action="filtros-profesor">
+                <label for="nombre">Nombre:</label>
+                <input name="nombreBuscar">
+                <label for="apellido">Apellido:</label>
+                <input name="apellidoBuscar">
+                <button type="submit">Filtrar</button>
            </form>
             <br>
-
             <table>
               <thead>
                 <tr>
@@ -92,31 +67,28 @@
                 </tr>
               </thead>
               <tbody>
-                <% while(iterProfe.hasNext()){
-                    profesor = iterProfe.next();
-
-                %>
-                    <th> <%= profesor.getNombre() %> </th>
-                    <th> <%= profesor.getApellido() %> </th>
-                    <th> <%= profesor.getNro_cedula() %> </th>
-                    <th> <%= profesor.getCorreo() %> </th>
-
-                    <th>  <form action="EditServletProfesor" method="get">
-                            <input type="hidden" name="id" value=<%= profesor.getId() %>>
-                            <input type="submit" value="Editar"> </input>
+              <c:forEach var="profe" items="${profesores}">
+                  <tr>
+                      <td>${profe.nombre}</td>
+                      <td>${profe.apellido}</td>
+                      <td>${profe.nro_cedula}</td>
+                      <td>${profe.correo}</td>
+                      <td>
+                          <form action="EditServletProfesor" method="get">
+                              <input type="hidden" name="id" value="${profe.id}">
+                              <input type="submit" value="Editar">
                           </form>
-                    </th>
-                    <th>
-                        <form action="DeleteServletProfesor" method="get">
-                            <input type="hidden" name="id" value= <%= profesor.getId() %> >
-                            <input type="submit" value="Borrar" ></input>
-                        </form>
-                    </th>
-                    </tr>
-                    <% } %>
+                      </td>
+                      <td>
+                          <form action="DeleteServletProfesor" method="get">
+                              <input type="hidden" name="id" value="${profe.id}">
+                              <input type="submit" value="Borrar">
+                          </form>
+                      </td>
+                  </tr>
+              </c:forEach>
               </tbody>
             </table>
-                    </form>
         </div>
 
         <%
@@ -124,15 +96,15 @@
             if(profesorToEdit != null){
         %>
         <form method="post" action="EditServletProfesor">
-            <input type="hidden" value="<%= profesorToEdit.getId() %>" name="id" id="id" />
+            <input type="hidden" value="<%= profesorToEdit.getId() %>" name="id" id="id" >
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" value="<%= profesorToEdit.getNombre() %>" />
+            <input type="text" name="nombre" value="<%= profesorToEdit.getNombre() %>" >
             <label for="apellido">Apellido:</label>
-            <input type="text" name="apellido" value="<%= profesorToEdit.getApellido() %>"></input>
+            <input type="text" name="apellido" value="<%= profesorToEdit.getApellido() %>">
             <label for="correo">Correo:</label>
-            <input type="text" name="correo" value="<%= profesorToEdit.getCorreo() %>"></input>
+            <input type="text" name="correo" value="<%= profesorToEdit.getCorreo() %>">
             <label for="nro_cedula">Numero de Cedula:</label>
-            <input type="number" name="nro_cedula" value="<%= profesorToEdit.getNro_cedula() %>"></input>
+            <input type="number" name="nro_cedula" value="<%= profesorToEdit.getNro_cedula() %>">
             <button type="submit">Editar Profesor </button>
         </form>
         <% } %>
