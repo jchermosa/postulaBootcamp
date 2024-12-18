@@ -24,15 +24,15 @@ public class SendMail {
         BootcampDao bootcampDao = new BootcampDao();
         Bootcamp bootcamp = bootcampDao.getBootcampById(bootId);
 
-        String correo = "nahuelmereles1@gmail.com";
-        String contra = "ozydnpynyoqsowjn";
+        String correo = "cesardavidpatinovera@gmail.com";
+        String contra = "qrbnejsqzeehbtgn";
         String correoDestino = postulanteCorreoDestino;
         Properties properties = new Properties();
             properties.put("mail.smtp.host","smtp.gmail.com");
             properties.setProperty("mail.smtp.starttls.enable","true");
             properties.put("mail.smtp.ssl.trust","smtp.gmail.com");
             properties.setProperty("mail.smtp.port","587");
-            properties.setProperty("mail.smtp,user",correo);
+            properties.setProperty("mail.smtp.user",correo);
             properties.setProperty("mail.smtp.auth","true");
         Session s = Session.getDefaultInstance(properties);
         MimeMessage mensaje = new MimeMessage(s);
