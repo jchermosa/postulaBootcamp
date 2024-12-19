@@ -58,10 +58,10 @@
                 </svg>
             </a>
             <h2>Resetear contraseña</h2>
-            <form class="form">
-                <p>Ingrese su email de reuperacion</p>
+            <form action="PasswordRecoveryServlet" method="post" class="form">
+                <p>Ingrese su email de recuperacion</p>
                 <div class="f_row last">
-                    <label>Email Id</label>
+                    <label>Email</label>
                     <input type="text" id='correo_recuperacion' name='correo_recuperacion' title='Correo' class="input-field" required>
                     <u></u>
                 </div>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="f_row">
                     <label for = 'correo'>Email</label>
-<%--                    <input type="text" id = 'correo' name = 'correo' title = 'Correo' class="input-field" required>--%>
+                    <input type="text" name = 'correo' title = 'Correo' class="input-field" required>
                     <u></u>
                 </div>
                 <div class="f_row">
@@ -103,7 +103,7 @@
                     <input type="password" id = 'contrasena' name = 'contrasena' title = 'Password' class="input-field" required>
                     <u></u>
                 </div>
-<%--                <button class="btn-large" type = 'submit' id = 'do_login' value = 'CREAR CUENTA' title = 'CREAR CUENTA'>CREAR</button>--%>
+               <button class="btn-large" type = 'submit' value = 'CREAR CUENTA' title = 'CREAR CUENTA'>CREAR</button>
             </form>
         </div>
 

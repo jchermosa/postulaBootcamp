@@ -54,7 +54,7 @@ public class ResetPasswordServlet extends HttpServlet {
                 String contrasenaEncriptada = passEncrip(nuevaContrasena);
                 updatePassword(usuario.getCorreo(), contrasenaEncriptada);
 
-                response.sendRedirect("menu.jsp");
+                response.sendRedirect("login.jsp");
             } else {
                 request.setAttribute("errorMessage", "Token inválido o expirado.");
                 request.setAttribute("errorType", "token");

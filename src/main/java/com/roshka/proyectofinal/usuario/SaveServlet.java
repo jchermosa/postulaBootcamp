@@ -26,12 +26,8 @@ public class SaveServlet extends HttpServlet {
 
         int status= UsuarioDao.save(u);
         if(status>0){
-            out.print("<p>Record saved successfully!</p>");
-            request.getRequestDispatcher("index.html").include(request, response);
-        }else{
-            out.println("Sorry! unable to save record");
+            request.getRequestDispatcher("login.jsp").include(request, response);
         }
-
         out.close();
     }
 }
