@@ -123,16 +123,27 @@ public class ProfesorDao {
     }
 
 
-    public static int delete(int id){
-        int status=0;
-        try{
-            Connection con=DataBase.getConnection();
-            PreparedStatement ps=con.prepareStatement("delete from profesor where id=?");
-            ps.setInt(1,id);
-            status=ps.executeUpdate();
+    public static int delete(int id) {
+        int status = 0;
+        Connection con = null;
+        PreparedStatement ps = null;
 
-            con.close();
-        }catch(Exception e){e.printStackTrace();}
+        try {
+            con = DataBase.getConnection();
+            ps = con.prepareStatement("DELETE FROM profesor WHERE id = ?");
+            ps.setInt(1, id);
+            status = ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Error al eliminar el profesor con ID: " + id);
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.err.println("Error al cerrar la conexión: " + e.getMessage());
+            }
+        }
 
         return status;
     }
