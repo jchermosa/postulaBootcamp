@@ -63,8 +63,12 @@
                 <div class="f_row last">
                     <label>Email</label>
                     <input type="text" id='correo_recuperacion' name='correo_recuperacion' title='Correo' class="input-field" required>
+                    <c:if test="${not empty successMessage && successType == 'correo_recuperacion'}">
+                        <span class="error-message">${successMessage}</span>
+                    </c:if>
                     <u></u>
                 </div>
+                <br><br><br><br><br>
                 <button  type='submit' id='do_recovery' value='RECUPERAR CONTRASEÑA' title='RECUPERAR CONTRASEÑA' class="btn" ><span>Resetear</span><u></u>
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                          x="0px"

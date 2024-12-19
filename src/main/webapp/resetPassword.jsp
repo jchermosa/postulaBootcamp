@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
                 <br><br><br>
                 <div class="f_row last">
                     <label>Confirmar contraseña</label>
-                    <input type="password" nid="confirmar_contrasena" name="confirmar_contrasena" title="Confirmar Contraseña" class="input-field" required>
+                    <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" title="Confirmar Contraseña" class="input-field" required>
                     <u></u>
                 </div>
                 <br><br><br>

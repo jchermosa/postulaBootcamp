@@ -37,13 +37,17 @@ public class PasswordRecoveryServlet extends HttpServlet {
                 System.out.println(correo);
                 enviarCorreoElectronico(correo, enlaceRecuperacion);
 
-                request.getRequestDispatcher("password_recovery_success.jsp").forward(request, response);
+                request.setAttribute("successMessage", "El correo ingresado anteriormente ha sido enviado");
+                request.setAttribute("successType", "correo_recuperacion");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
                 request.getRequestDispatcher("password_recovery_error.jsp").forward(request, response);
             }
         } else {
-            request.getRequestDispatcher("password_recovery_error.jsp").forward(request, response);
+            request.setAttribute("successMessage", "El correo ingresado anteriormente no existe");
+            request.setAttribute("successType", "correo_recuperacion");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 

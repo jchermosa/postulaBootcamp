@@ -63,7 +63,7 @@ public class ResetPasswordServlet extends HttpServlet {
         } catch (NoSuchAlgorithmException | SQLException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "Error al restablecer la contraseña.");
-            request.getRequestDispatcher("password_recovery.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 
@@ -73,6 +73,7 @@ public class ResetPasswordServlet extends HttpServlet {
     }
 
     private void updatePassword(String email, String nuevaContrasena) throws SQLException {
+        System.out.println("Correo: " + email + "Correo: "+nuevaContrasena );
         Connection con = DataBase.getConnection();
         PreparedStatement ps = con.prepareStatement("UPDATE Usuario SET contrasena = ? WHERE correo = ?");
         ps.setString(1, nuevaContrasena);
