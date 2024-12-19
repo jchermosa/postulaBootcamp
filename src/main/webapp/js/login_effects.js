@@ -32,21 +32,37 @@ $(document).ready(function () {
         $('.formBox').toggleClass('level-login level-reg');
     });
 
-    // Submit button
+    // Botón de envío
     $('.btn').on('click', function (e) {
-        e.preventDefault();
         var finp = $(this).closest('form').find('.input-field');
+        var isValid = true;
 
-        if (finp.val().trim() !== '') {
+        // Validar campos requeridos
+        finp.each(function () {
+            if ($(this).val().trim() === '') {
+                isValid = false;
+                $(this).parent('.f_row').addClass('shake');
+            } else {
+                $(this).parent('.f_row').removeClass('shake');
+            }
+        });
+
+        // Si la validación es exitosa, permitir el envío al servlet
+        if (isValid) {
             $(this).addClass('active');
+            setTimeout(() => {
+                return true; // Permite el envío al servlet después del retardo
+            }, 1000); // Retardo de 1 segundo
         } else {
-            finp.parent('.f_row').addClass('shake');
+            e.preventDefault(); // Evita el envío si hay campos inválidos
         }
 
+        // Limpiar los estilos después de un tiempo (opcional)
         setTimeout(function () {
-            finp.val('');
             $('.f_row').removeClass('shake focus');
             $('.btn').removeClass('active');
         }, 2000);
     });
+
+
 });

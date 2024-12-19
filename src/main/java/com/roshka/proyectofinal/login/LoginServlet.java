@@ -62,23 +62,23 @@ public class LoginServlet extends HttpServlet {
 
         if (loginDao.validate(loginBean))
         {
-                HttpSession session = request.getSession(true); //incluir nota de sesion valida
-                session.setAttribute("logon.isDone", correo);
-                //out.print ("Bienvenido " + correo);
+            HttpSession session = request.getSession(true); //incluir nota de sesion valida
+            session.setAttribute("logon.isDone", correo);
+            //out.print ("Bienvenido " + correo);
 
-                // Tratar de re-dirigir a la pagina que el usuario quiso acceder
-                try {
-                    String target = (String) session.getAttribute("login.target");
-                    //response.sendRedirect("loginSuccess.jsp");
-                    //out.println(" \n Destino: " + target);
-                    if (target != null){
-                        response.sendRedirect(target);}
-                    else{
-                        // Si no es posible redireccionar a la pagina solicitada, llevar a la main page
-                        response.sendRedirect("menu.jsp");
-                    }
+            // Tratar de re-dirigir a la pagina que el usuario quiso acceder
+            try {
+                String target = (String) session.getAttribute("login.target");
+                //response.sendRedirect("loginSuccess.jsp");
+                //out.println(" \n Destino: " + target);
+                if (target != null){
+                    response.sendRedirect(target);}
+                else{
+                    // Si no es posible redireccionar a la pagina solicitada, llevar a la main page
+                    response.sendRedirect("menu.jsp");
                 }
-                catch (Exception ignored) { }
+            }
+            catch (Exception ignored) { }
 
         } else {
 
@@ -86,7 +86,7 @@ public class LoginServlet extends HttpServlet {
 
             response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +"/login.jsp");
 
-            }
+        }
 
 
     }

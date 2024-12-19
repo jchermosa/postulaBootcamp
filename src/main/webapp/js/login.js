@@ -20,7 +20,7 @@ const createAccount = (event) => {
     boxInfo.style.display = 'none';
 }
 
-
+pg
 const forgotPassword = (event) => {
     event.preventDefault();
     const boxInfo = document.querySelector('.box-info');

@@ -464,13 +464,13 @@ h1, h2, h3, h4, h5, h6 {
     }
     u {
         border-radius: 50%; 
-        background-color: #ed2553;
+        background-color: #5396aa;
         position: absolute;
         left: -23px;
         top: -103px;
         width: 280px;
         height: 280px;
-        transition: all 1s cubic-bezier(.48,.55,.69,1.11);
+        transition: all 0.3s cubic-bezier(.48,.55,.69,1.11);
         transform-origin: center center;
         transform: scale(0);
     }
