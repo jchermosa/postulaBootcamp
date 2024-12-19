@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="imagenes/roshkaicon.ico" sizes="any" />
-    <link rel="stylesheet" href="formulario_bootcamp.css">
+    <link rel="stylesheet" href="formulario_profesor.css">
     <link rel="icon" href="./imagenes/roshkaicon.ico">
     <title>ABM Bootcamp</title>
 </head>
