@@ -38,7 +38,12 @@
             <h2>Crear Profesor</h2>
 
             <%@ page import="com.roshka.proyectofinal.entity.Profesor, com.roshka.proyectofinal.profesor.ProfesorDao, java.util.List,java.util.Iterator" %>
-
+            <%
+                ProfesorDao profeDao = new ProfesorDao();
+                List<Profesor> listProfe = profeDao.listarProfesor();
+                Iterator<Profesor> iterProfe =  listProfe.iterator();
+                Profesor profesor = null;
+            %>
 
 
         <form action="SaveServletProfesor" method="post">
@@ -82,26 +87,29 @@
             </tr>
             </thead>
         <tbody>
-        <c:forEach var="profe" items="${profesores}">
-            <tr>
-                <td>${profe.nombre}</td>
-                <td>${profe.apellido}</td>
-                <td>${profe.nro_cedula}</td>
-                <td>${profe.correo}</td>
-                <td>
-                    <form action="EditServletProfesor" method="get">
-                        <input type="hidden" name="id" value="${profe.id}">
-                        <input type="submit" value="Editar">
-                    </form>
-                </td>
-                <td>
-                    <form action="DeleteServletProfesor" method="get">
-                        <input type="hidden" name="id" value="${profe.id}">
-                        <input type="submit" value="Borrar">
-                    </form>
-                </td>
-            </tr>
-        </c:forEach>
+        <% while(iterProfe.hasNext()){
+            profesor = iterProfe.next();
+
+        %>
+        <tr>
+        <th> <%= profesor.getNombre() %> </th>
+        <th> <%= profesor.getApellido() %> </th>
+        <th> <%= profesor.getNro_cedula() %> </th>
+        <th> <%= profesor.getCorreo() %> </th>
+
+        <th>  <form action="EditServletProfesor" method="get">
+            <input type="hidden" name="id" value=<%= profesor.getId() %>>
+            <input type="submit" value="Editar"> </input>
+        </form>
+        </th>
+        <th>
+            <form action="DeleteServletProfesor" method="get">
+                <input type="hidden" name="id" value= <%= profesor.getId() %> >
+                <input type="submit" value="Borrar" ></input>
+            </form>
+        </th>
+        </tr>
+        <% } %>
         </tbody>
         </table>
     </div>
@@ -111,6 +119,8 @@
     Profesor profesorToEdit = (Profesor)request.getAttribute("Profesor");
     if(profesorToEdit != null){
 %>
+        <br><br><br>
+    <div class="form-section">
     <form method="post" action="EditServletProfesor">
         <input type="hidden" value="<%= profesorToEdit.getId() %>" name="id" id="id" >
         <label for="nombre">Nombre:</label>
@@ -121,9 +131,11 @@
         <input type="text" name="correo" value="<%= profesorToEdit.getCorreo() %>">
         <label for="nro_cedula">Numero de Cedula:</label>
         <input type="number" name="nro_cedula" value="<%= profesorToEdit.getNro_cedula() %>">
+        <br>
         <button type="submit">Editar Profesor </button>
     </form>
         <% } %>
+    </div>
     </div>
 
 </main>
