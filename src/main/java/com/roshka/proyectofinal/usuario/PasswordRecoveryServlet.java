@@ -42,7 +42,7 @@ public class PasswordRecoveryServlet extends HttpServlet {
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
-                request.getRequestDispatcher("password_recovery_error.jsp").forward(request, response);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } else {
             request.setAttribute("successMessage", "El correo ingresado anteriormente no existe");
